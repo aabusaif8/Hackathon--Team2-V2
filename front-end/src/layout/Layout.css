@@ -1,0 +1,98 @@
+.side-bar {
+  background-color: #393a44;
+  min-width: 1850px;
+}
+.form-group{
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 650px;
+}
+/* Base styling */
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: center;
+}
+
+.table th {
+  background-color:  #388e3c;/* Green */
+  color: white;
+}
+
+/* Alternating row colors */
+.table tbody tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Light gray */
+}
+
+/* Hover effect */
+.table tbody tr:hover {
+  background-color: #e0e0e0; /* Lighter gray on hover */
+}
+
+/* Button-like styling for action cells */
+.table .action-cell button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #2196f3; /* Blue */
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.table .action-cell button:hover {
+  background-color: #0d47a1; /* Darker blue on hover */
+}
+
+.form-control {
+  border: 2px solid #d32f2f; /* Dark red border */
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 16px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #ff5252; /* Light red border on focus */
+}
+
+.form-control::placeholder {
+  color: #bdbdbd; /* Light gray placeholder text */
+}
+
+.btn-primary {
+  background-color: #4caf50; /* Darker green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #388e3c; /* Dark green on hover */
+}
+
+.btn-secondary {
+  background-color: #ffa000; /* Orange */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #f57c00; /* Dark orange on hover */
+}
