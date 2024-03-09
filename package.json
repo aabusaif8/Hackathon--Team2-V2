@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/aaabusaif/restaurant-reservation"
+    "url": "https://github.com/aaabusaif8/ThinkfulRestaurantFinalProject"
   },
   "scripts": {
     "build": "npm -prefix front-end run build",
