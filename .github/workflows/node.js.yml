@@ -11,7 +11,7 @@ jobs:
       postgres:
         image: postgres:13-alpine
         ports:
-          - 5432:5432
+          - 5001:5001
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
@@ -56,7 +56,7 @@ jobs:
       - name: Test frontend
         run: npm run test:frontend
         env:
-          DATABASE_URL_TEST: postgresql://postgres:postgres@127.0.0.1:5432
+          DATABASE_URL_TEST: postgresql://postgres:postgres@127.0.0.1:5001
           NODE_ENV: test
 
       - name: Archive screenshots
@@ -71,5 +71,5 @@ jobs:
         if: always()
         run: npm run test:backend
         env:
-          DATABASE_URL_TEST: postgresql://postgres:postgres@127.0.0.1:5432
+          DATABASE_URL_TEST: postgresql://postgres:postgres@127.0.0.1:5001
           NODE_ENV: test
