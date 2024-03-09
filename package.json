@@ -5,7 +5,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/halebeau/restaurant-reservation"
+    "url": "https://github.com/aaabusaif/restaurant-reservation"
   },
   "scripts": {
     "build": "npm -prefix front-end run build",
@@ -46,7 +46,7 @@
     "test:frontend:watch": "npm test --prefix ./front-end"
   },
   "keywords": [],
-  "author": "Beau Hale",
+  "author": "Ahmad Abusaif",
   "license": "UNLICENSED",
   "dependencies": {}
 }
