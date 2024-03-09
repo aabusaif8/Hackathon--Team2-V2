@@ -3,7 +3,11 @@ const methodNotAllowed = require("../errors/methodNotAllowed");
 const controller = require("./tables.controller");
 const dataRouter = require("../databaseInteractions/data.router");
 
-router.use("/:table_id/seat", dataRouter);
+router
+  .route("/:table_id/seat")
+  .put(controller.occupy)
+  .delete(controller.free)
+  .all(methodNotAllowed);
 
 router
   .route("/")
