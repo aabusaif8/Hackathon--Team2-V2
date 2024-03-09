@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ReservationOrganizer from "./reservationDisplay/ReservationOrganizer"
-import { listReservations, listTables } from "../utils/api";
+import { listReservations, listTables } from "../layout/utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 import { useHistory } from "react-router-dom";
-import { previous, next } from "../utils/date-time";
+import { previous, next } from "../layout/utils/date-time";
 import ListTables from "./TableList/ListTables";
 
 /**

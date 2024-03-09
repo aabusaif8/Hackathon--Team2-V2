@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory, useParams } from "react-router";
 import { isNotOnTuesday, isInTheFuture } from "../utils/date-time";
 import { findReservation, modifyReservation } from "../utils/api";
-import ErrorAlert from "../layout/ErrorAlert";
+import ErrorAlert from "../ErrorAlert";
 import Form from "./ReservationForm";
 
 export default function EditReservation() {

@@ -1,6 +1,6 @@
 import React from "react";
 import ReservationList from "./ReservationList";
-import { cancelReservation } from "../../utils/api";
+import { cancelReservation } from "../../layout/utils/api";
 import { useHistory } from "react-router-dom";
 
 export default function ReservationOrganizer({

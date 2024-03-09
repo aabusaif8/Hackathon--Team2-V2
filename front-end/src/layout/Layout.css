@@ -28,19 +28,19 @@
 
 /* Alternating row colors */
 .table tbody tr:nth-child(odd) {
-  background-color: #f2f2f2; /* Light gray */
+  background-color: #f2f2f2; 
 }
 
 /* Hover effect */
 .table tbody tr:hover {
-  background-color: #e0e0e0; /* Lighter gray on hover */
+  background-color: #e0e0e0; 
 }
 
 /* Button-like styling for action cells */
 .table .action-cell button {
   padding: 8px 16px;
   border: none;
-  background-color: #2196f3; /* Blue */
+  background-color: #2196f3; 
   color: white;
   cursor: pointer;
   border-radius: 4px;
@@ -48,11 +48,11 @@
 }
 
 .table .action-cell button:hover {
-  background-color: #0d47a1; /* Darker blue on hover */
+  background-color: #0d47a1; 
 }
 
 .form-control {
-  border: 2px solid #d32f2f; /* Dark red border */
+  border: 2px solid #d32f2f; 
   border-radius: 6px;
   padding: 8px 12px;
   font-size: 16px;
@@ -60,39 +60,37 @@
 
 .form-control:focus {
   outline: none;
-  border-color: #ff5252; /* Light red border on focus */
+  border-color: #ff5252; 
 }
 
 .form-control::placeholder {
-  color: #bdbdbd; /* Light gray placeholder text */
+  color: #bdbdbd; 
 }
 
 .btn-primary {
-  background-color: #4caf50; /* Darker green */
+  background-color: #4caf50; 
   border: none;
   color: white;
-  padding: 10px 20px;
   text-transform: uppercase;
   font-weight: bold;
-  border-radius: 6px;
+  border-radius: 5px;
   transition: background-color 0.3s ease;
 }
-
+/* makes button Dark green on hover */
 .btn-primary:hover {
-  background-color: #388e3c; /* Dark green on hover */
+  background-color: #388e3c; 
 }
 
 .btn-secondary {
-  background-color: #ffa000; /* Orange */
+  background-color: #ffa000; 
   border: none;
   color: white;
-  padding: 10px 20px;
   text-transform: uppercase;
   font-weight: bold;
-  border-radius: 6px;
+  border-radius: 5px;
   transition: background-color 0.3s ease;
 }
-
+/* Changes button color when hovered over */
 .btn-secondary:hover {
-  background-color: #f57c00; /* Dark orange on hover */
+  background-color: #f57c00; 
 }

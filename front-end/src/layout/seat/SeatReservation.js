@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router";
 import { listTables, seatReservation } from "../utils/api";
-import ErrorAlert from "../layout/ErrorAlert";
+import ErrorAlert from "../ErrorAlert";
 
 export default function SeatReservation() {
   const { reservation_id } = useParams();

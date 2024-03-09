@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { unassignTable } from "../../utils/api";
+import { unassignTable } from "../../layout/utils/api";
 
 export default function FinishButton({ status, table, loadDashboard }) {
   const history = useHistory();

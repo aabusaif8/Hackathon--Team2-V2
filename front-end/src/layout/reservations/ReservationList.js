@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { createReservation } from "../utils/api";
 import { isNotOnTuesday } from "../utils/date-time";
 import { isInTheFuture } from "../utils/date-time";
-import ErrorAlert from "../layout/ErrorAlert";
+import ErrorAlert from "../ErrorAlert"
 import Form from "./ReservationForm";
 
 export default function ReservationList() {
