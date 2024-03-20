@@ -1,0 +1,50 @@
+.all-manga-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.all-manga-header {
+  width: 100%;
+  max-width: 1000px;
+  text-align: center
+}
+
+.all-manga-title {
+  margin: 0;
+}
+
+.all-manga-nav {
+  margin-top: 10px;
+}
+
+.dashboard-button {
+  max-width: 200px;
+  margin-right: 10px;
+  padding: 10px 20px; /* Adjust padding as needed */
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; /* Primary button color */
+  color: #120847; /* Button text color */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.popular-manga-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 10px solid #101e5e;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: center;
+  align-items: center;
+}
+
+
+.all-manga-content {
+  max-width: 1000px;
+  padding: 20px;
+  align-items: center;
+}

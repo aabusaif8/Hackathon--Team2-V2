@@ -1,0 +1,19 @@
+/* Style for the manga list container */
+.manga-list-container {
+  text-align: center; /* Center-align the content */
+}
+
+/* Style for the manga item */
+.manga-item {
+  margin-bottom: 20px; /* Add some spacing between manga items */
+  padding: 10px; /* Add padding to the manga item */
+  border: 1px solid #ccc; /* Add a border to the manga item */
+  border-radius: 5px; /* Add border radius to round the corners */
+  text-align: center;
+}
+
+/* Style for the field names */
+.field-name {
+  font-weight: bold; /* Make the field names bold */
+}
+

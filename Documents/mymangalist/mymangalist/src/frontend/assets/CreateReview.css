@@ -1,0 +1,10 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 175px; /* Adjust height as needed */
+    align-items: center;
+  }
+  .form-group input {
+    margin-bottom: 10px; /* Adjust margin as needed */
+  }
