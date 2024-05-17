@@ -15,6 +15,7 @@
     "dotenv": "^8.6.0",
     "express": "^4.17.1",
     "knex": "^0.21.12",
+    "openai": "^4.47.1",
     "pg": "^8.5.1"
   },
   "devDependencies": {

@@ -3,9 +3,9 @@ const controller = require("./controller");
 const methodNotAllowed = require("../errors/methodNotAllowed");
 
 router.route("/")
-.post(controller.create)
-.get(controller.list)
-.all(methodNotAllowed);
+// .post(controller.create)
+// .get(controller.list)
+// .all(methodNotAllowed);
 
 // ROUTERS TO BE ADDED
 
