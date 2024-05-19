@@ -1,6 +1,5 @@
 const AssetsService = require('./AssetsService');
-const { InvestmentAccount } = require('./AssetsService');
-const validateInvestmentRequestBody = require('./AssetsValidation')
+const validateInvestmentRequestBody = require('./AssetsValidation');
 
 async function handleGetAssets(req, res) {
     try {
@@ -21,8 +20,8 @@ async function handleGetAssets(req, res) {
 
 async function createInvestmentAccount(req, res) {
     try {
-        const { "Username": Username, "Password": Password, 'Investment Amount': investmentAmount, 'Investment Frequency': investmentFrequency, 'Financial Goals': financialGoals, 'Strategy': Strategy, 'Stocks in Portfolio': Stocks, 'ETFs in Portfolio': ETFs } = req.body;        
-
+        const { Username, Password, 'Investment Amount': investmentAmount, 'Investment Frequency': investmentFrequency, 'Financial Goals': financialGoals, Strategy, 'Stocks in Portfolio': Stocks, 'ETFs in Portfolio': ETFs } = req.body;        
+        console.log(Username);
         const missingField = !Username ? 'Username' : !Password ? 'Password' : !investmentAmount ? 'Investment Amount' : !investmentFrequency ? 'Investment Frequency' : !Strategy ? 'Strategy' : !Stocks ? 'Stocks in Portfolio' : !ETFs ? 'ETFs in Portfolio' : null;
 
         if (missingField) {
@@ -31,7 +30,7 @@ async function createInvestmentAccount(req, res) {
 
         const formattedFinancialGoals = typeof financialGoals === 'number' ? financialGoals.toString() : financialGoals;
         
-        const newInvestmentAccount = new InvestmentAccount(Username, Password, investmentAmount, investmentFrequency, formattedFinancialGoals, Strategy, Stocks, ETFs);
+        const newInvestmentAccount = new AssetsService.InvestmentAccount(Username, Password, investmentAmount, investmentFrequency, formattedFinancialGoals, Strategy, Stocks, ETFs);
 
         const savedInvestmentAccount = await AssetsService.saveInvestmentAccount(newInvestmentAccount);
         
@@ -47,6 +46,6 @@ async function createInvestmentAccount(req, res) {
 };
 
 module.exports = {
-    createInvestmentAccount: [validateInvestmentRequestBody],
+    createInvestmentAccount: [validateInvestmentRequestBody, createInvestmentAccount],
     handleGetAssets
 };
