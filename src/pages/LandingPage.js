@@ -11,17 +11,19 @@ import Footer from '../components/Footer';
 const LandingPage = () => {
   return (
     <div>
+
       <NavBar />
+     
+        <Hero />
+        
+        <DigitalAssistant />
 
-      <Hero />
+        <Analysis />
 
-      <DigitalAssistant />
+        <DashboardPreview />
 
-      <DashboardPreview />
-
-      <Analysis />
-
-      <Learn />
+        <Learn />
+      
 
       <Footer />
     </div>

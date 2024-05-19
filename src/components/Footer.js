@@ -1,21 +1,22 @@
 import React from 'react';
+import logo from '../assets/logo.png'
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer bg-[#97db51]">
       <div className="container">
         <div className="row">
           <div className="col-md-4">
-            <div className="footer-logo">
-              <img src="path/to/logo.png" alt="Logo" />
+            <div className="flex justify-center mb-4 h-20">
+              <img src={logo} alt="Logo" />
             </div>
-            <p className="footer-description">
+            <p className="text-lg font-semibold text-white m-3 mb-2">
               We are a team of passionate developers dedicated to creating innovative financial solutions.
             </p>
           </div>
           <div className="col-md-4">
-            <h4 className="footer-heading">Quick Links</h4>
-            <ul className="footer-links">
+            <h4 className="m-3 font-bold text-black">Quick Links</h4>
+            <ul className="font-semibold text-white m-3 mb-2">
               <li><a href="#">Home</a></li>
               <li><a href="#">Digital Assistant</a></li>
               <li><a href="#">Analysis</a></li>
@@ -24,8 +25,8 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-md-4">
-            <h4 className="footer-heading">Contact Us</h4>
-            <ul className="footer-contact">
+            <h4 className="m-3 font-bold text-black">Contact Us</h4>
+            <ul className="font-semibold text-white m-3 mb-2">
               <li>
                 <i className="fas fa-map-marker-alt"></i> 123 Main Street, City, State
               </li>
