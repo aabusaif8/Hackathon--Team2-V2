@@ -1,5 +1,4 @@
 import React from 'react';
-import './DigitalAssistant.css';
 
 const DigitalAssistant = () => {
     return (
