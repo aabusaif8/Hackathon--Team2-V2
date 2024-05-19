@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 
 
@@ -10,6 +11,11 @@ function MyAccount() {
         <Navbar />
         <button className=' text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
       
+
+        <div className='flex justify-center text-semibold text-3xl py-5'>
+        <h1>My Account</h1>
+        </div>
+
         <div className=' flex justify-center'>
       <div className=' w-1/2 bg-[#C5eb9e] text-center font-semibold mt-5 rounded '>
       <h2 className=' text-[#ff7f00] text-2xl py-4'>Personal Settings</h2>
@@ -34,13 +40,13 @@ function MyAccount() {
       <nav>
         <ul>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/securityandPrivacy/MyStatements">My Statements</Link>
+            <Link to="/MyStatements">My Statements</Link>
           </li>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/securityandPrivacy/ChangePassword">Change Password</Link>
+            <Link to="/ChangePassword">Change Password</Link>
           </li>
           <li className='block px-6 py-4  border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/securityandPrivacy/TwoStepAuthentication">Two-Step Authentication</Link>
+            <Link to="/twostepauthentication">Two-Step Authentication</Link>
           </li>
         </ul>
       </nav>
@@ -54,19 +60,21 @@ function MyAccount() {
       <nav>
         <ul>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/personal-settings/personal-information">Legal</Link>
+            <Link to="/legal">Legal</Link>
           </li>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/personal-settings/linked-accounts">Get Help</Link>
+            <Link to="/gethelp">Get Help</Link>
           </li>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/personal-settings/linked-accounts">Accessibility</Link>
+            <Link to="/accessibility">Accessibility</Link>
           </li>
         </ul>
       </nav>
     </div> 
-    </div>    
     </div>
+    <Footer />    
+    </div>
+    
 
 )
 }
