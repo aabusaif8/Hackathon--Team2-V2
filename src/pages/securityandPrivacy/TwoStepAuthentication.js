@@ -18,7 +18,7 @@ function TwoStepAuthentication(){
                 <p>Authentication Email: 
                     <br />
                     <br />
-                   We will send a code to this email to authenticate whenyou log in using a new device.
+                   We will send a code to this email to authenticate when you log in using a new device.
                      
                     </p>
             </div>

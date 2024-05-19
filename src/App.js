@@ -7,6 +7,10 @@ import Legal from './pages/support/Legal';
 import GetHelp from './pages/support/GetHelp';
 import TwoStepAuthentication from './pages/securityandPrivacy/TwoStepAuthentication';
 import Accessibility from './pages/support/Accessibility';
+import PersonalInformation from './pages/personalSettings/PersonalInformation';
+import LinkedAccounts from './pages/personalSettings/LinkedAccounts';
+import MyStatements from './pages/securityandPrivacy/MyStatements';
+import ChangePassword from './pages/securityandPrivacy/ChangePassword';
 
 function App() {
   return (
@@ -20,6 +24,10 @@ function App() {
           <Route path="/gethelp" element={<GetHelp />}/>
           <Route path="/twostepauthentication" element={<TwoStepAuthentication />}/>
           <Route path="/accessibility" element={<Accessibility />}/>
+          <Route path="/personalinformation" element={<PersonalInformation />}/>
+          <Route path="/linkedaccounts" element={<LinkedAccounts />}/>
+          <Route path="/mystatements" element={<MyStatements />}/>
+          <Route path="/changepassword" element={<ChangePassword />}/>
         </Routes>
       </BrowserRouter>
     </div>

@@ -22,10 +22,10 @@ function MyAccount() {
       <nav>
         <ul>
           <li className='block px-6 py-4 border-b border-t hover:bg-white transition duration-300 border-dark-green '>
-            <Link to="/personalSettings/personalInformation">Personal Information</Link>
+            <Link to="/personalinformation">Personal Information</Link>
           </li>
           <li className='block px-6 py-4  hover:bg-white transition duration-300'>
-            <Link to="/personalSettings/linkedAccounts">Linked Accounts</Link>
+            <Link to="/linkedaccounts">Linked Accounts</Link>
           </li>
         </ul>
       </nav>
@@ -40,10 +40,10 @@ function MyAccount() {
       <nav>
         <ul>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/MyStatements">My Statements</Link>
+            <Link to="/Mystatements">My Statements</Link>
           </li>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/ChangePassword">Change Password</Link>
+            <Link to="/changepassword">Change Password</Link>
           </li>
           <li className='block px-6 py-4  border-dark-green hover:bg-white transition duration-300'>
             <Link to="/twostepauthentication">Two-Step Authentication</Link>
