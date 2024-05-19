@@ -1,7 +1,7 @@
 const db = require('../../db/connection'); // Import your database connection
 const knex = require("../../db/connection");
-async function getAssetsByType(assetType, userInput, date = new Date().toISOString().split('T')[0]) {
-    // console.log("Calling getAssetsByType with assetType:", assetType, "and userInput:", userInput);
+async function getAssetsByType(assetType, userInput) {
+    console.log("Calling getAssetsByType with assetType:", assetType, "and userInput:", userInput);
     try {
         let query = knex.from(assetType).returning("*"); 
         
@@ -11,11 +11,11 @@ async function getAssetsByType(assetType, userInput, date = new Date().toISOStri
             query = query.where('Risk Level', userInput);
         }
         const results = await query;
-        const realDate = await getDateRange(userInput,date)
-        // console.log(realDate)
-        const filteredResults = results.filter(stock => stock.Date >= realDate); 
+        // const realDate = await getDateRange(userInput,date)
+        // // console.log(realDate)
+        // const filteredResults = results.filter(stock => stock.Date >= realDate); 
 
-        return filteredResults;
+        return results;
     } catch (error) {
         console.error('Error creating query:', error);
         throw error;

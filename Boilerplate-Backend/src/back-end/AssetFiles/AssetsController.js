@@ -3,7 +3,8 @@ const { InvestmentAccount } = require('./AssetsService');
 
 async function handleGetAssets(req, res) {
     try {
-        const { assetType, userInput, date } = req.body;
+        const { assetType, userInput, date } = req.params;
+        console.log(req.body)
         let assets;
 
         if (date) {
