@@ -8,6 +8,7 @@ import Analysis from '../components/Analysis';
 import Learn from '../components/Learn';
 import Footer from '../components/Footer';
 
+
 const LandingPage = () => {
   return (
     <div>
@@ -23,9 +24,10 @@ const LandingPage = () => {
         <DashboardPreview />
 
         <Learn />
-      
 
       <Footer />
+
+
     </div>
   );
 };

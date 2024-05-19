@@ -40,7 +40,7 @@ function MyAccount() {
       <nav>
         <ul>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/Mystatements">My Statements</Link>
+            <Link to="/mystatements">My Statements</Link>
           </li>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
             <Link to="/changepassword">Change Password</Link>
