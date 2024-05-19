@@ -1,7 +1,5 @@
-// UserController.js
 
 const UserService = require('./UserInfoService');
-
 
 async function signIn(req, res) {
     const { username, password } = req.body;
@@ -20,11 +18,6 @@ async function signIn(req, res) {
         res.status(500).json({ success: false, message: 'Failed to authenticate user', error: error.message });
     }
 }
-
-
-
-// UserInfoController.js
-
 
 async function getDashboard(req, res) {
     const userId = req.params.userId; // Access the user ID from the URL parameters
