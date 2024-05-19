@@ -9,6 +9,10 @@ exports.up = function(knex) {
         table.bigInteger('Volume');
         table.integer('OpenInt'); 
         table.text("Risk Level");
+        table.decimal("Current Trend")
+        table.decimal("Future Trend")
+        table.text("Overall Trend")
+        
     });
 };
 
