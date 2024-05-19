@@ -100,7 +100,7 @@ async function updatePortfolio(req, res) {
 }
 
 module.exports = {
-    signIn: [validateSignup],
+    signIn: [validateSignup, signIn],
     getUserById,
     getDashboard,
     updatePortfolio
