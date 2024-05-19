@@ -1,15 +1,16 @@
-const db = require('../../db/connection'); // Import your database connection
-const knex = require("../../db/connection");
+const db = require('../../db/connection');
+const knex = require('../../db/connection');
 
 async function getAssetsByType(assetType, userInput, date = new Date().toISOString().split('T')[0]) {
     try {
-        let query = knex.from(assetType).returning("*");
-        
-        if (assetType === "Stocks") {
+        let query = knex.from(assetType).returning('*');
+
+        if (assetType === 'Stocks') {
             query = query.where('Risk Level', userInput);
-        } else if (assetType === "ETFs") {
+        } else if (assetType === 'ETFs') {
             query = query.where('Risk Level', userInput);
         }
+
         const results = await query;
         const realDate = await getDateRange(userInput, date);
         const filteredResults = results.filter(stock => stock.Date >= realDate);
@@ -63,15 +64,15 @@ async function displayAssetsByType(assetType, userInput) {
 }
 
 class InvestmentAccount {
-    constructor(username, password, investmentAmount, investmentFrequency, financialGoals, Strategy, Stocks, ETFs) {
+    constructor(username, password, investmentAmount, investmentFrequency, financialGoals, strategy, stocks, etfs) {
         this.Username = username;
         this.Password = password;
-        this["Investment Amount"] = investmentAmount;
-        this["Investment Frequency"] = investmentFrequency;
-        this["Financial Goals"] = financialGoals;
-        this["Strategy"] = Strategy;
-        this["Stocks in Portfolio"] = Stocks;
-        this["ETFs in Portfolio"] = ETFs;
+        this['Investment Amount'] = investmentAmount;
+        this['Investment Frequency'] = investmentFrequency;
+        this['Financial Goals'] = financialGoals;
+        this.Strategy = strategy;
+        this['Stocks in Portfolio'] = stocks;
+        this['ETFs in Portfolio'] = etfs;
     }
 
     setUsername(username) {
@@ -83,38 +84,38 @@ class InvestmentAccount {
     }
 
     setInvestmentAmount(amount) {
-        this["Investment Amount"] = amount;
+        this['Investment Amount'] = amount;
     }
 
     setInvestmentFrequency(frequency) {
-        this["Investment Frequency"] = frequency;
+        this['Investment Frequency'] = frequency;
     }
 
     setFinancialGoals(goals) {
-        this["Financial Goals"] = goals;
+        this['Financial Goals'] = goals;
     }
 
-    setAccountType(Strategy) {
-        this["Strategy"] = Strategy;
+    setStrategy(strategy) {
+        this.Strategy = strategy;
     }
 
-    setAccountPortfolio(Stocks, ETFs) {
-        this["Stocks in Portfolio"] = Stocks;
-        this["ETFs in Portfolio"] = ETFs;
+    setPortfolio(stocks, etfs) {
+        this['Stocks in Portfolio'] = stocks;
+        this['ETFs in Portfolio'] = etfs;
     }
 }
 
 async function saveInvestmentAccount(investmentAccount) {
     try {
         const savedInvestmentAccount = await db('User Info').insert({
-            "Username": investmentAccount.Username,
-            "Password": investmentAccount.Password,
-            "Investment Amount": investmentAccount["Investment Amount"],
-            "Investment Frequency": investmentAccount["Investment Frequency"],
-            "Financial Goals": investmentAccount["Financial Goals"],
-            "Strategy": investmentAccount["Strategy"],
-            "Stocks in Portfolio": investmentAccount["Stocks in Portfolio"],
-            "ETFs in Portfolio": investmentAccount["ETFs in Portfolio"]
+            Username: investmentAccount.Username,
+            Password: investmentAccount.Password,
+            'Investment Amount': investmentAccount['Investment Amount'],
+            'Investment Frequency': investmentAccount['Investment Frequency'],
+            'Financial Goals': investmentAccount['Financial Goals'],
+            Strategy: investmentAccount.Strategy,
+            'Stocks in Portfolio': investmentAccount['Stocks in Portfolio'],
+            'ETFs in Portfolio': investmentAccount['ETFs in Portfolio']
         });
 
         return savedInvestmentAccount;

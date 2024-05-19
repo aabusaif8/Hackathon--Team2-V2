@@ -23,7 +23,7 @@ function validateStrategy(strategy) {
 
 function validateInvestmentRequestBody(req, res, next) {
     const { "Investment Amount" : investmentAmount, "Investment Frequency": investmentFrequency, "Financial Goals": financialGoals, "Strategy": strategy } = req.body;
-    console.log(investmentAmount)
+    //console.log(investmentAmount)
     const investmentAmountError = validatePositiveAmount(investmentAmount, 'Investment Amount');
       if (investmentAmountError) {
         return res.status(400).json({ error: investmentAmountError });

@@ -3,9 +3,8 @@ const assetsController = require("./AssetsController");
 const methodNotAllowed = require("../../errors/methodNotAllowed");
 const AssetsService = require('./AssetsService')
 
-router.post('/createInvestmentAccount', (req, res) => {
-    assetsController.createInvestmentAccount(req, res);
-});
+router.post('/createInvestmentAccount', assetsController.createInvestmentAccount);
+
 
 router.get('/search', async (req, res) => {
         const { assetType, userInput } = req.query;

@@ -20,8 +20,7 @@ async function handleGetAssets(req, res) {
 
 async function createInvestmentAccount(req, res) {
     try {
-        const { Username, Password, 'Investment Amount': investmentAmount, 'Investment Frequency': investmentFrequency, 'Financial Goals': financialGoals, Strategy, 'Stocks in Portfolio': Stocks, 'ETFs in Portfolio': ETFs } = req.body;        
-        console.log(Username);
+        const { Username, Password, 'Investment Amount': investmentAmount, 'Investment Frequency': investmentFrequency, 'Financial Goals': financialGoals, Strategy, 'Stocks in Portfolio': Stocks, 'ETFs in Portfolio': ETFs } = req.body;
         const missingField = !Username ? 'Username' : !Password ? 'Password' : !investmentAmount ? 'Investment Amount' : !investmentFrequency ? 'Investment Frequency' : !Strategy ? 'Strategy' : !Stocks ? 'Stocks in Portfolio' : !ETFs ? 'ETFs in Portfolio' : null;
 
         if (missingField) {
@@ -29,11 +28,11 @@ async function createInvestmentAccount(req, res) {
         }
 
         const formattedFinancialGoals = typeof financialGoals === 'number' ? financialGoals.toString() : financialGoals;
-        
+
         const newInvestmentAccount = new AssetsService.InvestmentAccount(Username, Password, investmentAmount, investmentFrequency, formattedFinancialGoals, Strategy, Stocks, ETFs);
 
         const savedInvestmentAccount = await AssetsService.saveInvestmentAccount(newInvestmentAccount);
-        
+
         if (savedInvestmentAccount) {
             res.status(200).json({ success: true, data: savedInvestmentAccount });
         } else {
@@ -43,7 +42,7 @@ async function createInvestmentAccount(req, res) {
         console.error('Error creating investment account:', error);
         res.status(500).json({ success: false, message: 'Failed to create investment account', error: error.message });
     }
-};
+}
 
 module.exports = {
     createInvestmentAccount: [validateInvestmentRequestBody, createInvestmentAccount],
