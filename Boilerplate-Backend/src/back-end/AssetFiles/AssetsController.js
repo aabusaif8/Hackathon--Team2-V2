@@ -1,5 +1,6 @@
 const AssetsService = require('./AssetsService');
 const { InvestmentAccount } = require('./AssetsService');
+const validateInvestmentRequestBody = require('./AssetsValidation')
 
 async function handleGetAssets(req, res) {
     try {
@@ -43,9 +44,9 @@ async function createInvestmentAccount(req, res) {
         console.error('Error creating investment account:', error);
         res.status(500).json({ success: false, message: 'Failed to create investment account', error: error.message });
     }
-}
+};
 
 module.exports = {
-    handleGetAssets,
-    createInvestmentAccount
+    createInvestmentAccount: [validateInvestmentRequestBody],
+    handleGetAssets
 };

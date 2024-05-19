@@ -1,5 +1,7 @@
 
 const UserService = require('./UserInfoService');
+const validateSignup = require('./UserInfoValidation');
+
 
 async function signIn(req, res) {
     const { username, password } = req.body;
@@ -98,7 +100,7 @@ async function updatePortfolio(req, res) {
 }
 
 module.exports = {
-    signIn,
+    signIn: [validateSignup],
     getUserById,
     getDashboard,
     updatePortfolio
