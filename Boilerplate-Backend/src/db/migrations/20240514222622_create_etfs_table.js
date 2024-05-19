@@ -1,12 +1,14 @@
 exports.up = function(knex) {
     return knex.schema.createTable('ETFs', function(table) {
+        table.increments("Id").primary()
         table.date('Date'); 
         table.decimal('Open'); 
         table.decimal('High'); 
         table.decimal('Low'); 
         table.decimal('Close');
         table.bigInteger('Volume');
-        table.integer('OpenInt'); 
+        table.integer('OpenInt');
+        table.text("Risk Level");
     });
 };
 
