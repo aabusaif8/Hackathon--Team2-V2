@@ -47,6 +47,6 @@ async function createInvestmentAccount(req, res) {
 };
 
 module.exports = {
-    createInvestmentAccount: [validateInvestmentRequestBody],
+    createInvestmentAccount: [validateInvestmentRequestBody, createInvestmentAccount],
     handleGetAssets
 };
