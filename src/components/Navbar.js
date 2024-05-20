@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 import { useState, Fragment } from "react";
@@ -14,19 +14,20 @@ function Navbar() {
          aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <Link to href="/" className="-m-1.5 p-1.5">
+            <a href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Monarch.com</span>
                 <img
+                  href="../"
                   className="h-14 w-auto"
                   src={logo}
                   alt="logo"
                   />
-            </Link>
+            </a>
           </div>
           <div className="flex lg:hidden justify-end">
             <button 
               type="button"
-              className="-m-2.5 flex justify-end rounded-md p-2.5 text-white "
+              className="-m-2.5 inline-flex justify-end rounded-md p-2.5 text-white "
               onClick={() => setMobileMenuOpen(true)}
           >
               <span className="sr-only">Open main menu</span>

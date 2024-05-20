@@ -1,11 +1,10 @@
 const router = require("express").Router({ mergeParams: true });
 const assetsController = require("./AssetsController");
 const methodNotAllowed = require("../../errors/methodNotAllowed");
-// const AssetsService = require('./AssetsService')
+const AssetsService = require('./AssetsService')
 
-// router.post('/createInvestmentAccount', (req, res) => {
-//     controller.createInvestmentAccount(req, res);
-// });
+router.post('/createInvestmentAccount', assetsController.createInvestmentAccount);
+
 
 // router.get('/search', async (req, res) => {
 //         const { assetType, userInput } = req.query;
@@ -19,7 +18,7 @@ const methodNotAllowed = require("../../errors/methodNotAllowed");
 //                 }
 //             });
             
-router.post('/createInvestmentAccount', assetsController.createInvestmentAccount).all(methodNotAllowed);
+            
 router.get('/search', assetsController.handleGetAssets).all(methodNotAllowed);
 
 
