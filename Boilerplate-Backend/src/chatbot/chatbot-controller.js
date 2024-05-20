@@ -13,7 +13,6 @@ const chatCompletion = async (req, res) => {
     ],
     max_tokens: 500 // Determine token count size
 });
-    // console.log(completion.choices[0].message)
     res.status(200).json({
       completion: completion.choices[0].message
     })

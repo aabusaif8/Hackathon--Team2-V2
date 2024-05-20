@@ -14,7 +14,7 @@ import StandardAccount from './pages/StandardAccount';
 import FiveAPYSavings from './pages/FiveAPYSavings';
 import CustodialAccount from './pages/CustodialAccount';
 import IRA from './pages/IRA';
-
+import InvestmentAssistantWithUserId from './reuseComponents/InvestmentAssistantWithUserId'; // Import the component
 import MyAccount from './pages/MyAccount';
 import Legal from './pages/support/Legal';
 import GetHelp from './pages/support/GetHelp';
@@ -47,8 +47,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<LandingPage />}/>
           <Route path="/:userId/dashboard" element={<Dashboard />} />
-          <Route path="/my-account" element={<MyAccount />} />
-          <Route path="/investment-assistant" element={<InvestmentAssistant />}/>
+          <Route path="/myAccount" element={<MyAccount />} />
+          <Route path="/:userId/investment-assistant" element={<InvestmentAssistant />} />
+
           <Route path="/manual-investment" element={<ManualInvestment />}/>
 
           <Route path="/learning-resources" element={<LearningResources />}/>

@@ -59,7 +59,6 @@ async function getUserById(req, res) {
 async function updatePortfolio(req, res) {
     const userId = req.params.userId;
     const { action, type, id } = req.body;
-
     try {
         let user = await UserService.getUserById(userId);
 
@@ -86,7 +85,6 @@ async function updatePortfolio(req, res) {
                 updatedETFs = updatedETFs.filter(etfId => etfId !== id);
             }
         }
-
         const updateResult = await UserService.updateUserPortfolio(userId, updatedStocks, updatedETFs);
 
         if (updateResult.success) {
