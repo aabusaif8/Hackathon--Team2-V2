@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
-import { useState, Fragment } from "react";
+import {Fragment } from "react";
 import {Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"; 
 import {Dialog, Disclosure, Popover, Transition } from "@headlessui/react"
 
@@ -91,6 +91,14 @@ function Navbar() {
                 <div className="-my-6 divide-y divide-gray-500/10">
                     <div className="space-y-2 py-6">
                         
+                        <a
+                        href="#"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
+                        hover:bg-[#97db51]"
+                        >
+                          Investment Assistant
+                        </a>
+
                         <a
                         href="#"
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
