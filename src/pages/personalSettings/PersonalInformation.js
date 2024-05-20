@@ -2,12 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import React from "react";
-import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import EditPersonalInfo from "../../reuseComponents/EditPersonalInfo"
-import EditFinancialInfo from "../../reuseComponents/EditFinancialInfo";
+import EditPersonalInfo from '../../reuseComponents/EditPersonalInfo';
+import EditFinancialInfo from '../../reuseComponents/EditFinancialInfo';
 
 function PersonalInformation() {
   const { userId } = useParams(); // Extract user ID from URL
@@ -37,8 +33,13 @@ function PersonalInformation() {
   return (
     <div>
       <Navbar />
-      <button className=' text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
-      
+
+      <div>
+        <Link to="/myaccount">
+          <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
+        </Link>
+      </div>
+
       <div className='flex justify-center text-semibold text-4xl py-5'>
         <h1>Personal Information</h1>
       </div>
@@ -56,48 +57,20 @@ function PersonalInformation() {
         )}
       </div>
 
+      <EditPersonalInfo />
+      <EditFinancialInfo />
+
       <div className='space-x-12 drop-shadow-xl text-center pb-12'>
-function PersonalInformation(){
-    return (
-        <div>
-            <Navbar />
-
-            <div>
-            <Link to="/myaccount">
-            <button className=' text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
-            </Link>
-            </div>
-
-            <div className='flex justify-center text-semibold text-4xl py-5'>
-            <h1>Personal Information</h1>
-            </div>
-            
-            <EditPersonalInfo />
-
-            <EditFinancialInfo />
-
-            <div className='space-x-12 drop-shadow-xl text-center pb-12'>
-        
-      </div> 
-      
-            <div className='space-x-12 drop-shadow-xl text-center pb-12'>
         <Link to="/myaccount">
           <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-12 font-normal mx-auto'>
             Return to Account Settings
           </button>
         </Link>
       </div> 
-      
+
       <Footer />
     </div>
   );
 }
-    
-          <Footer />
-    
-        </div>
-    
-    )
-    }
 
 export default PersonalInformation;
