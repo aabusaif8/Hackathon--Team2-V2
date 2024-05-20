@@ -39,7 +39,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<LandingPage />}/>
-          <Route path="/dashboard" element={<Dashboard />}/>
+          <Route path="/:userId/dashboard" element={<Dashboard />} />
           <Route path="/myAccount" element={<MyAccount />} />
           <Route path="/investment-assistant" element={<InvestmentAssistant />}/>
           <Route path="/manual-investment" element={<ManualInvestment />}/>
@@ -57,7 +57,7 @@ function App() {
           <Route path="/gethelp" element={<GetHelp />} />
           <Route path="/twostepauthentication" element={<TwoStepAuthentication />} />
           <Route path="/accessibility" element={<Accessibility />} />
-          <Route path="/personalinformation" element={<PersonalInformation />} />
+          <Route path="/:userId/personalinformation" element={<PersonalInformation />} />
           <Route path="/linkedaccounts" element={<LinkedAccounts />} />
           <Route path="/mystatements" element={<MyStatements />} />
           <Route path="/changepassword" element={<ChangePassword />} />
