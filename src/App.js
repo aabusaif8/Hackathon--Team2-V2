@@ -19,6 +19,10 @@ import MyStatements from './pages/securityandPrivacy/MyStatements';
 import ChangePassword from './pages/securityandPrivacy/ChangePassword';
 import ChatbotPopup from './components/ChatBotPopup';
 import chatboticon from './assets/chatboticon.png';
+import SignIn from './account/SignIn';
+import SignUp from './account/SignUp';
+import SignUpProceed from './account/SignUpProceed';
+import SignUpTerms from './account/SignUpTerms';
 
 function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -48,6 +52,10 @@ function App() {
           <Route path="/linkedaccounts" element={<LinkedAccounts />} />
           <Route path="/mystatements" element={<MyStatements />} />
           <Route path="/changepassword" element={<ChangePassword />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signup/proceed" element={<SignUpProceed />} />
+          <Route path="/signup/proceed/terms" element={<SignUpTerms />} />
         </Routes>
       </BrowserRouter>
 
