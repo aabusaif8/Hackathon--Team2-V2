@@ -15,9 +15,11 @@ import ReadyToInvest from '../reuseComponents/ReadyToInvest';
 import TermsAndCond from '../reuseComponents/TermsAndCond';
 import ChooseAccountType from '../reuseComponents/ChooseAccountType';
 import AddMoreBank from '../reuseComponents/AddMoreBank';
+import PieChart from '../components/PieChart';
+import LineChart from '../components/LineChart';
 
 
-function InvestmentAssist() {
+function InvestmentAssist({ data }) {
   return (
     <div>
       <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
@@ -60,6 +62,14 @@ function InvestmentAssist() {
         <AddMoreBank />
       </div>
 
+      <div>
+      <PieChart />
+      </div>
+
+      <div>
+        <LineChart />
+      </div>
+      
     </div>
   )
 }

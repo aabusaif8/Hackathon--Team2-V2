@@ -33,6 +33,7 @@ import SignUp from './account/SignUp';
 import SignUpProceed from './account/SignUpProceed';
 import SignUpTerms from './account/SignUpTerms';
 
+
 function App() {
   const [showChatbot, setShowChatbot] = useState(false);
 
