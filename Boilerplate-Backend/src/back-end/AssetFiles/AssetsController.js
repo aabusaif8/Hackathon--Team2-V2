@@ -3,21 +3,10 @@ const validateInvestmentRequestBody = require('./AssetsValidation');
 
 async function handleGetAssets(req, res) {
     try {
-<<<<<<< HEAD
-        const { assetType, userInput, date } = req.params;
-        console.log(req.body)
-        let assets;
-
-        if (date) {
-            assets = await AssetsService.getAssetsByType(assetType, userInput, date);
-        } else {
-            assets = await AssetsService.displayAssetsByType(assetType, userInput);
-=======
         const { assetType, userInput, date } = req.query; 
         //console.log(req.query)
         if (!assetType || !userInput) {
             return res.status(400).json({ success: false, message: 'assetType and userInput are required' });
->>>>>>> e12ac36eeba16ef35e99533605a0de6876ed6c27
         }
 
         const assets = await AssetsService.getAssetsByType(assetType, userInput, date);
@@ -55,7 +44,20 @@ async function createInvestmentAccount(req, res) {
     }
 }
 
+async function handleGetUserStocks(req, res) {
+    try {
+        const { userId } = req.params;
+        const stocksData = await AssetsService.getUserStocksData(userId);
+        //console.log(stocksData)
+        res.json({ success: true, data: stocksData });
+    } catch (error) {
+        console.error('Error fetching user stocks:', error);
+        res.status(500).json({ success: false, message: 'Failed to fetch user stocks', error: error.message });
+    }
+}
+
 module.exports = {
     createInvestmentAccount: [validateInvestmentRequestBody, createInvestmentAccount],
-    handleGetAssets
+    handleGetAssets,
+    handleGetUserStocks
 };

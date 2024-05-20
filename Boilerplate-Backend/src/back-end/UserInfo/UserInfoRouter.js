@@ -5,8 +5,7 @@ const methodNotAllowed = require("../../errors/methodNotAllowed");
 
 
 router.get('/:userId/dashboard', UserInfoController.getDashboard).all(methodNotAllowed);
-router.put('/:userId/portfolio', UserInfoController.updatePortfolio).all(methodNotAllowed); // Define the route correctly
+router.put('/:userId/portfolio', UserInfoController.updatePortfolio).all(methodNotAllowed); 
 router.post('/signin', UserInfoController.signIn).all(methodNotAllowed);
-
 
 module.exports = router;
