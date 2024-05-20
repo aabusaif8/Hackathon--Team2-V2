@@ -8,8 +8,12 @@ function TwoStepAuthentication(){
     return (
         <div>
             <Navbar />
+            <div>
+            <Link to="/myaccount">
             <button className=' text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
-          
+            </Link>
+            </div>
+            
             <div className='flex justify-center text-semibold text-4xl py-5'>
             <h1>Two-Step Authentication</h1>
             </div>

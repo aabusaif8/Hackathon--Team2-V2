@@ -8,10 +8,10 @@ const chatCompletion = async (req, res) => {
     messages: [
         {
             role: "user", 
-            content: "Tell me 2 things about Kobe Bryant." // Replace with prompt from frontend chatbot form submit button (onClick event?)
+            content: "What are three stable stocks." // Replace with prompt from frontend chatbot form submit button (onClick event?)
         }
     ],
-    max_tokens: 100 // Determine token count size
+    max_tokens: 500 // Determine token count size
 });
     // console.log(completion.choices[0].message)
     res.status(200).json({

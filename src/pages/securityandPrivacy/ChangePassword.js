@@ -2,13 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import ChangePassword from "../../reuseComponents/ChangePassword";
 
 
-function ChangePassword(){
+function ChangePasswordPage(){
     return (
         <div>
             <Navbar />
+            <div>
+            <Link to="/myaccount">
             <button className=' text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
+            </Link>
+            </div>
+          
           
             <div className='flex justify-center text-semibold text-4xl py-5'>
             <h1>Change Password</h1>
@@ -16,7 +22,7 @@ function ChangePassword(){
             
             <div className='px-12 py-10 flex justify-center'>
                 
-                {/* Change Password */}
+                <ChangePassword />
 
             </div>
 
@@ -36,4 +42,4 @@ function ChangePassword(){
     )
     }
 
-export default ChangePassword;
+export default ChangePasswordPage;

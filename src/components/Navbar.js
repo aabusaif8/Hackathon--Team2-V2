@@ -1,8 +1,10 @@
+
 import React, { useState, Fragment } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -92,12 +94,22 @@ function Navbar() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
-                >
-                  Manual Investment
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
+
+                        >
+                          Investment Assistant
+                        </a>
+
+                        <a
+                        href="#"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
+                        hover:bg-[#97db51]"
+                        >
+                          Manual Investment
+                        </a>
+                        <a
+                        href="#"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
+
                         hover:bg-[#97db51]"
                 >
                   Dashboard Overview
