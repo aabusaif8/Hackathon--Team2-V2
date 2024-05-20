@@ -13,9 +13,6 @@ function ManualInvestment() {
       <Navbar />
       <div className="flex-grow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="flex justify-start mb-8">
-            <button className="text-dark-green text-lg font-semibold underline">Back</button>
-          </div>
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold">Account Setup: Manual Investment</h1>
           </div>
