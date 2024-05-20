@@ -19,6 +19,8 @@ import MyStatements from './pages/securityandPrivacy/MyStatements';
 import ChangePassword from './pages/securityandPrivacy/ChangePassword';
 import ChatbotPopup from './components/ChatBotPopup';
 import chatboticon from './assets/chatboticon.png';
+import AboutUs from './pages/AboutUs';
+import AccountFeaturesPage from './pages/AccountFeaturesPage';
 
 function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -33,7 +35,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<LandingPage />}/>
           <Route path="/dashboard" element={<Dashboard />}/>
-          <Route path="/myAccount" element={<MyAccount />} />
+          <Route path="/my-Account" element={<MyAccount />} />
           <Route path="/investment-assistant" element={<InvestmentAssistant />}/>
           <Route path="/manual-investment" element={<ManualInvestment />}/>
           <Route path="/learning-resources" element={<LearningResources />}/>
@@ -41,13 +43,15 @@ function App() {
           <Route path="/learning-resources-article2" element={<Article2 />} />
           <Route path="/learning-resources-article3" element={<Article3 />} /> 
           <Route path="/legal" element={<Legal />} />
-          <Route path="/gethelp" element={<GetHelp />} />
-          <Route path="/twostepauthentication" element={<TwoStepAuthentication />} />
+          <Route path="/get-help" element={<GetHelp />} />
+          <Route path="/two-step-authentication" element={<TwoStepAuthentication />} />
           <Route path="/accessibility" element={<Accessibility />} />
-          <Route path="/personalinformation" element={<PersonalInformation />} />
-          <Route path="/linkedaccounts" element={<LinkedAccounts />} />
-          <Route path="/mystatements" element={<MyStatements />} />
-          <Route path="/changepassword" element={<ChangePassword />} />
+          <Route path="/personal-information" element={<PersonalInformation />} />
+          <Route path="/linked-accounts" element={<LinkedAccounts />} />
+          <Route path="/my-statements" element={<MyStatements />} />
+          <Route path="/change-password" element={<ChangePassword />} />
+          <Route path="/about-us" element={<AboutUs/>} />
+          <Route path="/account-features" element={<AccountFeaturesPage/>} />
         </Routes>
       </BrowserRouter>
 

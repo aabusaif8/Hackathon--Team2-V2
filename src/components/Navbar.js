@@ -37,23 +37,28 @@ function Navbar() {
 
           <Popover.Group className="hidden lg:flex lg:gap-x-12">
 
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
-                Investment Assistant
-            </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
+            <a href="/manual-investment" className="text-sm font-semibold leading-6 text-white">
                 Manual Investment
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
-                Dashboard Overview
+            <a href="/account-features" className="text-sm font-semibold leading-6 text-white">
+                Account Features
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
+            <a href="learning-resources" className="text-sm font-semibold leading-6 text-white">
                 Learning Resources
+            </a>
+            <a href="/about-us" className="text-sm font-semibold leading-6 text-white">
+                About Us
             </a>
           </Popover.Group>
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <a href="#" className="text-sm font-semibold leading-6 text-white">
-                Log in <span aria-hidden="true">&rarr;</span>
+                Sign In <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="#" className="text-sm font-semibold leading-6 text-white">
+                Sign Up <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
         </nav>
@@ -90,45 +95,55 @@ function Navbar() {
             <div className="mt-6 flow-root">
                 <div className="-my-6 divide-y divide-gray-500/10">
                     <div className="space-y-2 py-6">
-                        
-                        <a
-                        href="#"
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
-                        hover:bg-[#97db51]"
-                        >
-                          Investment Assistant
-                        </a>
 
                         <a
-                        href="#"
+                        href="/manual-investment"
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
                         >
                           Manual Investment
                         </a>
                         <a
-                        href="#"
+                        href="account-features"
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
                         >
-                          Dashboard Overview
+                          Account Features
                         </a>
                         <a
-                        href="#"
+                        href="/learning-resources"
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
                         >
                           Learning Resources
+                        </a>
+
+                        <a
+                        href="about-us"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
+                        hover:bg-[#97db51]"
+                        >
+                          About Us
                         </a>
         
                     </div>
                     <div className="py-6">
                       <a 
                       href="#"
+                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white
+                      hover:bg-[#97db51]"
+                      >
+                        Sign In
+                      </a>
+                    </div>
+
+                    <div className="py-6">
+                      <a 
+                      href="#"
                       className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white
                       hover:bg-[#97db51]"
                       >
-                        Log In/Sign Up
+                        Sign Up
                       </a>
                     </div>
                 </div>

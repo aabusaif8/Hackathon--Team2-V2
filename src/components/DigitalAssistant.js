@@ -1,36 +1,38 @@
 import React from 'react';
-import piggybank from "../assets/piggybank.png"
-import coin from "../assets/coin.png"
+import piggybank from "../assets/piggybank.png";
+import coin from "../assets/coin.png";
 
 const DigitalAssistant = () => {
-    return (
-        <div className="digitalAssistant">
-          <div className="digitalAssistant-content">
-            <h1 className=" flex justify-center text-semibold text-xl px-5 py-10">New to investing? Let our Digital Investment Assistant help!</h1>
-            
-            <div className="flex justify-center px-5 py-5 w-full">
-            <img src={piggybank} alt="digitalAssistant" />
-            </div>
-            <p className="text-semibold text-xl flex justify-center">
+  return (
+    <div className="bg-white py-16 md:py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+            New to investing? Let our Digital Investment Assistant help!
+          </h1>
+        </div>
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+          <div className="md:w-1/2 mb-8 md:mb-0 flex flex-col items-center">
+            <img src={piggybank} alt="Digital Assistant" className="mx-auto max-w-full h-64" />
+            <p className="text-lg md:text-xl lg:text-2xl font-semibold mt-4 text-center">
               Let us know the amount you want to invest, how often, and the kind of growth you're looking for.
             </p>
-          
-
-
-            <div className="flex justify-center">
-            <img src={coin} alt="digitalAssistant2" />
-            </div>
-            <p className="text-semibold text-xl flex justify-center">
-              Our digital assistant will generate portfolios based on your answers, and you pick the one thats right for you.
-            </p>
-          
-    
-          <div className="flex justify-center px-5 py-5">
-          <button className=' bg-dark-green text-white py-3 px-12 rounded-full mt-8 font-normal'>Open an Account</button>
           </div>
+          <div className="md:w-1/2 flex flex-col items-center">
+            <img src={coin} alt="Digital Assistant" className="mx-auto max-w-full h-64" />
+            <p className="text-lg md:text-xl lg:text-2xl font-semibold mt-4 mb-8 text-center">
+              Our digital assistant will generate portfolios based on your answers, and you pick the one that's right for you.
+            </p>
           </div>
         </div>
-      );
-    };
+        <div className="flex justify-center mt-16">
+          <button className="bg-dark-green text-white py-3 px-8 md:px-12 lg:px-16 rounded-full font-semibold transition-colors duration-300 hover:bg-green-700">
+            Open an Account
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default DigitalAssistant;
