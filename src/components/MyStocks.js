@@ -42,9 +42,10 @@ const MyStocks = ({ userId }) => {
       const signal = controller.signal;
   
       const response = await fetch(url, { ...options, signal });console.log(response)
+      
       if (response.ok) {
         setUserStocks(userStocks.filter(stock => stock.Id !== stockId));
-        //console.log(userStocks)
+        console.log(userStocks)
       } else {
         throw new Error('Failed to delete stock');
       }
