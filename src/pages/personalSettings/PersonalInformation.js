@@ -16,9 +16,7 @@ function PersonalInformation() {
       try {
         const response = await fetch(`http://localhost:5000/users/${userId}/dashboard`);
         if (response.ok) {
-          const data = await response.json();
-          console.log(data); // Corrected typo here
-          setUserInfo(data);
+          const data = await response.json();          setUserInfo(data);
         } else {
           throw new Error('Failed to fetch user information');
         }

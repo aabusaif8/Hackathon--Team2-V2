@@ -2,7 +2,6 @@ const db = require('../../db/connection'); // Import your database connection
 const knex = require("../../db/connection");
 
 async function getAssetsByType(assetType, userInput, dateRange) {
-    //console.log(dateRange)
     try {
         let query = knex.from(assetType).returning("*");
         
@@ -107,13 +106,13 @@ async function displayAssetsByType(assetType, userInput) {
 }
 
 class InvestmentAccount {
-    constructor(username, password, investmentAmount, investmentFrequency, financialGoals, Strategy, Stocks, ETFs) {
+    constructor(username, password, investmentAmount, investmentFrequency, financialGoals, Experience, Stocks, ETFs) {
         this.Username = username;
         this.Password = password;
         this["Investment Amount"] = investmentAmount;
         this["Investment Frequency"] = investmentFrequency;
         this["Financial Goals"] = financialGoals;
-        this["Strategy"] = Strategy;
+        this["Experience"] = Experience;
         this["Stocks in Portfolio"] = Stocks;
         this["ETFs in Portfolio"] = ETFs;
     }
@@ -138,8 +137,8 @@ class InvestmentAccount {
         this["Financial Goals"] = goals;
     }
 
-    setAccountType(Strategy) {
-        this["Strategy"] = Strategy;
+    setAccountType(Experience) {
+        this["Experience"] = Experience;
     }
 
     setAccountPortfolio(Stocks, ETFs) {
@@ -156,7 +155,7 @@ async function saveInvestmentAccount(investmentAccount) {
             "Investment Amount": investmentAccount["Investment Amount"],
             "Investment Frequency": investmentAccount["Investment Frequency"],
             "Financial Goals": investmentAccount["Financial Goals"],
-            "Strategy": investmentAccount["Strategy"],
+            "Experience": investmentAccount["Experience"],
             "Stocks in Portfolio": investmentAccount["Stocks in Portfolio"],
             "ETFs in Portfolio": investmentAccount["ETFs in Portfolio"]
         });
