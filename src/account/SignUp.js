@@ -28,6 +28,7 @@ const SignUpForm = () => {
             "Stocks in Portfolio": "001,003,005",
             "ETFs in Portfolio": "002,004,006"
         };
+        
         fetch('http://localhost:5000/assets/createInvestmentAccount', {
             method: 'POST',
             headers: {
@@ -37,14 +38,15 @@ const SignUpForm = () => {
         })
         .then(response => {
             if (response.ok) {
-              // const result = await response.json();
-              // const userId = result.data.userId; // Extract the user ID from the response
-
-              // navigate(`/${userId}/dashboard`);
+                return response.json(); // Parse the JSON response
             } else {
-                //console.log(response);
                 throw new Error('Failed to create user');
             }
+        })
+        .then(data => {
+            console.log('Response data:', data); // Log the parsed data
+            const userId = data.data; // Extract the userId from the response data
+            navigate(`/${userId}/investment-assistant`); // Navigate to the user's dashboard
         })
         .catch(error => {
             console.error('Error:', error);

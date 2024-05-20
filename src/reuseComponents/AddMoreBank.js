@@ -3,6 +3,7 @@ import React from 'react';
 function AddMoreBank({ userId }) {
   const redirectToDashboard = () => {
     // Redirect the user to their dashboard
+    console.log(userId)
     window.location.href = `http://localhost:3000/${userId}/dashboard`;
   };
 

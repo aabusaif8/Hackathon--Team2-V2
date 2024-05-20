@@ -36,6 +36,7 @@ async function createInvestmentAccount(req, res) {
         const savedInvestmentAccount = await AssetsService.saveInvestmentAccount(newInvestmentAccount);
 
         if (savedInvestmentAccount) {
+            console.log(savedInvestmentAccount)
             res.status(200).json({ success: true, data: savedInvestmentAccount });
         } else {
             res.status(500).json({ success: false, message: 'Failed to save investment account' });

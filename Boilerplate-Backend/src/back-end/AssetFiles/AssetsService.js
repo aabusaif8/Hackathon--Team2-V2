@@ -161,7 +161,8 @@ async function saveInvestmentAccount(investmentAccount) {
         });
         const userId = savedInvestmentAccount[0];
         const newUserId = userId.Id
-        return savedInvestmentAccount;
+        //console.log(newUserId)
+        return newUserId;
     } catch (error) {
         throw error;
     }
