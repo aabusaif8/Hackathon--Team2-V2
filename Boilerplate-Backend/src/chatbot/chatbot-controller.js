@@ -4,10 +4,10 @@ const chatCompletion = async (req, res) => {
   const { prompt } = req.body;
   try {
     const completion = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
+    model: "gpt-4",
     temperature: 0,
     max_tokens: 500,
-    top_p: 1,
+    top_p: 0.9,
     frequency_penalty: 0,
     presence_penalty: 0,
     messages: [
