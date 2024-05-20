@@ -31,7 +31,7 @@ const LinkNewAccount = () => {
         <h3>Routing Number:</h3>
         <h3 className='mt-5 mb-5'>Account Number:</h3>
         <button
-          className="bg-dark-green bg-dark-green text-white font-bold py-2 px-4 rounded"
+          className="bg-dark-green text-white font-bold py-2 px-4 rounded"
           onClick={handleEditFinancialInfo}
         >
           Update
@@ -52,7 +52,7 @@ const LinkNewAccount = () => {
                   id="bankName"
                   value={bankName}
                   onChange={(e) => setBankName(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-dark-green"
                   required
                 />
               </div>
@@ -65,7 +65,7 @@ const LinkNewAccount = () => {
                   id="accountNumber"
                   value={accountNumber}
                   onChange={(e) => setAccountNumber(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-dark-green"
                   required
                 />
               </div>
