@@ -4,6 +4,7 @@ const validateInvestmentRequestBody = require('./AssetsValidation');
 async function handleGetAssets(req, res) {
     try {
         const { assetType, userInput, date } = req.query; 
+        //console.log(req.query)
         if (!assetType || !userInput) {
             return res.status(400).json({ success: false, message: 'assetType and userInput are required' });
         }
@@ -19,6 +20,7 @@ async function handleGetAssets(req, res) {
 
 async function createInvestmentAccount(req, res) {
     try {
+        console.log('Request body:', req.body);
         const { Username, Password, 'Investment Amount': investmentAmount, 'Investment Frequency': investmentFrequency, 'Financial Goals': financialGoals, Experience, 'Stocks in Portfolio': Stocks, 'ETFs in Portfolio': ETFs } = req.body;
         
         const missingField = !Username ? 'Username' : !Password ? 'Password' : !investmentAmount ? 'Investment Amount' : !investmentFrequency ? 'Investment Frequency' : !Experience ? 'Experience' : !Stocks ? 'Stocks in Portfolio' : !ETFs ? 'ETFs in Portfolio' : null;

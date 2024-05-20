@@ -10,8 +10,9 @@ const MyStocks = ({ userId }) => {
       if (response.ok) {
         const data = await response.json();
         const stocks = data.data;
-        console.log(stocks);
         setUserStocks(stocks);
+        console.log(userStocks)
+
       } else {
         throw new Error('Failed to fetch user stocks');
       }
@@ -40,7 +41,6 @@ const MyStocks = ({ userId }) => {
       const signal = controller.signal;
   
       const response = await fetch(url, { ...options, signal });
-      
       if (response.ok) {
         setUserStocks(userStocks.filter(stock => stock.Id !== stockId));
       } else {
@@ -50,7 +50,7 @@ const MyStocks = ({ userId }) => {
       console.log(error);
       setError(error.message);
     }
-    console.log(userStocks)
+    
   };
   
   useEffect(() => {
@@ -67,9 +67,13 @@ const MyStocks = ({ userId }) => {
         <div className="myStocks-cards">
           {userStocks.map((stock) => (
             <div key={stock.Id} className="stock-card">
-              <h2>{stock.name}</h2>
-              <p>Symbol: {stock.symbol}</p>
-              <p>Quantity: {stock.quantity}</p>
+              <h2>{stock.Category}</h2>
+              <p>Close: {stock.Close}</p>
+              <p>Date: {stock.Date}</p>
+              <p>High: {stock.High}</p>
+              <p>Low: {stock.Low}</p>
+              <p>Open: {stock.Open}</p>
+              <p>Volume: {stock.Volume}</p>
               <button onClick={() => deleteStock(userId, stock.Id)}>Delete</button>
             </div>
           ))}
@@ -77,6 +81,7 @@ const MyStocks = ({ userId }) => {
       </div>
     </div>
   );
+  
 };
 
 export default MyStocks;

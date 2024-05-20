@@ -149,7 +149,7 @@ class InvestmentAccount {
 
 async function saveInvestmentAccount(investmentAccount) {
     try {
-        const savedInvestmentAccount = await db('User Info').insert({
+        const savedInvestmentAccount = await db('User Info').returning("Id").insert({
             "Username": investmentAccount.Username,
             "Password": investmentAccount.Password,
             "Investment Amount": investmentAccount["Investment Amount"],
@@ -159,7 +159,8 @@ async function saveInvestmentAccount(investmentAccount) {
             "Stocks in Portfolio": investmentAccount["Stocks in Portfolio"],
             "ETFs in Portfolio": investmentAccount["ETFs in Portfolio"]
         });
-
+        const userId = savedInvestmentAccount[0];
+        const newUserId = userId.Id
         return savedInvestmentAccount;
     } catch (error) {
         throw error;

@@ -15,9 +15,12 @@ import ReadyToInvest from '../reuseComponents/ReadyToInvest';
 import TermsAndCond from '../reuseComponents/TermsAndCond';
 import ChooseAccountType from '../reuseComponents/ChooseAccountType';
 import AddMoreBank from '../reuseComponents/AddMoreBank';
+import { useParams } from 'react-router';
 
 
 function InvestmentAssist() {
+  const userId = useParams()
+  console.log('---------------------',userId)
   return (
     <div>
       <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
@@ -57,7 +60,7 @@ function InvestmentAssist() {
       </div>
 
       <div>
-        <AddMoreBank />
+      <AddMoreBank />
       </div>
 
     </div>

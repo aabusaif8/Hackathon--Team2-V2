@@ -16,7 +16,9 @@ function PersonalInformation() {
       try {
         const response = await fetch(`http://localhost:5000/users/${userId}/dashboard`);
         if (response.ok) {
-          const data = await response.json();          setUserInfo(data);
+          const data = await response.json();
+          setUserInfo(data);
+          
         } else {
           throw new Error('Failed to fetch user information');
         }
@@ -46,9 +48,9 @@ function PersonalInformation() {
         {error && <p className="text-red-500">{error}</p>}
         {userInfo ? (
           <div>
-            <p>Name: {userInfo.name}</p>
-            <p>Email: {userInfo.email}</p>
-            <p>Phone: {userInfo.phone}</p>
+            <p>Name: {userInfo.data.user.Username}</p>
+            <p>Email: {userInfo.data.user.Username}</p>
+            <p>Phone: {userInfo.data.user.Username}</p>
           </div>
         ) : (
           <p>Loading...</p>
