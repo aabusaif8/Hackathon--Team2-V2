@@ -4,12 +4,14 @@ import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState("");
+  const [Password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [investmentAmount, setInvestmentAmount] = useState("");
   const [investmentFrequency, setInvestmentFrequency] = useState("");
   const [experience, setExperience] = useState("");
-
+  const [Username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  
   const navigate = useNavigate();
 
   const handleShowPassword = () => {
@@ -18,13 +20,41 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      console.log("Form submitted");
-      navigate("/investment-assistant")
+    if (Password === confirmPassword) {
+      const formData = {
+        Username,
+        Password,
+        investmentAmount,
+        investmentFrequency,
+        experience
+      };
+      console.log(formData)
+      fetch('http://localhost:5000/assets/createInvestmentAccount', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      })
+        .then(response => {
+          if (response.ok) {
+            // Redirect or handle success scenario
+            navigate("/investment-assistant");
+          } else {
+            // Handle error scenario
+            throw new Error('Failed to create user');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          alert('Failed to create user');
+        });
+      
     } else {
       alert("Passwords do not match");
     }
   };
+  
 
   return (
     <div>
@@ -48,20 +78,22 @@ const SignUp = () => {
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label
-                  htmlFor="legalname"
+                  htmlFor="Username"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Legal Name
                 </label>
                 <div className="mt-1">
-                  <input
-                    id="legalname"
-                    name="legalname"
-                    type="text"
-                    autoComplete="name"
-                    required
-                    className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  />
+                <input
+                  id="Username"
+                  name="Username"
+                  type="text"
+                  autoComplete="name"
+                  required
+                  value={Username}
+                  onChange={(e) => setUsername(e.target.value)} // Update legalname state
+                  className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                />
                 </div>
               </div>
 
@@ -86,19 +118,19 @@ const SignUp = () => {
 
               <div>
                 <label
-                  htmlFor="password"
+                  htmlFor="Password"
                   className="block text-sm font-medium text-gray-700"
                 >
                   Create Password
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
                   <input
-                    id="password"
-                    name="password"
-                    type={showPassword ? "text" : "password"}
-                    autoComplete="new-password"
+                    id="Password"
+                    name="Password"
+                    type={showPassword ? "text" : "Password"}
+                    autoComplete="new-Password"
                     required
-                    value={password}
+                    value={Password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />

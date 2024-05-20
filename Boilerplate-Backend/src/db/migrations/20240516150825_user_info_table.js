@@ -6,7 +6,7 @@ exports.up = function(knex) {
         table.integer("Investment Amount")
         table.text("Investment Frequency")
         table.integer("Financial Goals")
-        table.text("Strategy")
+        table.text("Experience")
         table.text("Stocks in Portfolio")
         table.text("ETFs in Portfolio")
 

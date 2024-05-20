@@ -1,14 +1,8 @@
 import React, { useState, Fragment } from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
-import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
-import {Fragment } from "react";
-import {Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"; 
-import {Dialog, Disclosure, Popover, Transition } from "@headlessui/react"
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,7 +10,7 @@ function Navbar() {
   return (
     <header className="bg-[#97db51]">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify between p-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
@@ -69,8 +63,6 @@ function Navbar() {
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
-        <div className="fixed inset-0 z-10" />
-
         <Dialog.Panel
           className="fixed inset-y-0 right-0 z-10 w-full 
         overflow-y-auto bg-[#97db51] px-6 py-6 sm:max-w-sm sm:ring-1 
@@ -97,21 +89,14 @@ function Navbar() {
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
-            <div className="mt-6 flow-root">
-                <div className="-my-6 divide-y divide-gray-500/10">
-                    <div className="space-y-2 py-6">
-                        
-                        <a
-                        href="#"
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
-                        >
-                          Investment Assistant
-                        </a>
+                >
+                  Investment Assistant
+                </a>
 
-                        <a
-                        href="#"
-                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
+                <a
+                  href="#"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
                 >
                   Manual Investment
