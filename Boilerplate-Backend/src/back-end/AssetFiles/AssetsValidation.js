@@ -1,5 +1,6 @@
 
 function validatePositiveAmount(value, fieldName) {
+  //console.log(value,fieldName)
     if (!Number.isInteger(value) || value <= 0) {
         return `${fieldName} should be a positive integer.`;
     }

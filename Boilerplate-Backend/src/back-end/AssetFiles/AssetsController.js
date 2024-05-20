@@ -44,7 +44,20 @@ async function createInvestmentAccount(req, res) {
     }
 }
 
+async function handleGetUserStocks(req, res) {
+    try {
+        const { userId } = req.params;
+        const stocksData = await AssetsService.getUserStocksData(userId);
+        //console.log(stocksData)
+        res.json({ success: true, data: stocksData });
+    } catch (error) {
+        console.error('Error fetching user stocks:', error);
+        res.status(500).json({ success: false, message: 'Failed to fetch user stocks', error: error.message });
+    }
+}
+
 module.exports = {
     createInvestmentAccount: [validateInvestmentRequestBody, createInvestmentAccount],
-    handleGetAssets
+    handleGetAssets,
+    handleGetUserStocks
 };
