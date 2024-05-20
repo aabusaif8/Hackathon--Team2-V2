@@ -7,8 +7,14 @@ exports.up = function(knex) {
         table.decimal('Low'); 
         table.decimal('Close');
         table.bigInteger('Volume');
-        table.integer('OpenInt');
+        table.integer('OpenInt'); 
+        table.text("Category")
+        table.text("Stock")
+        table.decimal("Standard Dev")
         table.text("Risk Level");
+        table.decimal("Current Trend")
+        table.decimal("Future Trend")
+        table.text("Overall Trend")
     });
 };
 

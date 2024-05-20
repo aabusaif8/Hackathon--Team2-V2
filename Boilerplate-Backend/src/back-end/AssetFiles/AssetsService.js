@@ -21,6 +21,34 @@ async function getAssetsByType(assetType, userInput, dateRange) {
     }
 }
 
+async function getUserStocksData(userId) {
+    try {
+        const userStockIds = await db('User Info')
+            .select('Stocks in Portfolio')
+            .where('Id', userId)
+            .first();
+
+        if (!userStockIds) {
+            throw new Error('User not found or no stocks associated with the user');
+        }
+
+        const stockIds = userStockIds['Stocks in Portfolio'];
+
+        const stockIdArray = stockIds.split(',').map(Number);
+
+        const stockData = await db('Stocks')
+            .whereIn('Id', stockIdArray)
+            .select('*');
+            //(stockData)
+        return stockData;
+    } catch (error) {
+        console.error('Error fetching user stocks data:', error);
+        throw error;
+    }
+}
+
+
+
 async function getDateRange(assetType, range) {
     try {
         let latestDate;
@@ -143,5 +171,6 @@ module.exports = {
     getAssetsByType,
     displayAssetsByType,
     InvestmentAccount,
-    saveInvestmentAccount
+    saveInvestmentAccount,
+    getUserStocksData
 };
