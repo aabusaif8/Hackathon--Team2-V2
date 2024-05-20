@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -54,6 +55,7 @@ const SignUpForm = () => {
         });
     } else {
         alert("Passwords do not match");
+
     }
   };
 
@@ -148,7 +150,6 @@ const SignUpForm = () => {
   </div>
 </div>
 
-
               <div>
                 <label
                   htmlFor="investmentAmount"
@@ -200,6 +201,7 @@ const SignUpForm = () => {
                   </select>
                 </div>
               </div>
+
               <div>
   <label htmlFor="financialGoals" className="block text-sm font-medium text-gray-700">
     Financial Goals
@@ -240,6 +242,7 @@ const SignUpForm = () => {
   </div>
 </div>
 
+
               <div>
                 <button
                   type="submit"
@@ -256,5 +259,5 @@ const SignUpForm = () => {
   );
 };
 
-
 export default SignUpForm;
+

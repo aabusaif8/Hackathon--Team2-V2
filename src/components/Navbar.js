@@ -1,6 +1,8 @@
+
 import React, { useState, Fragment } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
@@ -33,31 +35,33 @@ function Navbar() {
           </button>
         </div>
 
-        <Popover.Group className="hidden lg:flex lg:gap-x-12">
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            Investment Assistant
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            Manual Investment
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            Dashboard Overview
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            Learning Resources
-          </a>
-        </Popover.Group>
+            <a href="/manual-investment" className="text-sm font-semibold leading-6 text-white">
+                Manual Investment
+            </a>
+            <a href="/account-features" className="text-sm font-semibold leading-6 text-white">
+                Account Features
+            </a>
+            <a href="learning-resources" className="text-sm font-semibold leading-6 text-white">
+                Learning Resources
+            </a>
+            <a href="/about-us" className="text-sm font-semibold leading-6 text-white">
+                About Us
+            </a>
+          </Popover.Group>
 
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link
-            to="/signin"
-            className="text-sm font-semibold leading-6 text-white"
-          >
-            Log in <span aria-hidden="true">&rarr;</span>
-          </Link>
-        </div>
-      </nav>
-      <Dialog
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <Link to="/signin" className="text-sm font-semibold leading-6 text-white">
+                Sign In <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <Link to="/signup" className="text-sm font-semibold leading-6 text-white">
+                Sign Up <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+        </nav>
+        <Dialog
+
         as="div"
         className="lg:hidden"
         open={mobileMenuOpen}
@@ -83,48 +87,60 @@ function Navbar() {
             </button>
           </div>
 
-          <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
-                        hover:bg-[#97db51]"
-                >
-                  Investment Assistant
-                </a>
 
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
+            <div className="mt-6 flow-root">
+                <div className="-my-6 divide-y divide-gray-500/10">
+                    <div className="space-y-2 py-6">
+
+                        <a
+                        href="/manual-investment"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
-                >
-                  Manual Investment
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
+                        >
+                          Manual Investment
+                        </a>
+                        <a
+                        href="account-features"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
-                >
-                  Dashboard Overview
-                </a>
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
+                        >
+                          Account Features
+                        </a>
+                        <a
+                        href="/learning-resources"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
-                >
-                  Learning Resources
-                </a>
-              </div>
-              <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white
+                        >
+                          Learning Resources
+                        </a>
+
+                        <a
+                        href="about-us"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
+                        hover:bg-[#97db51]"
+                        >
+                          About Us
+                        </a>
+        
+                    </div>
+                    <div className="py-6">
+                      <Link to="/signin"
+                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white
                       hover:bg-[#97db51]"
-                >
-                  Sign In/Sign Up
-                </a>
-              </div>
+                      >
+                        Sign In
+                      </Link>
+                    </div>
+
+                    <div className="py-6">
+                      <Link to="signup"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white
+                      hover:bg-[#97db51]"
+                      >
+                        Sign Up
+                      </Link>
+                    </div>
+                </div>
             </div>
           </div>
         </Dialog.Panel>

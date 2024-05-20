@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import NavBar from "../components/Navbar";
 import { Link } from "react-router-dom";
@@ -40,6 +41,7 @@ const LoginPage = () => {
   return (
     <div>
       <NavBar />
+
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
         <button className="text-dark-green text-2xl font-semibold mt-5 ml-10 underline absolute top-0 left-0">
           Back
@@ -67,6 +69,7 @@ const LoginPage = () => {
               className="w-full py-2 bg-purple-700 text-white rounded-lg font-semibold text-xl"
               onClick={handleLogin}
             >
+
               Login
             </button>
           </div>

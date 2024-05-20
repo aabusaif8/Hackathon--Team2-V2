@@ -3,7 +3,7 @@ import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
-    <div className="flex flex-col min-h-[50vh]">
+    <div className="flex flex-col min-h-[10vh]">
       <main className="flex-grow">
         {/* Your main content goes here */}
       </main>
@@ -22,10 +22,10 @@ const Footer = () => {
               <h4 className="m-3 font-bold text-black">Quick Links</h4>
               <ul className="font-semibold text-white m-3 mb-2">
                 <li><a href="./">Home</a></li>
-                <li><a href="">Digital Assistant</a></li>
-                <li><a href="#">Analysis</a></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Learn</a></li>
+                <li><a href="/manual-investment">Manual Investment</a></li>
+                <li><a href="#">Account Features</a></li>
+                <li><a href="/learning-resources">Learning Resources</a></li>
+                <li><a href="/about-us">About Us</a></li>
               </ul>
             </div>
             <div>

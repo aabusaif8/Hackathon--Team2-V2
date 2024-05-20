@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../components/Navbar";
 
 const SignUpProceed = ({ username }) => {
+
   return (
     <div>
       <NavBar />
