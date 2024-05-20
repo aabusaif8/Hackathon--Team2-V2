@@ -22,10 +22,10 @@ function MyAccount() {
       <nav>
         <ul>
           <li className='block px-6 py-4 border-b border-t hover:bg-white transition duration-300 border-dark-green '>
-            <Link to="/personalinformation">Personal Information</Link>
+            <Link to="/personal-information">Personal Information</Link>
           </li>
           <li className='block px-6 py-4  hover:bg-white transition duration-300'>
-            <Link to="/linkedaccounts">Linked Accounts</Link>
+            <Link to="/linked-accounts">Linked Accounts</Link>
           </li>
         </ul>
       </nav>
@@ -40,13 +40,13 @@ function MyAccount() {
       <nav>
         <ul>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/mystatements">My Statements</Link>
+            <Link to="/my-statements">My Statements</Link>
           </li>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/changepassword">Change Password</Link>
+            <Link to="/change-password">Change Password</Link>
           </li>
           <li className='block px-6 py-4  border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/twostepauthentication">Two-Step Authentication</Link>
+            <Link to="/two-step-authentication">Two-Step Authentication</Link>
           </li>
         </ul>
       </nav>
@@ -63,7 +63,7 @@ function MyAccount() {
             <Link to="/legal">Legal</Link>
           </li>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
-            <Link to="/gethelp">Get Help</Link>
+            <Link to="/get-help">Get Help</Link>
           </li>
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
             <Link to="/accessibility">Accessibility</Link>

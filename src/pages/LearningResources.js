@@ -3,10 +3,16 @@ import { Link } from 'react-router-dom'
 import Pic1 from "../images/rafiki.png"
 import Pic2 from "../images/phone-wallet.png"
 import Pic3 from "../images/money-pile.png"
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 
 function LearningResources() {
   return (
+    <div>
+      <Navbar />
+
+    
     <div className='justify-content-center'>
       <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
       <div className="text-center font-semibold text-4xl mt-5">
@@ -40,6 +46,8 @@ function LearningResources() {
           <h1 className='text-center text-3xl pt-10'>5 Tips to Double your Savings in One Year</h1>
         </div>
       </Link>
+    </div>
+    <Footer />
     </div>
   )
 }

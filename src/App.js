@@ -26,6 +26,8 @@ import MyStatements from './pages/securityandPrivacy/MyStatements';
 import ChangePassword from './pages/securityandPrivacy/ChangePassword';
 import ChatbotPopup from './components/ChatBotPopup';
 import chatboticon from './assets/chatboticon.png';
+import AboutUs from './pages/AboutUs';
+import AccountFeaturesPage from './pages/AccountFeaturesPage';
 import SignIn from './account/SignIn';
 import SignUp from './account/SignUp';
 import SignUpProceed from './account/SignUpProceed';
@@ -44,7 +46,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<LandingPage />}/>
           <Route path="/:userId/dashboard" element={<Dashboard />} />
-          <Route path="/myAccount" element={<MyAccount />} />
+          <Route path="/my-account" element={<MyAccount />} />
           <Route path="/investment-assistant" element={<InvestmentAssistant />}/>
           <Route path="/manual-investment" element={<ManualInvestment />}/>
 
@@ -58,13 +60,15 @@ function App() {
           <Route path="/custodial-account" element={<CustodialAccount />}/>
           <Route path="/ira" element={<IRA />}/>
           <Route path="/legal" element={<Legal />} />
-          <Route path="/gethelp" element={<GetHelp />} />
-          <Route path="/twostepauthentication" element={<TwoStepAuthentication />} />
+          <Route path="/get-help" element={<GetHelp />} />
+          <Route path="/two-step-authentication" element={<TwoStepAuthentication />} />
           <Route path="/accessibility" element={<Accessibility />} />
           <Route path="/:userId/personalinformation" element={<PersonalInformation />} />
-          <Route path="/linkedaccounts" element={<LinkedAccounts />} />
-          <Route path="/mystatements" element={<MyStatements />} />
-          <Route path="/changepassword" element={<ChangePassword />} />
+          <Route path="/linked-accounts" element={<LinkedAccounts />} />
+          <Route path="/my-statements" element={<MyStatements />} />
+          <Route path="/change-password" element={<ChangePassword />} />
+          <Route path="/about-us" element={<AboutUs/>} />
+          <Route path="/account-features" element={<AccountFeaturesPage/>} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/signup/proceed" element={<SignUpProceed />} />
