@@ -9,7 +9,6 @@ const listener = () => {
     
     // Log all routes
     const endpoints = listEndpoints(app);
-    //console.log(endpoints);
 };
 
 // const listener = () => console.log(`Listening on Port ${PORT}!`);

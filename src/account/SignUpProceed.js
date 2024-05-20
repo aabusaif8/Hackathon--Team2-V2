@@ -1,7 +1,8 @@
 import React from "react";
 import NavBar from "../components/Navbar";
 
-const SignUpProceed = ({ legalName }) => {
+const SignUpProceed = ({ username }) => {
+
   return (
     <div>
       <NavBar />
@@ -9,7 +10,7 @@ const SignUpProceed = ({ legalName }) => {
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
         <div className="w-full max-w-md p-8 bg-white shadow-md rounded-lg">
           <h1 className="text-center font-semibold text-4xl mb-8">
-            Hello, {legalName}
+            Hello, {username}
           </h1>
           <br />
           <br />
