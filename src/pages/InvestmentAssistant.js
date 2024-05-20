@@ -9,6 +9,13 @@ import DoNotInvestCo from '../reuseComponents/DoNotInvestCo';
 import SearchCompanies from '../reuseComponents/SearchCompanies';
 import SSN from '../reuseComponents/SSN';
 import BankAccount from '../reuseComponents/BankAccount';
+ 
+import AccountComplete from '../reuseComponents/AccountComplete';
+import ReadyToInvest from '../reuseComponents/ReadyToInvest';
+import TermsAndCond from '../reuseComponents/TermsAndCond';
+import ChooseAccountType from '../reuseComponents/ChooseAccountType';
+import AddMoreBank from '../reuseComponents/AddMoreBank';
+
 
 function InvestmentAssist() {
   return (
@@ -26,7 +33,33 @@ function InvestmentAssist() {
         <SearchCompanies />
         <SSN />
         <BankAccount />
-      </div>     
+      </div> 
+
+                    {/* RANDOMS */}
+      {/* Component "Account Set Up Complete" move this anywhere thats needed */}
+      <div>
+        <AccountComplete />
+      </div>  
+
+
+      {/* Component "Ready to Invest" move this anywhere thats needed */}  
+      <div>
+        <ReadyToInvest />
+      </div>
+
+      {/* Component "Terms and Conditions" move this anywhere thats needed */}
+      <div>
+        <TermsAndCond />
+      </div>
+
+      <div>
+        <ChooseAccountType />
+      </div>
+
+      <div>
+        <AddMoreBank />
+      </div>
+
     </div>
   )
 }
