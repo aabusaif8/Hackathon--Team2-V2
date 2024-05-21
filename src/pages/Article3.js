@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Pic from "../images/money-pile.png"
+import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
+
 
 function Article3() {
   return (
     <div>
+      <Navbar />
       <div className='sm:box-content h-38 bg-light-green rounded-xl pt-5 shadow-xl'>
-        <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
         <img src={Pic} className='mx-20'/>
       </div>
 
@@ -41,7 +44,7 @@ function Article3() {
           </button>
         </Link>
       </div> 
-
+    <Footer />
     </div>
   )
 }
