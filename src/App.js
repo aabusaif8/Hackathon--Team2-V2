@@ -5,6 +5,9 @@ import Dashboard from './pages/Dashboard';
 
 import InvestmentAssistant from './pages/InvestmentAssistant';
 import ManualInvestment from './pages/ManualInvestment';
+import Conditions from './pages/Conditions';
+import ChooseInvestAccount from './pages/ChooseInvestAccount';
+
 
 import LearningResources from './pages/LearningResources';
 import Article1 from './pages/Article1';
@@ -48,8 +51,16 @@ function App() {
           <Route exact path="/" element={<LandingPage />}/>
           <Route path="/:userId/dashboard" element={<Dashboard />} />
           <Route path="/myAccount" element={<MyAccount />} />
-          <Route path="/:userId/investment-assistant" element={<InvestmentAssistant />} />
 
+          <Route path="/:userId/ready-to-invest/terms" element={<Conditions />} /> {/* Choose between this or the one that is made. This is currently linked */}
+          <Route path="/:userId/choose-account-type" element={<ChooseInvestAccount />}/>
+
+          <Route path="/standard-account" element={<StandardAccount />} /> 
+          <Route path="/5%apy-savings" element={<FiveAPYSavings />}/>
+          <Route path="/custodial-account" element={<CustodialAccount />}/>
+          <Route path="/ira" element={<IRA />}/>
+
+          <Route path="/:userId/investment-assistant" element={<InvestmentAssistant />} />
           <Route path="/manual-investment" element={<ManualInvestment />}/>
 
           <Route path="/learning-resources" element={<LearningResources />}/>
@@ -57,10 +68,6 @@ function App() {
           <Route path="/learning-resources-article2" element={<Article2 />} />
           <Route path="/learning-resources-article3" element={<Article3 />} />
 
-          <Route path="/standard-account" element={<StandardAccount />} /> 
-          <Route path="/5%apy-savings" element={<FiveAPYSavings />}/>
-          <Route path="/custodial-account" element={<CustodialAccount />}/>
-          <Route path="/ira" element={<IRA />}/>
           <Route path="/legal" element={<Legal />} />
           <Route path="/get-help" element={<GetHelp />} />
           <Route path="/two-step-authentication" element={<TwoStepAuthentication />} />

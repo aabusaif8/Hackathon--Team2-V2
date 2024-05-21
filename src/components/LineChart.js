@@ -63,14 +63,14 @@ const LineChart = () => {
       .line()
       .x(d => x(d.date))
       .y(d => y(d.value))
-      //.curve(d3.curveMonotoneX); // Curves the line
+      .curve(d3.curveMonotoneX); // Curves the line
 
     const area = d3
     .area()
     .x(d => x(d.date))
     .y0(height)
     .y1(d => y(d.value))
-    //.curve(d3.curveMonotoneX); // Smooth the area
+    .curve(d3.curveMonotoneX); // Smooth the area
 
     const g = svg
       .append('g')

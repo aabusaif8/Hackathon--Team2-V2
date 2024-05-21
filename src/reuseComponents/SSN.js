@@ -90,15 +90,7 @@ function SSN() {
         </div>
       </div>
 
-      {/* Back and Proceed Btns */}
-      <div className='space-x-12 drop-shadow-xl'>
-        <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
-          Go Back
-        </button>
-        <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
-          Proceed
-        </button>
-      </div>
+    
       
     </div>
   )
