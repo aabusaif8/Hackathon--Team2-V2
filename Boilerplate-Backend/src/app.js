@@ -14,14 +14,12 @@ const userInfoRouter = require("./back-end/UserInfo/UserInfoRouter"); // Import 
 app.use(cors());
 app.use(express.json());
 
-// Mount the assetsRouter under a specific path
 app.use("/assets", assetsRouter);
 
-// Mount the userInfoRouter under a specific path
 app.use("/users", userInfoRouter);
 
 // app.use("/", router)
-app.post("/learning-resources", chatCompletion);
+// app.post("/learning-resources", chatCompletion);
 
 
 app.use(notFound);

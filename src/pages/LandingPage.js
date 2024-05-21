@@ -3,7 +3,7 @@ import React from 'react';
 import NavBar from '../components/Navbar';
 import Hero from '../components/Hero';
 import DigitalAssistant from '../components/DigitalAssistant';
-import DashboardPreview from '../components/DashboardPreview';
+import AccountFeatures from '../components/AccountFeatures';
 import Analysis from '../components/Analysis';
 import Learn from '../components/Learn';
 import Footer from '../components/Footer';
@@ -11,19 +11,22 @@ import Footer from '../components/Footer';
 const LandingPage = () => {
   return (
     <div>
+
       <NavBar />
+     
+        <Hero />
+        
+        <DigitalAssistant />
 
-      <Hero />
+        <Analysis />
 
-      <DigitalAssistant />
+        <AccountFeatures />
 
-      <DashboardPreview />
-
-      <Analysis />
-
-      <Learn />
+        <Learn />
 
       <Footer />
+
+
     </div>
   );
 };

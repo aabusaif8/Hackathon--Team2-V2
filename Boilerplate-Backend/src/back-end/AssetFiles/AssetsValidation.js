@@ -1,5 +1,6 @@
 
 function validatePositiveAmount(value, fieldName) {
+  //console.log(value,fieldName)
     if (!Number.isInteger(value) || value <= 0) {
         return `${fieldName} should be a positive integer.`;
     }
@@ -22,14 +23,14 @@ function validateStrategy(strategy) {
 }
 
 function validateInvestmentRequestBody(req, res, next) {
-    const { "investment amount" : investmentAmount, "investment frequency": investmentFrequency, "financial goals": financialGoals, "strategy": strategy } = req.body;
-
-    const investmentAmountError = validatePositiveAmount(investmentAmount, 'Investment amount');
+    const { "Investment Amount" : investmentAmount, "Investment Frequency": investmentFrequency, "Financial Goals": financialGoals, "Strategy": strategy } = req.body;
+    //console.log(investmentAmount)
+    const investmentAmountError = validatePositiveAmount(investmentAmount, 'Investment Amount');
       if (investmentAmountError) {
         return res.status(400).json({ error: investmentAmountError });
       }
 
-    const financialGoalsError = validatePositiveAmount(financialGoals, 'Financial goals');
+    const financialGoalsError = validatePositiveAmount(financialGoals, 'Financial Goals');
       if (financialGoalsError) {
         return res.status(400).json({ error: financialGoalsError });
       }

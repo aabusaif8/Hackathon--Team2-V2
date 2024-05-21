@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
-import { useState, Fragment } from "react";
+import {Fragment } from "react";
 import {Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline"; 
 import {Dialog, Disclosure, Popover, Transition } from "@headlessui/react"
 
@@ -14,19 +14,20 @@ function Navbar() {
          aria-label="Global"
         >
           <div className="flex lg:flex-1">
-            <Link to href="/" className="-m-1.5 p-1.5">
+            <a href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">Monarch.com</span>
                 <img
+                  href="../"
                   className="h-14 w-auto"
                   src={logo}
                   alt="logo"
                   />
-            </Link>
+            </a>
           </div>
           <div className="flex lg:hidden justify-end">
             <button 
               type="button"
-              className="-m-2.5 flex justify-end rounded-md p-2.5 text-white "
+              className="-m-2.5 inline-flex justify-end rounded-md p-2.5 text-white "
               onClick={() => setMobileMenuOpen(true)}
           >
               <span className="sr-only">Open main menu</span>
@@ -36,24 +37,29 @@ function Navbar() {
 
           <Popover.Group className="hidden lg:flex lg:gap-x-12">
 
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
-                Investment Assistant
-            </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
+            <a href="/manual-investment" className="text-sm font-semibold leading-6 text-white">
                 Manual Investment
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
-                Dashboard Overview
+            <a href="/account-features" className="text-sm font-semibold leading-6 text-white">
+                Account Features
             </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
+            <a href="learning-resources" className="text-sm font-semibold leading-6 text-white">
                 Learning Resources
+            </a>
+            <a href="/about-us" className="text-sm font-semibold leading-6 text-white">
+                About Us
             </a>
           </Popover.Group>
 
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <a href="#" className="text-sm font-semibold leading-6 text-white">
-                Log in <span aria-hidden="true">&rarr;</span>
-            </a>
+            <Link to="/signin" className="text-sm font-semibold leading-6 text-white">
+                Sign In <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <Link to="/signup" className="text-sm font-semibold leading-6 text-white">
+                Sign Up <span aria-hidden="true">&rarr;</span>
+            </Link>
           </div>
         </nav>
         <Dialog
@@ -89,38 +95,54 @@ function Navbar() {
             <div className="mt-6 flow-root">
                 <div className="-my-6 divide-y divide-gray-500/10">
                     <div className="space-y-2 py-6">
-                        
+
                         <a
-                        href="#"
+                        href="/manual-investment"
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
                         >
                           Manual Investment
                         </a>
                         <a
-                        href="#"
+                        href="account-features"
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
                         >
-                          Dashboard Overview
+                          Account Features
                         </a>
                         <a
-                        href="#"
+                        href="/learning-resources"
                         className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
                         hover:bg-[#97db51]"
                         >
                           Learning Resources
                         </a>
+
+                        <a
+                        href="about-us"
+                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
+                        hover:bg-[#97db51]"
+                        >
+                          About Us
+                        </a>
         
                     </div>
                     <div className="py-6">
-                      <a 
-                      href="#"
+                      <Link to="/signin"
+                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white
+                      hover:bg-[#97db51]"
+                      >
+                        Sign In
+                      </Link>
+                    </div>
+
+                    <div className="py-6">
+                      <Link to="signup"
                       className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white
                       hover:bg-[#97db51]"
                       >
-                        Log In/Sign Up
-                      </a>
+                        Sign Up
+                      </Link>
                     </div>
                 </div>
             </div>
