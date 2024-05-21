@@ -1,7 +1,9 @@
-
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import logo from "../assets/monarchlogo.png";
+import SignUpCss from "./SignUp.css";
 
 const SignUpForm = () => {
   const [Username, setUsername] = useState("");
@@ -14,57 +16,58 @@ const SignUpForm = () => {
   const [stocksInPortfolio, setStocksInPortfolio] = useState("");
   const [etfsInPortfolio, setEtfsInPortfolio] = useState("");
   
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Password === confirmPassword) {
-        const formData = {
-            Username,
-            Password,
-            "Investment Amount": parseInt(investmentAmount),
-            "Investment Frequency": investmentFrequency,
-            "Financial Goals": parseInt(financialGoals),
-            Experience: experience,
-            "Stocks in Portfolio": "001,003,005",
-            "ETFs in Portfolio": "002,004,006"
-        };
-        
-        fetch('http://localhost:5000/assets/createInvestmentAccount', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData)
+      const formData = {
+        Username,
+        Password,
+        "Investment Amount": parseInt(investmentAmount),
+        "Investment Frequency": investmentFrequency,
+        "Financial Goals": parseInt(financialGoals),
+        Experience: experience,
+        "Stocks in Portfolio": "001,003,005",
+        "ETFs in Portfolio": "002,004,006",
+      };
+
+      fetch("http://localhost:5000/assets/createInvestmentAccount", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json(); // Parse the JSON response
+          } else {
+            throw new Error("Failed to create user");
+          }
         })
-        .then(response => {
-            if (response.ok) {
-                return response.json(); // Parse the JSON response
-            } else {
-                throw new Error('Failed to create user');
-            }
+        .then((data) => {
+          console.log("Response data:", data); // Log the parsed data
+          const userId = data.data; // Extract the userId from the response data
+          navigate(`/${userId}/investment-assistant`); // Navigate to the user's dashboard
         })
-        .then(data => {
-            console.log('Response data:', data); // Log the parsed data
-            const userId = data.data; // Extract the userId from the response data
-            navigate(`/${userId}/investment-assistant`); // Navigate to the user's dashboard
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Failed to create user');
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("Failed to create user");
         });
     } else {
-        alert("Passwords do not match");
-
+      alert("Passwords do not match");
     }
   };
 
   return (
     <div>
       <Navbar />
-      <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
-          <h2 className="text-5xl text-gray-900">
+      <div className="min-h-screen bg-white flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div className="sm:mx-auto sm:w-full text-center">
+          <img src={logo} alt="logo" className="mx-auto mt-5" />
+          <h2 className="text-5xl text-center text-gray-900 sm:mx-auto sm:w-full sm:max-w-md">
             Welcome!
             <br />
             Investment your way is right around the corner.
@@ -77,26 +80,29 @@ const SignUpForm = () => {
         </div>
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-      <form className="space-y-6" onSubmit={handleSubmit}>
-      <div>
-  <label htmlFor="Username" className="block text-sm font-medium text-gray-700">
-    Username
-  </label>
-  <div className="mt-1">
-    <input
-      id="Username"
-      name="Username"
-      type="text"
-      autoComplete="name"
-      required
-      value={Username}
-      onChange={(e) => setUsername(e.target.value)}
-      className="appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-    />
-  </div>
-</div>
-        <div>
-        <label
+            <form className="space-y-6" onSubmit={handleSubmit}>
+              <div>
+                <label
+                  htmlFor="Username"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Username
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="Username"
+                    name="Username"
+                    type="text"
+                    autoComplete="name"
+                    required
+                    value={Username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700"
                 >
@@ -115,40 +121,46 @@ const SignUpForm = () => {
               </div>
 
               <div>
-  <label htmlFor="Password" className="block text-sm font-medium text-gray-700">
-    Create Password
-  </label>
-  <div className="mt-1">
-    <input
-      id="Password"
-      name="Password"
-      type="password"
-      autoComplete="new-password"
-      required
-      value={Password}
-      onChange={(e) => setPassword(e.target.value)}
-      className="appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-    />
-  </div>
-</div>
+                <label
+                  htmlFor="Password"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Create Password
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="Password"
+                    name="Password"
+                    type="password"
+                    autoComplete="new-password"
+                    required
+                    value={Password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
+                </div>
+              </div>
 
-<div>
-  <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-    Confirm Password
-  </label>
-  <div className="mt-1">
-    <input
-      id="confirmPassword"
-      name="confirmPassword"
-      type="password"
-      autoComplete="new-password"
-      required
-      value={confirmPassword}
-      onChange={(e) => setConfirmPassword(e.target.value)}
-      className="appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-    />
-  </div>
-</div>
+              <div>
+                <label
+                  htmlFor="confirmPassword"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Confirm Password
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    type="password"
+                    autoComplete="new-password"
+                    required
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
+                </div>
+              </div>
 
               <div>
                 <label
@@ -203,45 +215,50 @@ const SignUpForm = () => {
               </div>
 
               <div>
-  <label htmlFor="financialGoals" className="block text-sm font-medium text-gray-700">
-    Financial Goals
-  </label>
-  <div className="mt-1">
-    <input
-      id="financialGoals"
-      name="financialGoals"
-      type="number"
-      autoComplete="off"
-      required
-      value={financialGoals}
-      onChange={(e) => setFinancialGoals(e.target.value)}
-      className="appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-    />
-  </div>
-</div>
+                <label
+                  htmlFor="financialGoals"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Financial Goals
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="financialGoals"
+                    name="financialGoals"
+                    type="number"
+                    autoComplete="off"
+                    required
+                    value={financialGoals}
+                    onChange={(e) => setFinancialGoals(e.target.value)}
+                    className="appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
+                </div>
+              </div>
 
-<div>
-  <label htmlFor="experience" className="block text-sm font-medium text-gray-700">
-    Experience
-  </label>
-  <div className="mt-1">
-    <select
-      id="experience"
-      name="experience"
-      value={experience}
-      onChange={(e) => setExperience(e.target.value)}
-      className="block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-    >
-      <option value="" disabled>
-        Select experience level
-      </option>
-      <option value="rookie">Rookie</option>
-      <option value="experienced">Experienced</option>
-      <option value="veteran">Veteran</option>
-    </select>
-  </div>
-</div>
-
+              <div>
+                <label
+                  htmlFor="experience"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Experience
+                </label>
+                <div className="mt-1">
+                  <select
+                    id="experience"
+                    name="experience"
+                    value={experience}
+                    onChange={(e) => setExperience(e.target.value)}
+                    className="block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  >
+                    <option value="" disabled>
+                      Select experience level
+                    </option>
+                    <option value="rookie">Rookie</option>
+                    <option value="experienced">Experienced</option>
+                    <option value="veteran">Veteran</option>
+                  </select>
+                </div>
+              </div>
 
               <div>
                 <button
@@ -255,9 +272,9 @@ const SignUpForm = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
 
 export default SignUpForm;
-
