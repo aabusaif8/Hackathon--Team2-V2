@@ -34,7 +34,7 @@ function Navbar() {
             />
           </button>
         </div>
-
+          <Popover.Group className="hidden lg:flex lg:gap-x-12">
             <a href="/manual-investment" className="text-sm font-semibold leading-6 text-white">
                 Manual Investment
             </a>
