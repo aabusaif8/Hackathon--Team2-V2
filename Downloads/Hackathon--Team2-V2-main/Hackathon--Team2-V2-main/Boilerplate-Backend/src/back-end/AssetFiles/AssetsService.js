@@ -4,15 +4,15 @@ const knex = require("../../db/connection");
 async function getAssetsByType(assetType, userInput, dateRange) {
     try {
         let query = knex.from(assetType).returning("*");
-        
+
         if (assetType === "Stocks" || assetType === "ETFs") {
             query = query.where('Risk Level', userInput);
         }
-        
+
         const results = await query;
         const realDate = await getDateRange(assetType, dateRange);
         const filteredResults = results.filter(stock => stock.Date >= realDate);
-        
+
         return filteredResults;
     } catch (error) {
         console.error('Error creating query:', error);
@@ -47,9 +47,6 @@ async function getUserStocksData(userId) {
         throw error;
     }
 }
-
-
-
 
 async function getDateRange(assetType, range) {
     try {
@@ -93,11 +90,6 @@ async function getDateRange(assetType, range) {
     }
 }
 
-
-
-
-
-
 async function displayAssetsByType(assetType, userInput) {
     try {
         const assets = await getAssetsByType(assetType, userInput);
@@ -109,13 +101,15 @@ async function displayAssetsByType(assetType, userInput) {
 }
 
 class InvestmentAccount {
-    constructor(username, password, investmentAmount, investmentFrequency, financialGoals, Experience, Stocks, ETFs) {
+    constructor(username, password, email, phoneNumber, investmentAmount, investmentFrequency, financialGoals, Experience, Stocks, ETFs) {
         this.Username = username;
         this.Password = password;
+        this.Email = email;
+        this.PhoneNumber = phoneNumber;
         this["Investment Amount"] = investmentAmount;
         this["Investment Frequency"] = investmentFrequency;
         this["Financial Goals"] = financialGoals;
-        this["Experience"] = Experience;
+        this.Experience = Experience;
         this["Stocks in Portfolio"] = Stocks;
         this["ETFs in Portfolio"] = ETFs;
     }
@@ -126,6 +120,14 @@ class InvestmentAccount {
 
     setPassword(password) {
         this.Password = password;
+    }
+
+    setEmail(email) {
+        this.Email = email;
+    }
+
+    setPhoneNumber(phoneNumber) {
+        this.PhoneNumber = phoneNumber;
     }
 
     setInvestmentAmount(amount) {
@@ -141,7 +143,7 @@ class InvestmentAccount {
     }
 
     setAccountType(Experience) {
-        this["Experience"] = Experience;
+        this.Experience = Experience;
     }
 
     setAccountPortfolio(Stocks, ETFs) {
@@ -153,17 +155,19 @@ class InvestmentAccount {
 async function saveInvestmentAccount(investmentAccount) {
     try {
         const savedInvestmentAccount = await db('User Info').returning("Id").insert({
-            "Username": investmentAccount.Username,
-            "Password": investmentAccount.Password,
+            Username: investmentAccount.Username,
+            Password: investmentAccount.Password,
+            Email: investmentAccount.Email,
+            "Phone Number": investmentAccount.PhoneNumber,
             "Investment Amount": investmentAccount["Investment Amount"],
             "Investment Frequency": investmentAccount["Investment Frequency"],
             "Financial Goals": investmentAccount["Financial Goals"],
-            "Experience": investmentAccount["Experience"],
+            Experience: investmentAccount.Experience,
             "Stocks in Portfolio": investmentAccount["Stocks in Portfolio"],
             "ETFs in Portfolio": investmentAccount["ETFs in Portfolio"]
         });
         const userId = savedInvestmentAccount[0];
-        const newUserId = userId.Id
+        const newUserId = userId.Id;
         //console.log(newUserId)
         return newUserId;
     } catch (error) {

@@ -3,6 +3,8 @@ exports.up = function(knex) {
         table.increments("Id").primary()
         table.text("Username");
         table.text("Password");
+        table.text("Email")
+        table.text("Phone Number")
         table.integer("Investment Amount")
         table.text("Investment Frequency")
         table.integer("Financial Goals")
