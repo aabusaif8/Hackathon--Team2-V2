@@ -31,7 +31,7 @@ function ManualInvestment() {
     }
   }
   return (
-    <div>     
+    <div className="min-h-screen flex flex-col bg-gray-100">
       <Navbar />
       <Link to="/">
       <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
@@ -58,7 +58,7 @@ function ManualInvestment() {
       </div>        
       <Footer />
     </div>
-  )
+  );
 }
 
-export default ManualInvestment
+export default ManualInvestment;

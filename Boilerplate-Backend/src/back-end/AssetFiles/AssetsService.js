@@ -21,12 +21,13 @@ async function getAssetsByType(assetType, userInput, dateRange) {
 }
 
 async function getUserStocksData(userId) {
+    console.log(userId)
+
     try {
         const userStockIds = await db('User Info')
             .select('Stocks in Portfolio')
             .where('Id', userId)
             .first();
-
         if (!userStockIds) {
             throw new Error('User not found or no stocks associated with the user');
         }
@@ -34,17 +35,19 @@ async function getUserStocksData(userId) {
         const stockIds = userStockIds['Stocks in Portfolio'];
 
         const stockIdArray = stockIds.split(',').map(Number);
+        console.log(stockIdArray)
 
+        // Use parameterized query to prevent syntax errors
         const stockData = await db('Stocks')
-            .whereIn('Id', stockIdArray)
+            .whereIn('Id', stockIdArray.map(id => Number(id)))
             .select('*');
-            //(stockData)
         return stockData;
     } catch (error) {
         console.error('Error fetching user stocks data:', error);
         throw error;
     }
 }
+
 
 
 

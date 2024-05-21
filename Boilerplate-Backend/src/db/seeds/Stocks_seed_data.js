@@ -20,7 +20,7 @@ const Stock_Data = `
 
 
 `;
-const headers = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'OpenInt'];
+const headers = ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'OpenInt','Category','Stock','Standard Dev','Risk Level','Current Trend','Future Trend','Overall Trend'];
 
 const stockData = Stock_Data.trim().split('\n').map(row => {
     const values = row.split(',');
