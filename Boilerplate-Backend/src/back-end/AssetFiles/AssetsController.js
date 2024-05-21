@@ -20,7 +20,7 @@ async function handleGetAssets(req, res) {
 
 async function createInvestmentAccount(req, res) {
     try {
-        console.log('Request body:', req.body);
+        //console.log('Request body:', req.body);
         const { Username, Password, 'Investment Amount': investmentAmount, 'Investment Frequency': investmentFrequency, 'Financial Goals': financialGoals, Experience, 'Stocks in Portfolio': Stocks, 'ETFs in Portfolio': ETFs } = req.body;
         
         const missingField = !Username ? 'Username' : !Password ? 'Password' : !investmentAmount ? 'Investment Amount' : !investmentFrequency ? 'Investment Frequency' : !Experience ? 'Experience' : !Stocks ? 'Stocks in Portfolio' : !ETFs ? 'ETFs in Portfolio' : null;
@@ -36,7 +36,7 @@ async function createInvestmentAccount(req, res) {
         const savedInvestmentAccount = await AssetsService.saveInvestmentAccount(newInvestmentAccount);
 
         if (savedInvestmentAccount) {
-            console.log(savedInvestmentAccount)
+            //console.log(savedInvestmentAccount)
             res.status(200).json({ success: true, data: savedInvestmentAccount });
         } else {
             res.status(500).json({ success: false, message: 'Failed to save investment account' });
@@ -51,8 +51,9 @@ async function createInvestmentAccount(req, res) {
 async function handleGetUserStocks(req, res) {
     try {
         const { userId } = req.params;
+        //console.log(userId)
         const stocksData = await AssetsService.getUserStocksData(userId);
-        //console.log(stocksData)
+        console.log(stocksData)
         res.json({ success: true, data: stocksData });
     } catch (error) {
         console.error('Error fetching user stocks:', error);
