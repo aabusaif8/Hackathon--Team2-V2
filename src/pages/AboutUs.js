@@ -16,7 +16,6 @@ const AboutUs = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
     console.log(formData);
     setFormSubmitted(true);
     // Reset form data after submission
@@ -26,7 +25,7 @@ const AboutUs = () => {
   return (
     <div className="bg-gray-100 min-h-screen">
       <Navbar />
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 ">
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-base text-dark-green font-semibold tracking-wide uppercase">
             About Us
@@ -38,35 +37,22 @@ const AboutUs = () => {
 
         <div className="mt-10">
           <p className="text-xl text-gray-500">
-          At Monarch, we are committed to revolutionizing the world of finance by
-           harnessing the power of artificial intelligence. Our mission is to democratize
-            investing, making it accessible and intuitive for individuals from all walks of life.
+            At Monarch, we are committed to revolutionizing the world of finance by harnessing the power of artificial intelligence. Our mission is to democratize investing, making it accessible and intuitive for individuals from all walks of life.
           </p>
           <p className="mt-4 text-xl text-gray-500">
-          We believe that financial freedom should not be a privilege reserved for a select few, 
-          but a right that everyone can exercise. Through our cutting-edge AI-driven platform, we
-           aim to demystify the complexities of investing, providing personalized guidance and insights
-            that empower our clients to make informed decisions.
+            We believe that financial freedom should not be a privilege reserved for a select few, but a right that everyone can exercise. Through our cutting-edge AI-driven platform, we aim to demystify the complexities of investing, providing personalized guidance and insights that empower our clients to make informed decisions.
           </p>
           <p className="mt-4 text-xl text-gray-500">
-          Our team of experts, backed by advanced machine learning algorithms, continuously analyzes vast 
-          amounts of data, identifying patterns and opportunities that would be impossible for the human eye
-           to discern. By leveraging this invaluable intelligence, we equip our clients with the tools and knowledge 
-           they need to navigate the ever-changing financial landscape with confidence.
+            Our team of experts, backed by advanced machine learning algorithms, continuously analyzes vast amounts of data, identifying patterns and opportunities that would be impossible for the human eye to discern. By leveraging this invaluable intelligence, we equip our clients with the tools and knowledge they need to navigate the ever-changing financial landscape with confidence.
           </p>
           <p className="mt-4 text-xl text-gray-500">
-          At Monarch, we understand that trust is the cornerstone of any successful financial relationship. That's why 
-          we prioritize transparency, ethical practices, and unwavering integrity in everything we do. Our clients can 
-          rest assured that their investments are in capable hands, guided by a team that puts their best interests first.
+            At Monarch, we understand that trust is the cornerstone of any successful financial relationship. That's why we prioritize transparency, ethical practices, and unwavering integrity in everything we do. Our clients can rest assured that their investments are in capable hands, guided by a team that puts their best interests first.
           </p>
           <p className="mt-4 text-xl text-gray-500">
-          We are passionate about fostering a culture of continuous learning and innovation, constantly seeking new ways to 
-          enhance our offerings and stay ahead of the curve. By embracing emerging technologies and collaborating with industry
-           leaders, we strive to redefine the boundaries of what's possible in the realm of finance.
+            We are passionate about fostering a culture of continuous learning and innovation, constantly seeking new ways to enhance our offerings and stay ahead of the curve. By embracing emerging technologies and collaborating with industry leaders, we strive to redefine the boundaries of what's possible in the realm of finance.
           </p>
           <p className="mt-4 text-xl text-gray-500">
-          Join us on this transformative journey, where the fusion of human expertise and artificial intelligence paves the way 
-          for a future of intelligent investing, financial empowerment, and lasting prosperity.
+            Join us on this transformative journey, where the fusion of human expertise and artificial intelligence paves the way for a future of intelligent investing, financial empowerment, and lasting prosperity.
           </p>
         </div>
 
@@ -77,7 +63,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="mt-10 flex justify-center">
-            <div className="bg-white shadow-lg rounded-lg p-8 lg:w-2/3">
+            <div className="bg-white shadow-lg rounded-lg p-8 lg:w-2/3 transition-all duration-500 ease-in-out">
               <h3 className="text-lg font-medium text-gray-900">Get in Touch</h3>
               {formSubmitted ? (
                 <div className="mt-6 text-center">
@@ -152,6 +138,3 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
-
-
-
