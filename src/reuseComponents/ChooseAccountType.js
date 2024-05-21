@@ -9,14 +9,16 @@ function ChooseAccountType() {
   return (
     <div>
       <div>
+        <Link to="/:userId/ready-to-invest/terms">
         <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
+        </Link>
       </div>
 
       <div className='text-center mb-10 mt-10 px-8'>
         <h1 className='text-4xl font-semibold'>Now, choose what account type you'd like to start investing with</h1>       
       </div>
 
-      <div className='box-content h-auto bg-red-orange mx-10 rounded-xl mt-5 text-2xl py-5 shadow-xl'>
+      <div className='box-content h-auto bg-red-orange mx-10 rounded-xl my-12 text-2xl py-5 shadow-xl'>
         <h2 className='text-center font-semibold'>Select Account Type</h2>
         <Link to="/standard-account">
         <div className='box-content h-20 bg-white mx-5 my-5 flex'>

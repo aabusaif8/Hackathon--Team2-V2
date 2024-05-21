@@ -3,6 +3,7 @@ import React, { useState, Fragment } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 
+
 import { Link } from 'react-router-dom'
 import logo from '../assets/logo.png'
 
@@ -34,6 +35,7 @@ function Navbar() {
             />
           </button>
         </div>
+
           <Popover.Group className="hidden lg:flex lg:gap-x-12">
             <a href="/manual-investment" className="text-sm font-semibold leading-6 text-white">
                 Manual Investment
@@ -142,6 +144,7 @@ function Navbar() {
                     </div>
                 </div>
             </div>
+          
         </Dialog.Panel>
       </Dialog>
     </header>
