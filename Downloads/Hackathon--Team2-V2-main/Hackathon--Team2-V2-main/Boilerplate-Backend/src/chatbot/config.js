@@ -4,6 +4,7 @@ const path = require('path');
 
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 const { OPENAI_API_KEY } = process.env; 
+console.log(OPENAI_API_KEY)
 
 if (!OPENAI_API_KEY) {
     console.error('OPENAI_API_KEY is not set');

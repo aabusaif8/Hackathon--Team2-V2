@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, "..", ".env") });
 
 // const router = require('./back-end/router')
 const { chatCompletion } = require('./chatbot/chatbot-controller');
