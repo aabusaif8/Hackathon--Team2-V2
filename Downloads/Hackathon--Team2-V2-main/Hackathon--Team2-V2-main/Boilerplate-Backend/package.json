@@ -1,0 +1,26 @@
+{
+  "name": "boilerplate-backend",
+  "version": "1.0.0",
+  "description": "Boilerplate backend",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "start:dev": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.6.0",
+    "express": "^4.17.1",
+    "express-list-endpoints": "^7.1.0",
+    "knex": "^3.1.0",
+    "openai": "^4.47.1",
+    "pg": "^8.5.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
