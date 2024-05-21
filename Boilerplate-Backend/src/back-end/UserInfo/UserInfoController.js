@@ -1,4 +1,3 @@
-
 const UserService = require('./UserInfoService');
 const validateSignup = require('./UserInfoValidation');
 
