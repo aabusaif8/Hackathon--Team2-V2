@@ -17,7 +17,6 @@ const chatCompletion = async (req, res) => {
         }
     ],
 });
-    console.log(completion.choices[0].message)
     res.status(200).json({
       completion: completion.choices[0].message
     })

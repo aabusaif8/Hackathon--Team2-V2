@@ -1,6 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-function AddMoreBank() {
+function AddMoreBank({ userId }) {
+  const redirectToDashboard = () => {
+    // Redirect the user to their dashboard
+    console.log(userId)
+    window.location.href = `http://localhost:3000/${userId}/dashboard`;
+  };
+
   return (
     <div>
       <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
@@ -21,12 +27,10 @@ function AddMoreBank() {
         <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
           Go Back
         </button>
-        <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
-          Proceed
-        </button>
+        <button onClick={redirectToDashboard}>Complete Setup</button>
       </div>
     </div>
-  )
+  );
 }
 
-export default AddMoreBank
+export default AddMoreBank;
