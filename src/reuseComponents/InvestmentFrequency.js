@@ -1,7 +1,20 @@
 import React, { useState } from 'react'
 
-function InvestmentFrequency() {
+function InvestmentFrequency({ validate }) {
   const [selectedOption, setSelectedOption] = useState('');
+  const [status, setStatus] = useState('');
+  const [error, setError] = useState('');
+
+  const handleValidation = () => {
+    if(!status) {
+      setError('Investment frequency is required');
+      return false
+    }
+    setError('');
+    return true;
+  }
+
+  validate.current = handleValidation
 
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
@@ -15,8 +28,8 @@ function InvestmentFrequency() {
         {/* Drop Downs */}
         <div className="px-12 mt-5 pb-10">
           <select
-            value={selectedOption}
-            onChange={handleSelectChange}
+            value={status}
+            onChange={(e) => setStatus(e.target.value)}
             className="w-full bg-green border-none py-3 px-4 pr-8 rounded-full underline"
           >
             <option value="">Investment Amount</option>
@@ -28,8 +41,8 @@ function InvestmentFrequency() {
           </select>
           
           <select
-            value={selectedOption}
-            onChange={handleSelectChange}
+            value={status}
+            onChange={(e) => setStatus(e.target.value)}
             className="w-full bg-green border-none py-3 px-4 pr-8 rounded-full underline mt-5"
           >
             <option value="">Frequency</option>
@@ -38,6 +51,7 @@ function InvestmentFrequency() {
             <option value="Every Month">Every Month</option>
             <option value="Every Quarter">Every Quarter</option>
           </select>
+          {error && <p>{error}</p>}
         </div>
       </div>
 

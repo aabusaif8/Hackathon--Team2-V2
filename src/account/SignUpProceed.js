@@ -22,7 +22,7 @@ const SignUpProceed = ({ username }) => {
       </div>
 
       <div className='space-x-12 drop-shadow-xl text-center pb-12'>
-        <Link to="/:userId/ready-to-invest/terms">      
+        <Link to="/signup/proceed/terms">      
         <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-12 font-normal mx-auto'>
           Proceed
         </button>

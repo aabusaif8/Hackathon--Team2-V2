@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const SignUpTerms = () => {
   const [isChecked, setIsChecked] = useState(false);
@@ -12,26 +13,21 @@ const SignUpTerms = () => {
 
   const handleProceed = () => {
     if (isChecked) {
-      navigate("");
+      navigate("/signup/proceed/terms/choose-account-type");
     } else {
       alert("Please agree to the Terms and Conditions");
     }
   };
 
   const handleGoBack = () => {
-    navigate(-1);
+    navigate("/signup/proceed");
   };
 
   return (
     <div>
       <Navbar />
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-        <button
-          onClick={handleGoBack}
-          className="text-dark-green text-2xl font-semibold mt-5 ml-10 underline absolute top-0 left-0"
-        >
-          Go Back
-        </button>
+        
         <div className="w-full max-w-md p-8 bg-white shadow-md rounded-lg">
           <h1 className="text-center font-semibold text-4xl mb-8">
             First, Please Read and agree to our Terms and Conditions.
@@ -79,27 +75,28 @@ const SignUpTerms = () => {
               I have read and agreed to the Terms and Conditions
             </label>
           </div>
-          <div className="flex justify-between">
+          <div className="space-x-12 drop-shadow-xl mb-8">
             <button
               onClick={handleGoBack}
-              className="w-1/2 py-2 bg-gray-300 text-gray-800 rounded-lg font-semibold text-xl mr-2"
+              className="bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal"
             >
               Go Back
             </button>
             <button
               onClick={handleProceed}
               disabled={!isChecked}
-              className={`w-1/2 py-2 ${
+              className={`px-12 py-3 mt-8 ${
                 isChecked
-                  ? "bg-blue-500 text-white"
+                  ? "bg-dark-green text-white"
                   : "bg-gray-300 text-gray-500"
-              } rounded-lg font-semibold text-xl ml-2`}
+              } rounded-full font-normal text-sm`}
             >
               Proceed
             </button>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

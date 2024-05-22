@@ -1,7 +1,20 @@
 import React, { useState } from 'react'
 
-function SSN() {
+function SSN({ validate }) {
   const [ isOpen, setIsOpen] = useState(false);
+  const [ssn, setSsn] = useState('');
+  const [error, setError] = useState('');
+  
+  const handleValidation = () => {
+    if(!ssn) {
+      setError('Social Security is required');
+      return false
+    }
+    setError('');
+    return true;
+  }
+
+  validate.current = handleValidation
 
   return (
     <div id='SSN'>
@@ -86,7 +99,14 @@ function SSN() {
 
         {/* Input for SSN */}
         <div className='pb-10'>
-          <input type="number" placeholder="___-__-____" className='form-input mt-12 rounded-xl w-56 bg-light-green'/>
+          <input 
+          type="number" 
+          placeholder="___-__-____" 
+          className='form-input mt-12 rounded-xl w-56 bg-light-green'
+          value={ssn} 
+          onChange={(e) => setSsn(e.target.value)}
+          />
+          {error && <p>{error}</p>}
         </div>
       </div>
 
