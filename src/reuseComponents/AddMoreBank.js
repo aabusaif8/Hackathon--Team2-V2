@@ -1,5 +1,6 @@
 import React from 'react';
-
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL 
 function AddMoreBank({ userId }) {
   const redirectToDashboard = () => {
     // Redirect the user to their dashboard

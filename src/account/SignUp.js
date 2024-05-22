@@ -2,11 +2,14 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL 
 const SignUpForm = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState(""); // Added state variable for email
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [investmentAmount, setInvestmentAmount] = useState("");
   const [investmentFrequency, setInvestmentFrequency] = useState("");
   const [financialGoals, setFinancialGoals] = useState("");
@@ -22,6 +25,8 @@ const SignUpForm = () => {
         const formData = {
             Username,
             Password,
+            email,
+            "Phone Number" : phoneNumber,
             "Investment Amount": parseInt(investmentAmount),
             "Investment Frequency": investmentFrequency,
             "Financial Goals": parseInt(financialGoals),
@@ -30,7 +35,7 @@ const SignUpForm = () => {
             "ETFs in Portfolio": "002,004,006"
         };
         
-        fetch('http://localhost:5000/assets/createInvestmentAccount', {
+        fetch(`${API_BASE_URL}/assets/createInvestmentAccount`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -95,24 +100,6 @@ const SignUpForm = () => {
     />
   </div>
 </div>
-        <div>
-        <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Email
-                </label>
-                <div className="mt-1">
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    autoComplete="email"
-                    required
-                    className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  />
-                </div>
-              </div>
 
               <div>
   <label htmlFor="Password" className="block text-sm font-medium text-gray-700">
@@ -149,6 +136,42 @@ const SignUpForm = () => {
     />
   </div>
 </div>
+<div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  Email
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700">
+                  Phone Number
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    type="tel"
+                    autoComplete="tel"
+                    required
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    className="appearance-none block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
+                </div>
+              </div>
+
 
               <div>
                 <label

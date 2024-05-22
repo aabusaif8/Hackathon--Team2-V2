@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-
-const HTTP_ENDPOINT = "http://localhost:8080/chatbot";
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL 
+const HTTP_ENDPOINT = `${API_BASE_URL}/chatbot`;
 
 async function sendPrompt(prompt) {
   const response = await axios.post(HTTP_ENDPOINT, { prompt });
@@ -20,7 +21,7 @@ const ChatbotPopup = ({ onClose }) => {
 
     try {
       const resData = await sendPrompt(prompt);
-      setResponse(resData);
+      setResponse(resData.completion.content);
     } catch (error) {
       setError("Failed to fetch response. Please try again.");
     }
