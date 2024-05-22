@@ -7,7 +7,6 @@ async function signIn(req, res) {
 
     try {
         const user = await UserService.verifyUserCredentials(username, password);
-
         if (user) {
             const userId = user.Id;
             // res.json({ success: true, data: { userId } })
