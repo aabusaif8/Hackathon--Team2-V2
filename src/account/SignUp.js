@@ -4,7 +4,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import logo from "../assets/monarchlogo.png";
 import "./SignUp.css"; 
-
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL 
 const SignUpForm = () => {
   const [Username, setUsername] = useState("");
   const [Password, setPassword] = useState("");
@@ -30,7 +31,7 @@ const SignUpForm = () => {
         "ETFs in Portfolio": "002,004,006",
       };
 
-      fetch("http://localhost:5000/assets/createInvestmentAccount", {
+      fetch(`${API_BASE_URL}/assets/createInvestmentAccount`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
