@@ -1,8 +1,22 @@
 import React, { useState } from 'react'
+import EmploymentStatus from '../reuseComponents/EmploymentStatus';
 
-function DOB() {
+function DOB({ validate }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [dob, setDob] = useState('');
+  const [error, setError] = useState('');
+  
+  const handleValidation = () => {
+    if(!dob) {
+      setError('Date of Birth is required');
+      return false
+    }
+    setError('');
+    return true;
+  }
 
+  validate.current = handleValidation
+  
   return (
     <div id='DateOfBirth-Box'>     
       <div className='sm:box-content h-60 bg-light-green mx-10 rounded-xl mt-5 text-2xl pt-5 shadow-xl'>
@@ -47,10 +61,17 @@ function DOB() {
 
           {/* DOB input section */}
           <div>
-            <input type="date" className='form-input mt-12 rounded-xl w-56 bg-light-green' />
+            <input 
+            type="date" 
+            value={dob} 
+            onChange={(e) => setDob(e.target.value)} 
+            className='form-input mt-12 rounded-xl w-56 bg-light-green'
+            />
+            {error && <p>{error}</p>}
           </div>
         </div>
       </div>
+
 
     </div>
   )

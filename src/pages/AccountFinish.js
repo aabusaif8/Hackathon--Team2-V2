@@ -1,18 +1,18 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import TermsAndCond from '../reuseComponents/TermsAndCond'
 import Footer from '../components/Footer'
+import AccountComplete from '../reuseComponents/AccountComplete'
 
-function Conditions() {
+function AccountFinish() {
   return (
     <div>
       <Navbar />
 
-      <TermsAndCond />
+      <AccountComplete />
 
       <Footer />
     </div>
   )
 }
 
-export default Conditions
+export default AccountFinish;

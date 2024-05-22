@@ -1,7 +1,22 @@
 import React, { useState } from 'react'
 
-function BankAccount() {
+function BankAccount({ validate }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [bankAccount, setBankAccount] = useState('');
+  const [routing, setRouting] = useState('');
+  const [error, setError] = useState('');
+  
+  const handleValidation = () => {
+    if(!bankAccount && !routing) {
+      setError('Bank Account is required') &&
+      setRouting('Routing Number is required')
+      return false
+    }
+    setError('');
+    return true;
+  }
+
+  validate.current = handleValidation
 
   return (
     <div id='BankAccountInfo'>
@@ -85,8 +100,21 @@ function BankAccount() {
 
         {/* Inputs for bank account info */}
         <div className='pb-10'>
-          <input type="number" placeholder="Routing Number"className='form-input mt-12 rounded-xl w-56 bg-light-green'/>
-          <input type="number" placeholder="Account Number"className='form-input mt-6 rounded-xl w-56 bg-light-green'/>
+          <input 
+          type="number" 
+          placeholder="Routing Number"
+          className='form-input mt-12 rounded-xl w-56 bg-light-green'
+          value={bankAccount} 
+          onChange={(e) => setBankAccount(e.target.value)}
+          />
+          <input 
+          type="number" 
+          placeholder="Account Number"
+          className='form-input mt-6 rounded-xl w-56 bg-light-green'
+          value={routing} 
+          onChange={(e) => setRouting(e.target.value)}
+          />
+          {error && <p>{error}</p>}
         </div>
       </div>
 
