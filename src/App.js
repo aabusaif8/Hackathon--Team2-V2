@@ -17,7 +17,6 @@ import StandardAccount from './pages/StandardAccount';
 import FiveAPYSavings from './pages/FiveAPYSavings';
 import CustodialAccount from './pages/CustodialAccount';
 import IRA from './pages/IRA';
-import InvestmentAssistantWithUserId from './reuseComponents/InvestmentAssistantWithUserId'; // Import the component
 import MyAccount from './pages/MyAccount';
 import Legal from './pages/support/Legal';
 import GetHelp from './pages/support/GetHelp';

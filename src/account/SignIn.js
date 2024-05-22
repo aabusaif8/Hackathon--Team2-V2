@@ -1,10 +1,11 @@
-
 import React, { useState } from "react";
 import NavBar from "../components/Navbar";
 import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL 
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,61 +23,65 @@ const LoginPage = () => {
           password,
         }),
       });
-  
-      if (response.ok) {
-        const responseData = await response.json(); // Parse response body as JSON
-        const userId = responseData.data.user.Id; // Extract userId from response
-        console.log(userId)
-        // Redirect to dashboard using userId
-        navigate(`/${userId}/dashboard`);
-      } else {
-        // Handle error if login fails
-        console.error("Login failed");
+
+      const text = await response.text();
+      try {
+        const responseData = JSON.parse(text);
+        if (response.ok) {
+          const userId = responseData.data.user.Id; // Extract userId from response
+          console.log(userId);
+          // Redirect to dashboard using userId
+          navigate(`/${userId}/dashboard`);
+        } else {
+          // Handle error if login fails
+          console.error("Login failed", responseData);
+        }
+      } catch (jsonError) {
+        console.error("Failed to parse JSON response:", text);
       }
+
     } catch (error) {
       console.error("Error occurred:", error);
     }
   };
-  
 
   return (
     <div>
       <NavBar />
 
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-        <button className="text-dark-green text-2xl font-semibold mt-5 ml-10 underline absolute top-0 left-0">
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', backgroundColor: '#f0f4f8' }}>
+        <button style={{ color: '#004d40', fontSize: '2rem', fontWeight: '600', marginTop: '5px', marginLeft: '10px', textDecoration: 'underline', position: 'absolute', top: '0', left: '0' }}>
           Back
         </button>
-        <div className="w-full max-w-md p-8 bg-white shadow-md rounded-lg">
-          <h1 className="text-center font-semibold text-4xl mb-8">
+        <div style={{ width: '100%', maxWidth: '400px', padding: '20px', backgroundColor: '#ffffff', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '8px' }}>
+          <h1 style={{ textAlign: 'center', fontWeight: '600', fontSize: '2.5rem', marginBottom: '20px' }}>
             Let's get Investing!
           </h1>
-          <div className="flex flex-col space-y-6">
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
             <input
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              style={{ width: '100%', padding: '10px', border: '1px solid #d1d5db', borderRadius: '8px', outline: 'none', boxShadow: '0 0 0 2px #3b82f6' }}
               type="text"
               placeholder="Username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />
             <input
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              style={{ width: '100%', padding: '10px', border: '1px solid #d1d5db', borderRadius: '8px', outline: 'none', boxShadow: '0 0 0 2px #3b82f6' }}
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
             <button
-              className="w-full py-2 bg-purple-700 text-white rounded-lg font-semibold text-xl"
+              style={{ width: '100%', padding: '10px', backgroundColor: '#6b21a8', color: '#ffffff', borderRadius: '8px', fontWeight: '600', fontSize: '1.25rem' }}
               onClick={handleLogin}
             >
-
               Login
             </button>
           </div>
-          <p className="mt-4 text-center text-gray-600">
+          <p style={{ marginTop: '10px', textAlign: 'center', color: '#4b5563' }}>
             Don’t have an account?{" "}
-            <Link to="/signup" className="text-blue-500 underline">
+            <Link to="/signup" style={{ color: '#3b82f6', textDecoration: 'underline' }}>
               Sign up here
             </Link>
             .
