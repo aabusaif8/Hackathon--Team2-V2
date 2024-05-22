@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import Pic from '../images/coin.png'
 
 function StandardAccount() {
   return (
     <div>
-      <div>
-        <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
-      </div>
+      <Navbar />
 
       <div className='text-center mt-5'>
         <h1 className='text-4xl font-semibold'>Select Account Type</h1>
@@ -26,14 +27,19 @@ function StandardAccount() {
       </div>
 
       {/* Back and Proceed btns */}
-      <div className='space-x-12 drop-shadow-xl text-center'>
+      <div className='space-x-12 drop-shadow-xl text-center mb-10'>
+        <Link to="/:userId/choose-account-type">
         <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
           Go Back
         </button>
+        </Link>
+        <Link to="/:userId/investment-assistant">
         <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
           Proceed
         </button>
+        </Link>
       </div> 
+      <Footer />
     </div>
   )
 }

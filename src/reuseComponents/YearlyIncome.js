@@ -55,16 +55,7 @@ function YearlyIncome() {
           <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>$200,000+</button>
         </div>
       </div>
-      
-      {/* Back and Proceed Btns */}
-      <div className='space-x-12 drop-shadow-xl'>
-        <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
-          Go Back
-        </button>
-        <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
-          Proceed
-        </button>
-      </div> 
+    
 
     </div>
   )

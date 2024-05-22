@@ -1,8 +1,10 @@
 import React, { useState, Fragment } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
+
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -32,6 +34,7 @@ function Navbar() {
             />
           </button>
         </div>
+
         <div className="hidden lg:flex lg:space-x-6">
           <Link to="/manual-investment" className="text-sm font-semibold leading-6 text-white">
             Manual Investment
@@ -125,7 +128,7 @@ function Navbar() {
                 </Link>
               </div>
             </div>
-          </div>
+          
         </Dialog.Panel>
       </Dialog>
     </header>

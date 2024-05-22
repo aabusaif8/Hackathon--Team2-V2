@@ -12,7 +12,7 @@ function AccountFeaturesPage() {
 
       <Footer />
 
-    </div>
+     </div>
   )
 }
 
