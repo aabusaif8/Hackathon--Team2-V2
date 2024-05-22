@@ -1,4 +1,5 @@
 const { openai } = require("./config")
+const dotenv = require("dotenv");
 
 const chatCompletion = async (req, res) => {
   const { prompt } = req.body;
