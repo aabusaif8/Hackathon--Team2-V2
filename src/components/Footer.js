@@ -12,7 +12,6 @@ const Footer = () => {
   return (
     <div className="flex flex-col min-h-[10vh]">
       <main className="flex-grow">
-        {/* Your main content goes here */}
         <footer className={`${isLoggedIn ? 'bg-[#288037] py-8 text-white' : 'bg-[#97db51] py-8 text-black'}`}>
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
