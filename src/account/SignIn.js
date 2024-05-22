@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import logo from "../assets/monarchlogo.png";
 import SignInCss from "./SignIn.css";
-
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +14,7 @@ const LoginPage = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch("http://localhost:5000/users/signin", {
+      const response = await fetch(`API_BASE_URL/users/signin`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
