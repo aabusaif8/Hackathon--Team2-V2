@@ -7,9 +7,9 @@ function validatePositiveAmount(value, fieldName) {
 }
 
 function validateInvestmentFrequency(investmentFrequency) {
-  const frequencies = ["daily", "weekly", "bi-weekly", "monthly", "quarterly", "yearly"];
+  const frequencies = ["daily", "weekly", "monthly", "quarterly", "yearly"];
   if (!investmentFrequency || !frequencies.includes(investmentFrequency.toLowerCase())) {
-      return 'Investment frequency should be one of the following: daily, weekly, bi-weekly, monthly, quarterly, or yearly.'
+      return 'Investment frequency should be one of the following: daily, weekly, monthly, quarterly, or yearly.'
   }
   return null;
 }
@@ -26,11 +26,6 @@ function validateInvestmentRequestBody(req, res, next) {
   const investmentAmountError = validatePositiveAmount(investmentAmount, 'Investment Amount');
     if (investmentAmountError) {
       return res.status(400).json({ error: investmentAmountError });
-    }
-
-  const financialGoalsError = validatePositiveAmount(financialGoals, 'Financial Goals');
-    if (financialGoalsError) {
-      return res.status(400).json({ error: financialGoalsError });
     }
 
   const investmentFrequencyError = validateInvestmentFrequency(investmentFrequency);

@@ -1,15 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Standard from "../images/standard-pic.png"
 import FivePercent from '../images/5%-pic.png'
 import Custodial from '../images/custodial-pic.png'
 import IRA from '../images/IRA-pic.png'
 
 function ChooseAccountType() {
+
+  const { userId } = useParams();
+
   return (
     <div>
       <div>
-        <Link to="/signup/proceed/terms">
+        <Link to={`/${userId}/signup/proceed/terms`}>
         <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
         </Link>
       </div>
@@ -20,7 +23,7 @@ function ChooseAccountType() {
 
       <div className='box-content h-auto bg-red-orange mx-10 rounded-xl my-12 text-2xl py-5 shadow-xl'>
         <h2 className='text-center font-semibold'>Select Account Type</h2>
-        <Link to="/standard-account">
+        <Link to={`/${userId}/standard-account`}>
         <div className='box-content h-20 bg-white mx-5 my-5 flex'>
           <img src={Standard} className='w-10 h-10 my-5 mx-2'/>
           <div className='flex flex-col px-1'>
@@ -30,7 +33,7 @@ function ChooseAccountType() {
         </div>
         </Link>
 
-        <Link to="/5%apy-savings">
+        <Link to={`/${userId}/5%apy-savings`}>
         <div className='box-content h-20 bg-white mx-5 my-5 flex'>
           <img src={FivePercent} className='w-10 h-10 my-5 mx-2'/>
           <div className='flex flex-col px-1'>
@@ -40,7 +43,7 @@ function ChooseAccountType() {
         </div>
         </Link>
 
-        <Link to="/custodial-account">
+        <Link to={`/${userId}/custodial-account`}>
         <div className='box-content h-20 bg-white mx-5 my-5 flex'>
           <img src={Custodial} className='w-10 h-10 my-5 mx-2'/>
           <div className='flex flex-col px-1'>
@@ -50,7 +53,7 @@ function ChooseAccountType() {
         </div>
         </Link>
 
-        <Link to="/ira">
+        <Link to={`/${userId}/ira`}>
         <div className='box-content h-20 bg-white mx-5 my-5 flex'>
           <img src={IRA} className='w-9 h-9 my-5 mx-2'/>
           <div className='flex flex-col px-1'>

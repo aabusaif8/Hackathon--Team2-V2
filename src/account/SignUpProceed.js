@@ -2,9 +2,11 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Pic from "../images/money-flower.png"
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const SignUpProceed = ({ username }) => {
+
+  const { userId } = useParams();
 
   return (
     <div>
@@ -22,7 +24,7 @@ const SignUpProceed = ({ username }) => {
       </div>
 
       <div className='space-x-12 drop-shadow-xl text-center pb-12'>
-        <Link to="/signup/proceed/terms">      
+        <Link to={`/${ userId }/signup/proceed/terms`}>      
         <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-12 font-normal mx-auto'>
           Proceed
         </button>

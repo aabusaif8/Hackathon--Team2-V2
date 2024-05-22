@@ -56,19 +56,19 @@ function App() {
           <Route path="/:userId/dashboard" element={<Dashboard />} />
           <Route path="/myAccount" element={<MyAccount />} />
 
-          <Route path="signup/proceed/terms/choose-account-type" element={<ChooseInvestAccount />}/>
+          <Route path="/:userId/signup/proceed/terms/choose-account-type" element={<ChooseInvestAccount />}/>
 
-          <Route path="/standard-account" element={<StandardAccount />} /> 
-          <Route path="/5%apy-savings" element={<FiveAPYSavings />}/>
-          <Route path="/custodial-account" element={<CustodialAccount />}/>
-          <Route path="/ira" element={<IRA />}/>
+          <Route path="/:userId/standard-account" element={<StandardAccount />} /> 
+          <Route path="/:userId/5%apy-savings" element={<FiveAPYSavings />}/>
+          <Route path="/:userId/custodial-account" element={<CustodialAccount />}/>
+          <Route path="/:userId/ira" element={<IRA />}/>
 
-          <Route path="/ask-to-use-assistant" element={<AskToUseInvestAssist />}/>
+          <Route path="/:userId/ask-to-use-assistant" element={<AskToUseInvestAssist />}/>
 
-          <Route path="/investment-assistant" element={<InvestmentAssistant />} />
+          <Route path="/:userId/investment-assistant" element={<InvestmentAssistant />} />
           <Route path="/manual-investment" element={<ManualInvestment />}/>
 
-          <Route path="/account-complete" element={<AccountFinish />}/>
+          <Route path="/:userId/account-complete" element={<AccountFinish />}/>
 
           <Route path="/learning-resources" element={<LearningResources />}/>
           <Route path="/learning-resources-article1" element={<Article1 />} />
@@ -87,8 +87,8 @@ function App() {
           <Route path="/account-features" element={<AccountFeaturesPage/>} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route path="/signup/proceed" element={<SignUpProceed />} />
-          <Route path="/signup/proceed/terms" element={<SignUpTerms />} />
+          <Route path="/:userId/signup/proceed" element={<SignUpProceed />} />
+          <Route path="/:userId/signup/proceed/terms" element={<SignUpTerms />} />
         </Routes>
       </BrowserRouter>
 
