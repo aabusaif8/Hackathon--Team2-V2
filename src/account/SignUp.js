@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import logo from "../assets/monarchlogo.png";
-import "./SignUp.css"; // Make sure to include the correct CSS file if needed
+import "./SignUp.css"; 
 
 const SignUpForm = () => {
   const [Username, setUsername] = useState("");
@@ -13,8 +13,6 @@ const SignUpForm = () => {
   const [investmentFrequency, setInvestmentFrequency] = useState("");
   const [financialGoals, setFinancialGoals] = useState("");
   const [experience, setExperience] = useState("");
-  const [stocksInPortfolio, setStocksInPortfolio] = useState("");
-  const [etfsInPortfolio, setEtfsInPortfolio] = useState("");
 
   const navigate = useNavigate();
 
@@ -92,6 +90,7 @@ const SignUpForm = () => {
                 />
                 <button
                   className="absolute top-3 right-16 text-[#35a94c] focus:outline-none"
+                  type="button"
                   onClick={() => setUsername("")}
                 >
                   X
@@ -124,6 +123,7 @@ const SignUpForm = () => {
                 />
                 <button
                   className="absolute top-3 right-16 text-[#35a94c] focus:outline-none"
+                  type="button"
                   onClick={() => setPassword("")}
                 >
                   X
@@ -144,10 +144,49 @@ const SignUpForm = () => {
                 />
                 <button
                   className="absolute top-3 right-16 text-[#35a94c] focus:outline-none"
+                  type="button"
                   onClick={() => setConfirmPassword("")}
                 >
                   X
                 </button>
+              </div>
+            </div>
+            <div>
+              <label htmlFor="financialGoals" className="block text-sm font-medium text-gray-700">
+                Financial Goals
+              </label>
+              <div className="mt-1">
+                <input
+                  id="financialGoals"
+                  name="financialGoals"
+                  type="number"
+                  autoComplete="off"
+                  required
+                  value={financialGoals}
+                  onChange={(e) => setFinancialGoals(e.target.value)}
+                  className="appearance-none block w-full px-3 py-2 border rounded-md placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="experience" className="block text-sm font-medium text-gray-700">
+                Experience
+              </label>
+              <div className="mt-1">
+                <select
+                  id="experience"
+                  name="experience"
+                  value={experience}
+                  onChange={(e) => setExperience(e.target.value)}
+                  className="block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                >
+                  <option value="" disabled>
+                    Select experience level
+                  </option>
+                  <option value="rookie">Rookie</option>
+                  <option value="experienced">Experienced</option>
+                  <option value="veteran">Veteran</option>
+                </select>
               </div>
             </div>
             <div className="relative">
@@ -187,39 +226,6 @@ const SignUpForm = () => {
                   <option value="monthly">Monthly</option>
                   <option value="quarterly">Quarterly</option>
                   <option value="annually">Annually</option>
-                </select>
-              </div>
-            </div>
-            <div className="relative">
-              <label className="absolute top-2 left-16 -mt-4 px-1 bg-white text-[#35a94c] text-xs">
-                Financial Goals
-              </label>
-              <div className="mx-auto w-3/4">
-                <input
-                  className="w-full px-4 py-3 border border-[#997b8a] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 italic placeholder-black"
-                  type="number"
-                  placeholder="Financial Goals"
-                  value={financialGoals}
-                  onChange={(e) => setFinancialGoals(e.target.value)}
-                />
-              </div>
-            </div>
-            <div className="relative">
-              <label className="absolute top-2 left-16 -mt-4 px-1 bg-white text-[#35a94c] text-xs">
-                Experience
-              </label>
-              <div className="mx-auto w-3/4">
-                <select
-                  className="w-full px-4 py-3 border border-[#997b8a] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 italic placeholder-black"
-                  value={experience}
-                  onChange={(e) => setExperience(e.target.value)}
-                >
-                  <option value="" disabled>
-                    Select experience level
-                  </option>
-                  <option value="rookie">Rookie</option>
-                  <option value="experienced">Experienced</option>
-                  <option value="veteran">Veteran</option>
                 </select>
               </div>
             </div>

@@ -56,16 +56,7 @@ function EmploymentStatus() {
         </div>
       </div>
 
-      {/* Back and Proceed btns */}
-      <div className='space-x-12 drop-shadow-xl flex justify-evenly'>
-        <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
-          Go Back
-        </button>
-        <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
-          Proceed
-        </button>
-      </div> 
-
+     
     </div>
   )
 }

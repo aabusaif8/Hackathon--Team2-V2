@@ -20,7 +20,7 @@ const ChatbotPopup = ({ onClose }) => {
 
     try {
       const resData = await sendPrompt(prompt);
-      setResponse(resData);
+      setResponse(resData.completion.content);
     } catch (error) {
       setError("Failed to fetch response. Please try again.");
     }
