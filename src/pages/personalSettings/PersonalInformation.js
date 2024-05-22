@@ -5,7 +5,8 @@ import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import EditPersonalInfo from '../../reuseComponents/EditPersonalInfo';
 import EditFinancialInfo from '../../reuseComponents/EditFinancialInfo';
-
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL 
 function PersonalInformation() {
   const { userId } = useParams(); // Extract user ID from URL
   const [userInfo, setUserInfo] = useState(null);
@@ -15,7 +16,7 @@ function PersonalInformation() {
     // Fetch user data from the backend
     const fetchUserData = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/users/${userId}/dashboard`);
+        const response = await fetch(`${API_BASE_URL}/users/${userId}/dashboard`);
         if (response.ok) {
           const data = await response.json();
           setUserInfo(data);
