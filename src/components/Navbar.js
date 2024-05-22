@@ -128,7 +128,7 @@ function Navbar() {
                 </Link>
               </div>
             </div>
-          
+          </div>            
         </Dialog.Panel>
       </Dialog>
     </header>
