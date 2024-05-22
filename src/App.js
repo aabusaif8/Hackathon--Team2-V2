@@ -20,10 +20,6 @@ import Article2 from './pages/Article2';
 import Article3 from './pages/Article3';
 
 import InvestmentAssistantWithUserId from './reuseComponents/InvestmentAssistantWithUserId'; // Import the component
-import StandardAccount from './pages/StandardAccount';
-import FiveAPYSavings from './pages/FiveAPYSavings';
-import CustodialAccount from './pages/CustodialAccount';
-import IRA from './pages/IRA';
 import MyAccount from './pages/MyAccount';
 import Legal from './pages/support/Legal';
 import GetHelp from './pages/support/GetHelp';
