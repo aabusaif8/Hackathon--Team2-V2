@@ -1,24 +1,25 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 function AskToUseInvestAssist() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const { userId } = useParams();
 
   const handleYes = () => {
-    navigate("/investment-assistant")
+    navigate(`/${userId}/investment-assistant`)
   }
 
   const handleNo = () => {
-    navigate("/manual-investment")
+    navigate(`/${userId}/manual-investment`)
   }
 
   return (
     <div>
       <Navbar />
-        <Link to="/standard-account">
+        <Link to={`/${userId}/standard-account`}>
         <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
         </Link>
 

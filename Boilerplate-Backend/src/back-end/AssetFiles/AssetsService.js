@@ -105,7 +105,7 @@ class InvestmentAccount {
         this.Username = username;
         this.Password = password;
         this.Email = email;
-        this["Phone Number"] = phoneNumber;
+        this["Phone"] = phoneNumber;
         this["Investment Amount"] = investmentAmount;
         this["Investment Frequency"] = investmentFrequency;
         this["Financial Goals"] = financialGoals;
@@ -158,7 +158,7 @@ async function saveInvestmentAccount(investmentAccount) {
             Username: investmentAccount.Username,
             Password: investmentAccount.Password,
             Email: investmentAccount.Email,
-            "Phone Number": investmentAccount.PhoneNumber,
+            "Phone": investmentAccount.PhoneNumber,
             "Investment Amount": investmentAccount["Investment Amount"],
             "Investment Frequency": investmentAccount["Investment Frequency"],
             "Financial Goals": investmentAccount["Financial Goals"],

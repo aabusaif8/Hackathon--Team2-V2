@@ -30,12 +30,12 @@ function StandardAccount() {
 
       {/* Back and Proceed btns */}
       <div className='space-x-12 drop-shadow-xl text-center mb-10'>
-        <Link to="/signup/proceed/terms/choose-account-type">
+        <Link to={`/${userId}/signup/proceed/terms/choose-account-type`}>
         <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
           Go Back
         </button>
         </Link>
-        <Link to="/ask-to-use-assistant">
+        <Link to={`/${userId}/ask-to-use-assistant`}>
         <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
           Proceed
         </button>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -7,20 +7,22 @@ const SignUpTerms = () => {
   const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
 
+  const { userId } = useParams();
+
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);
   };
 
   const handleProceed = () => {
     if (isChecked) {
-      navigate("/signup/proceed/terms/choose-account-type");
+      navigate(`/${userId}/signup/proceed/terms/choose-account-type`);
     } else {
       alert("Please agree to the Terms and Conditions");
     }
   };
 
   const handleGoBack = () => {
-    navigate("/signup/proceed");
+    navigate(`/${userId}/signup/proceed`);
   };
 
   return (

@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import logo from "../assets/monarchlogo.png";
 import "./SignUp.css";
+import { useAuth } from '../context/AuthContext'; 
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
@@ -19,9 +20,10 @@ const SignUpForm = () => {
   const [experience, setExperience] = useState("");
 
   const navigate = useNavigate();
+  const { login } = useAuth(); 
 
   const handlePhoneNumberChange = (e) => {
-    const input = e.target.value.replace(/\D/g, ""); 
+    const input = e.target.value.replace(/\D/g, "");
     let formattedPhoneNumber = "";
 
     if (input.length <= 3) {
@@ -38,57 +40,63 @@ const SignUpForm = () => {
     setPhoneNumber(formattedPhoneNumber);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^\(\d{3}\)\d{3}-\d{4}$/;
-
+  
     if (!emailRegex.test(email)) {
       alert("Please enter a valid email address.");
       return;
     }
-
-    if (Password === confirmPassword) {
-      const formData = {
-        Username,
-        Password,
-        email,
-        "Phone Number": phoneNumber,
-        "Investment Amount": parseInt(investmentAmount),
-        "Investment Frequency": investmentFrequency,
-        "Financial Goals": parseInt(financialGoals),
-        Experience: experience,
-        "Stocks in Portfolio": "001,003,005",
-        "ETFs in Portfolio": "002,004,006",
-      };
-
-      fetch(`${API_BASE_URL}/assets/createInvestmentAccount`, {
+  
+    if (Password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+  
+    const formData = {
+      Username,
+      Password,
+      email,
+      Phone: phoneNumber,
+      "Investment Amount": parseInt(investmentAmount),
+      "Investment Frequency": investmentFrequency,
+      "Financial Goals": parseInt(financialGoals),
+      Experience: experience,
+      "Stocks in Portfolio": "001,003,005",
+      "ETFs in Portfolio": "002,004,006",
+    };
+  
+    try {
+      const response = await fetch(`${API_BASE_URL}/assets/createInvestmentAccount`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
-      })
-        .then((response) => {
-          if (response.ok) {
-            return response.json(); // Parse the JSON response
-          } else {
-            throw new Error("Failed to create user");
-          }
-        })
-        .then((data) => {
-          console.log("Response data:", data); // Log the parsed data
-          const userId = data.data; // Extract the userId from the response data
-          navigate(`/${userId}/investment-assistant`); // Navigate to the user's dashboard
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          alert("Failed to create user");
-        });
-    } else {
-      alert("Passwords do not match");
+      });
+  
+      const text = await response.text();
+      const responseData = JSON.parse(text);
+  
+      if (!response) {
+        throw new Error("Failed to create user");
+      }
+  
+      const token = responseData.token; // Extract token from response
+      const userId = responseData.data; // Extract userId from response
+      console.log(userId)
+      login(token, userId);
+  
+      console.log("Response data:", responseData); // Log the parsed data
+      navigate(`/${userId}/signup/proceed`); // Navigate to the user's dashboard
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Failed to create user");
     }
   };
+  
 
   return (
     <div>
@@ -268,7 +276,7 @@ const SignUpForm = () => {
                   <option value="daily">Daily</option>
                   <option value="weekly">Weekly</option>
                   <option value="monthly">Monthly</option>
-                  <option value="annually">Annually</option>
+                  <option value="yearly">Annually</option>
                 </select>
               </div>
             </div>
