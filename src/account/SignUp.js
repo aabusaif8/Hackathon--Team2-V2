@@ -48,11 +48,6 @@ const SignUpForm = () => {
       return;
     }
 
-    if (!phoneRegex.test(phoneNumber)) {
-      alert("Please enter a valid phone number format (e.g., (123) 456-7890).");
-      return;
-    }
-
     if (Password === confirmPassword) {
       const formData = {
         Username,
