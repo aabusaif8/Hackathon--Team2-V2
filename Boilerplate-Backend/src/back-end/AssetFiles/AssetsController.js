@@ -21,7 +21,7 @@ async function handleGetAssets(req, res) {
 async function createInvestmentAccount(req, res) {
     try {
         //console.log('Request body:', req.body);
-        const { Username, Password, email, phoneNumber, 'Investment Amount': investmentAmount, 'Investment Frequency': investmentFrequency, 'Financial Goals': financialGoals, Experience, 'Stocks in Portfolio': Stocks, 'ETFs in Portfolio': ETFs } = req.body;
+        const { Username, Password, email, 'Phone Number': phoneNumber, 'Investment Amount': investmentAmount, 'Investment Frequency': investmentFrequency, 'Financial Goals': financialGoals, Experience, 'Stocks in Portfolio': Stocks, 'ETFs in Portfolio': ETFs } = req.body;
 
         const missingField = !Username ? 'Username' : !Password ? 'Password' : !email ? 'Email' : !phoneNumber ? 'Phone Number' : !investmentAmount ? 'Investment Amount' : !investmentFrequency ? 'Investment Frequency' : !Experience ? 'Experience' : !Stocks ? 'Stocks in Portfolio' : !ETFs ? 'ETFs in Portfolio' : null;
 

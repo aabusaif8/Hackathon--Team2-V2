@@ -105,7 +105,7 @@ class InvestmentAccount {
         this.Username = username;
         this.Password = password;
         this.Email = email;
-        this.PhoneNumber = phoneNumber;
+        this["Phone Number"] = phoneNumber;
         this["Investment Amount"] = investmentAmount;
         this["Investment Frequency"] = investmentFrequency;
         this["Financial Goals"] = financialGoals;
