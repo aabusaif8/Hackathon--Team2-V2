@@ -1,14 +1,15 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import EditPersonalInfo from '../../reuseComponents/EditPersonalInfo';
 import EditFinancialInfo from '../../reuseComponents/EditFinancialInfo';
-const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL 
+import { useAuth } from '../../context/AuthContext'; // Import the useAuth hook
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
 function PersonalInformation() {
-  const { userId } = useParams(); // Extract user ID from URL
+  const { isLoggedIn, userId } = useAuth(); // Get the authentication state and user ID
   const [userInfo, setUserInfo] = useState(null);
   const [error, setError] = useState(null);
 
@@ -20,7 +21,6 @@ function PersonalInformation() {
         if (response.ok) {
           const data = await response.json();
           setUserInfo(data);
-          
         } else {
           throw new Error('Failed to fetch user information');
         }
@@ -29,8 +29,14 @@ function PersonalInformation() {
       }
     };
 
-    fetchUserData();
-  }, [userId]);
+    if (isLoggedIn && userId) {
+      fetchUserData();
+    }
+  }, [isLoggedIn, userId]);
+
+  if (!isLoggedIn) {
+    return <p>Please log in to view your personal information.</p>;
+  }
 
   return (
     <div>
@@ -51,8 +57,8 @@ function PersonalInformation() {
         {userInfo ? (
           <div>
             <p>Name: {userInfo.data.user.Username}</p>
-            <p>Email: {userInfo.data.user.Username}</p>
-            <p>Phone: {userInfo.data.user.Username}</p>
+            <p>Email: {userInfo.data.user.Email}</p>
+            <p>Phone: {userInfo.data.user.Phone}</p>
           </div>
         ) : (
           <p>Loading...</p>

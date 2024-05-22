@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import NavBar from "../components/Navbar";
-import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../context/AuthContext'; 
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
-
-const LoginPage = () => {
+const SignInPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuth(); // Get the login function
 
   const handleLogin = async () => {
     try {
@@ -28,8 +28,9 @@ const LoginPage = () => {
       try {
         const responseData = JSON.parse(text);
         if (response.ok) {
+          const token = responseData.token; // Extract token from response
           const userId = responseData.data.user.Id; // Extract userId from response
-          console.log(userId);
+          login(token, userId); // Store the token and set the authentication state to true
           // Redirect to dashboard using userId
           navigate(`/${userId}/dashboard`);
         } else {
@@ -92,4 +93,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignInPage;

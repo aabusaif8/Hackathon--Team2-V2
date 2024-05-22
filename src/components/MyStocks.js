@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
-const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL 
-const MyStocks = ({ userId }) => {
+import { useAuth } from '../context/AuthContext'; // Import the useAuth hook
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+const MyStocks = () => {
+  const { isLoggedIn, userId } = useAuth(); // Get the authentication state and user ID
+  const [userStocks, setUserStocks] = useState([]);
+  const [error, setError] = useState(null);
+
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return new Date(dateString).toLocaleDateString(undefined, options);
   };
-  const [userStocks, setUserStocks] = useState([]);
-  const [error, setError] = useState(null);
 
   const fetchUserStocks = async () => {
     try {
@@ -16,8 +20,6 @@ const MyStocks = ({ userId }) => {
         const data = await response.json();
         const stocks = data.data;
         setUserStocks(stocks);
-        console.log(userStocks)
-
       } else {
         throw new Error('Failed to fetch user stocks');
       }
@@ -26,10 +28,10 @@ const MyStocks = ({ userId }) => {
     }
   };
 
-  const deleteStock = async (userId, stockId) => {
+  const deleteStock = async (stockId) => {
     try {
       const fixedId = `00${stockId}`;
-      const url = `${API_BASE_URL}users/${userId}/portfolio`;
+      const url = `${API_BASE_URL}/users/${userId}/portfolio`;
       const options = {
         method: 'PUT',
         headers: {
@@ -42,27 +44,26 @@ const MyStocks = ({ userId }) => {
         })
       };
 
-      const controller = new AbortController();
-      const signal = controller.signal;
-  
-      const response = await fetch(url, { ...options, signal });
+      const response = await fetch(url, options);
       if (response.ok) {
         setUserStocks(userStocks.filter(stock => stock.Id !== stockId));
       } else {
         throw new Error('Failed to delete stock');
       }
     } catch (error) {
-      console.log(error);
       setError(error.message);
     }
-    
   };
-  
+
   useEffect(() => {
-    if (userId) {
+    if (isLoggedIn && userId) {
       fetchUserStocks();
     }
-  }, [userId]);
+  }, [isLoggedIn, userId]);
+
+  if (!isLoggedIn) {
+    return <p>Please log in to view your stocks.</p>;
+  }
 
   return (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', backgroundColor: '#f0f4f8' }}>
@@ -80,14 +81,13 @@ const MyStocks = ({ userId }) => {
               <p style={{ fontSize: '1rem', marginBottom: '5px' }}>Open: {stock.Open}</p>
               <p style={{ fontSize: '1rem', marginBottom: '5px' }}>Volume: {stock.Volume}</p>
               <p style={{ fontSize: '1rem', marginBottom: '5px' }}>Future Trend: {stock['Future Trend']}</p>
-              <button onClick={() => deleteStock(userId, stock.Id)} style={{ display: 'block', marginTop: '10px', padding: '10px 15px', fontSize: '1rem', color: '#ffffff', backgroundColor: '#007bff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Delete</button>
+              <button onClick={() => deleteStock(stock.Id)} style={{ display: 'block', marginTop: '10px', padding: '10px 15px', fontSize: '1rem', color: '#ffffff', backgroundColor: '#007bff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Delete</button>
             </div>
           ))}
         </div>
       </div>
     </div>
   );
-  
 };
 
 export default MyStocks;
