@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
-
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL 
 const MyStocks = ({ userId }) => {
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
   const [userStocks, setUserStocks] = useState([]);
   const [error, setError] = useState(null);
 
   const fetchUserStocks = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/assets/${userId}/stocks`);
+      const response = await fetch(`${API_BASE_URL}/assets/${userId}/stocks`);
       if (response.ok) {
         const data = await response.json();
         const stocks = data.data;
@@ -24,7 +29,7 @@ const MyStocks = ({ userId }) => {
   const deleteStock = async (userId, stockId) => {
     try {
       const fixedId = `00${stockId}`;
-      const url = `http://localhost:5000/users/${userId}/portfolio`;
+      const url = `${API_BASE_URL}users/${userId}/portfolio`;
       const options = {
         method: 'PUT',
         headers: {
@@ -60,21 +65,22 @@ const MyStocks = ({ userId }) => {
   }, [userId]);
 
   return (
-    <div className="myStocks">
-      <div className="myStocks-content">
-        <h1 className="myStocks-title">My Stocks</h1>
-        {error && <p className="error-message">{error}</p>}
-        <div className="myStocks-cards">
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', backgroundColor: '#f0f4f8' }}>
+      <div style={{ width: '80%', maxWidth: '1200px', padding: '20px', backgroundColor: '#ffffff', borderRadius: '8px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
+        <h1 style={{ textAlign: 'center', fontSize: '2.5rem', color: '#333333' }}>My Stocks</h1>
+        {error && <p style={{ textAlign: 'center', color: 'red', marginBottom: '20px' }}>{error}</p>}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' }}>
           {userStocks.map((stock) => (
-            <div key={stock.Id} className="stock-card">
-              <h2>{stock.Category}</h2>
-              <p>Close: {stock.Close}</p>
-              <p>Date: {stock.Date}</p>
-              <p>High: {stock.High}</p>
-              <p>Low: {stock.Low}</p>
-              <p>Open: {stock.Open}</p>
-              <p>Volume: {stock.Volume}</p>
-              <button onClick={() => deleteStock(userId, stock.Id)}>Delete</button>
+            <div key={stock.Id} style={{ padding: '20px', border: '1px solid #e0e0e0', borderRadius: '8px', backgroundColor: '#fafafa' }}>
+              <h2 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>{stock.Category}</h2>
+              <p style={{ fontSize: '1rem', marginBottom: '5px' }}>Close: {stock.Close}</p>
+              <p style={{ fontSize: '1rem', marginBottom: '5px' }}>Date: {formatDate(stock.Date)}</p>
+              <p style={{ fontSize: '1rem', marginBottom: '5px' }}>High: {stock.High}</p>
+              <p style={{ fontSize: '1rem', marginBottom: '5px' }}>Low: {stock.Low}</p>
+              <p style={{ fontSize: '1rem', marginBottom: '5px' }}>Open: {stock.Open}</p>
+              <p style={{ fontSize: '1rem', marginBottom: '5px' }}>Volume: {stock.Volume}</p>
+              <p style={{ fontSize: '1rem', marginBottom: '5px' }}>Future Trend: {stock['Future Trend']}</p>
+              <button onClick={() => deleteStock(userId, stock.Id)} style={{ display: 'block', marginTop: '10px', padding: '10px 15px', fontSize: '1rem', color: '#ffffff', backgroundColor: '#007bff', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Delete</button>
             </div>
           ))}
         </div>
