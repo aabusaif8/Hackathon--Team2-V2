@@ -5,18 +5,21 @@ import Dashboard from './pages/Dashboard';
 
 import InvestmentAssistant from './pages/InvestmentAssistant';
 import ManualInvestment from './pages/ManualInvestment';
-import Conditions from './pages/Conditions';
-import ChooseInvestAccount from './pages/ChooseInvestAccount';
+import AccountFinish from './pages/AccountFinish';
 
+import ChooseInvestAccount from './pages/ChooseInvestAccount';
+import StandardAccount from './pages/StandardAccount';
+import FiveAPYSavings from './pages/FiveAPYSavings';
+import CustodialAccount from './pages/CustodialAccount';
+import IRA from './pages/IRA';
+import AskToUseInvestAssist from './reuseComponents/AskToUseInvestAssist';
 
 import LearningResources from './pages/LearningResources';
 import Article1 from './pages/Article1';
 import Article2 from './pages/Article2';
 import Article3 from './pages/Article3';
-import StandardAccount from './pages/StandardAccount';
-import FiveAPYSavings from './pages/FiveAPYSavings';
-import CustodialAccount from './pages/CustodialAccount';
-import IRA from './pages/IRA';
+
+import InvestmentAssistantWithUserId from './reuseComponents/InvestmentAssistantWithUserId'; // Import the component
 import MyAccount from './pages/MyAccount';
 import Legal from './pages/support/Legal';
 import GetHelp from './pages/support/GetHelp';
@@ -53,16 +56,19 @@ function App() {
           <Route path="/:userId/dashboard" element={<Dashboard />} />
           <Route path="/myAccount" element={<MyAccount />} />
 
-          <Route path="/:userId/ready-to-invest/terms" element={<Conditions />} /> {/* Choose between this or the one that is made. This is currently linked */}
-          <Route path="/:userId/choose-account-type" element={<ChooseInvestAccount />}/>
+          <Route path="signup/proceed/terms/choose-account-type" element={<ChooseInvestAccount />}/>
 
           <Route path="/standard-account" element={<StandardAccount />} /> 
           <Route path="/5%apy-savings" element={<FiveAPYSavings />}/>
           <Route path="/custodial-account" element={<CustodialAccount />}/>
           <Route path="/ira" element={<IRA />}/>
 
-          <Route path="/:userId/investment-assistant" element={<InvestmentAssistant />} />
+          <Route path="/ask-to-use-assistant" element={<AskToUseInvestAssist />}/>
+
+          <Route path="/investment-assistant" element={<InvestmentAssistant />} />
           <Route path="/manual-investment" element={<ManualInvestment />}/>
+
+          <Route path="/account-complete" element={<AccountFinish />}/>
 
           <Route path="/learning-resources" element={<LearningResources />}/>
           <Route path="/learning-resources-article1" element={<Article1 />} />

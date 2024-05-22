@@ -7,44 +7,68 @@ const LineChart = () => {
 
   const data = {
     month: [
-      { date: new Date(2023, 4, 1), value: 30 },
-      { date: new Date(2023, 4, 8), value: 50 },
-      { date: new Date(2023, 4, 15), value: 40 },
-      { date: new Date(2023, 4, 22), value: 80 },
-      { date: new Date(2023, 4, 29), value: 120 }
+      { date: new Date(2019, 6, 8), value: 68.25 },
+      { date: new Date(2019, 6, 15), value: 67.03 },
+      { date: new Date(2019, 6, 16), value: 42.25 },
+      { date: new Date(2019, 6, 24), value: 57.25 },     
     ],
     quarter: [
-      { date: new Date(2023, 2, 1), value: 20 },
-      { date: new Date(2023, 3, 1), value: 40 },
-      { date: new Date(2023, 4, 1), value: 30 },
-      { date: new Date(2023, 4, 8), value: 50 },
-      { date: new Date(2023, 4, 15), value: 40 },
-      { date: new Date(2023, 4, 22), value: 80 },
-      { date: new Date(2023, 4, 29), value: 120 }
+      { date: new Date(2019, 4, 10), value: 53.02 },
+      { date: new Date(2019, 4, 13), value: 65.32 },
+      { date: new Date(2019, 5, 14), value: 80.95 },
+      { date: new Date(2019, 6, 15), value: 67.03 },
+      { date: new Date(2019, 6, 16), value: 42.25 },
+      { date: new Date(2019, 7, 17), value: 86.18 },
     ],
     year: [
-      { date: new Date(2022, 4, 1), value: 50 },
-      { date: new Date(2022, 7, 1), value: 70 },
-      { date: new Date(2022, 10, 1), value: 60 },
-      { date: new Date(2023, 1, 1), value: 80 },
-      { date: new Date(2023, 4, 1), value: 30 },
-      { date: new Date(2023, 4, 8), value: 50 },
-      { date: new Date(2023, 4, 15), value: 40 },
-      { date: new Date(2023, 4, 22), value: 80 },
-      { date: new Date(2023, 4, 29), value: 120 }
+      { date: new Date(2019, 1, 6), value: 75.95 },
+      { date: new Date(2019, 2, 7), value: 41.17 },
+      { date: new Date(2019, 2, 8), value: 68.25 },
+      { date: new Date(2019, 3, 9), value: 82.02 },
+      { date: new Date(2019, 4, 10), value: 53.02 },
+      { date: new Date(2019, 4, 13), value: 65.32 },
+      { date: new Date(2019, 5, 14), value: 80.95 },
+      { date: new Date(2019, 6, 15), value: 67.03 },
+      { date: new Date(2019, 6, 16), value: 42.25 },
+      { date: new Date(2019, 7, 17), value: 86.18 },
+      { date: new Date(2019, 8, 20), value: 43.03 },
+      { date: new Date(2019, 9, 21), value: 91.33 },
+      { date: new Date(2019, 10, 22), value: 91.33 },
+      { date: new Date(2019, 11, 23), value: 80.18 },
+      { date: new Date(2019, 12, 24), value: 57.25 },
+      { date: new Date(2020, 1, 23), value: 71.25 }
     ],
     allTime: [
-      { date: new Date(2020, 4, 1), value: 10 },
-      { date: new Date(2021, 4, 1), value: 30 },
-      { date: new Date(2022, 4, 1), value: 50 },
-      { date: new Date(2022, 7, 1), value: 70 },
-      { date: new Date(2022, 10, 1), value: 60 },
-      { date: new Date(2023, 1, 1), value: 80 },
-      { date: new Date(2023, 4, 1), value: 30 },
-      { date: new Date(2023, 4, 8), value: 50 },
-      { date: new Date(2023, 4, 15), value: 40 },
-      { date: new Date(2023, 4, 22), value: 80 },
-      { date: new Date(2023, 4, 29), value: 120 }
+      { date: new Date(2015, 6, 6), value: 75.95 },
+      { date: new Date(2015, 6, 14), value: 80.95 },
+      { date: new Date(2016, 6, 9), value: 82.02 },
+      { date: new Date(2016, 6, 10), value: 53.02 },
+      { date: new Date(2016, 6, 15), value: 67.03 },
+      { date: new Date(2016, 6, 20), value: 43.03 },
+      { date: new Date(2018, 6, 7), value: 41.17 },
+      { date: new Date(2018, 6, 17), value: 86.18 },
+      { date: new Date(2018, 6, 23), value: 80.18 },
+      { date: new Date(2019, 1, 6), value: 75.95 },
+      { date: new Date(2019, 2, 7), value: 41.17 },
+      { date: new Date(2019, 2, 8), value: 68.25 },
+      { date: new Date(2019, 3, 9), value: 82.02 },
+      { date: new Date(2019, 4, 10), value: 53.02 },
+      { date: new Date(2019, 4, 13), value: 65.32 },
+      { date: new Date(2019, 5, 14), value: 80.95 },
+      { date: new Date(2019, 6, 8), value: 68.25 },
+      { date: new Date(2019, 6, 15), value: 67.03 },
+      { date: new Date(2019, 6, 16), value: 42.25 },     
+      { date: new Date(2019, 6, 24), value: 57.25 },
+      { date: new Date(2019, 7, 17), value: 86.18 },
+      { date: new Date(2019, 8, 20), value: 43.03 },
+      { date: new Date(2019, 9, 21), value: 91.33 },
+      { date: new Date(2019, 10, 22), value: 91.33 },
+      { date: new Date(2019, 11, 23), value: 80.18 },
+      { date: new Date(2019, 12, 24), value: 57.25 },
+      { date: new Date(2020, 1, 23), value: 71.25 },    
+      { date: new Date(2020, 6, 13), value: 65.32 },
+      { date: new Date(2020, 6, 21), value: 91.33 },
+      { date: new Date(2020, 6, 22), value: 91.33 },     
     ]
   };
 
@@ -63,14 +87,14 @@ const LineChart = () => {
       .line()
       .x(d => x(d.date))
       .y(d => y(d.value))
-      .curve(d3.curveMonotoneX); // Curves the line
+      //.curve(d3.curveMonotoneX); // Curves the line
 
     const area = d3
     .area()
     .x(d => x(d.date))
     .y0(height)
     .y1(d => y(d.value))
-    .curve(d3.curveMonotoneX); // Smooth the area
+    //.curve(d3.curveMonotoneX); // Smooth the area
 
     const g = svg
       .append('g')

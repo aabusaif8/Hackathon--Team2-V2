@@ -1,10 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Pic from '../images/coin.png'
 
 function StandardAccount() {
+  const { userId } = useParams();
+
   return (
     <div>
       <Navbar />
@@ -28,12 +30,12 @@ function StandardAccount() {
 
       {/* Back and Proceed btns */}
       <div className='space-x-12 drop-shadow-xl text-center mb-10'>
-        <Link to="/:userId/choose-account-type">
+        <Link to="/signup/proceed/terms/choose-account-type">
         <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
           Go Back
         </button>
         </Link>
-        <Link to="/:userId/investment-assistant">
+        <Link to="/ask-to-use-assistant">
         <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-8 font-normal'>
           Proceed
         </button>

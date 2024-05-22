@@ -9,7 +9,7 @@ function ChooseAccountType() {
   return (
     <div>
       <div>
-        <Link to="/:userId/ready-to-invest/terms">
+        <Link to="/signup/proceed/terms">
         <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
         </Link>
       </div>

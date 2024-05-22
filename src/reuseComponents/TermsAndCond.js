@@ -1,11 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 function TermsAndCond() {
+  const { userId } = useParams();
+
   return (
     <div>
       <div>
-        <Link to="/:userId/ready-to-invest">
+        <Link to="/signup/proceed">
         <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
         </Link>
       </div>
@@ -49,7 +51,7 @@ function TermsAndCond() {
       </div>
 
       <div className='space-x-12 drop-shadow-xl text-center pb-12'> 
-        <Link to="/:userId/choose-account-type">
+        <Link to={`/${userId}/choose-account-type`}>
         <button className='bg-dark-green text-white text-sm py-3 px-12 rounded-full mt-12 font-normal mx-auto'>
           Proceed
         </button>
