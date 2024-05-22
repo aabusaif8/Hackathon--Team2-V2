@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "../components/Navbar";
-import { Link } from "react-router-dom";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../context/AuthContext'; 
 import Footer from "../components/Footer";
 import logo from "../assets/monarchlogo.png";
 import "./SignIn.css";
@@ -12,6 +12,7 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const { login } = useAuth(); // Get the login function
 
   const handleLogin = async () => {
     try {
@@ -30,8 +31,10 @@ const LoginPage = () => {
       try {
         const responseData = JSON.parse(text);
         if (response.ok) {
-          const userId = responseData.data.user.Id;
-          console.log(userId);
+          const token = responseData.token; // Extract token from response
+          const userId = responseData.data.user.Id; // Extract userId from response
+          login(token, userId); // Store the token and set the authentication state to true
+          // Redirect to dashboard using userId
           navigate(`/${userId}/dashboard`);
         } else {
           console.error("Login failed", responseData);

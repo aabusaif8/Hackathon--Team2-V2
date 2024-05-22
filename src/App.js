@@ -37,6 +37,7 @@ import SignIn from './account/SignIn';
 import SignUp from './account/SignUp';
 import SignUpProceed from './account/SignUpProceed';
 import SignUpTerms from './account/SignUpTerms';
+import { AuthProvider } from './context/AuthContext';
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
   };
 
   return (
+    <AuthProvider>
     <div className="relative">
       <BrowserRouter>
         <Routes>
@@ -103,6 +105,7 @@ function App() {
         </div>
       )}
     </div>
+    </AuthProvider>
   );
 }
 

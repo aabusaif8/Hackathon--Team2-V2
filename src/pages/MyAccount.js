@@ -22,7 +22,7 @@ function MyAccount() {
       <nav>
         <ul>
           <li className='block px-6 py-4 border-b border-t hover:bg-white transition duration-300 border-dark-green '>
-            <Link to="/personal-information">Personal Information</Link>
+            <Link to="/:userId/personalinformation">Personal Information</Link>
           </li>
           <li className='block px-6 py-4  hover:bg-white transition duration-300'>
             <Link to="/linked-accounts">Linked Accounts</Link>

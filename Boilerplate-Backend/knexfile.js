@@ -1,29 +1,26 @@
 const path = require("path");
 require("dotenv").config();
-const {
-  
-  PROD_DATABASE_URL,DEV_DATABASE_URL} = process.env;
+const { DATABASE_URL } = process.env;
 
-  module.exports = {
-    development: {
-      client: "postgresql",
-      connection: DEV_DATABASE_URL,
-      migrations: {
-        directory: path.join(__dirname, "src", "db", "migrations"),
-      },
-      seeds: {
-        directory: path.join(__dirname, "src", "db", "seeds"),
-      },
+module.exports = {
+  development: {
+    client: "postgresql",
+    connection: DATABASE_URL,
+    migrations: {
+      directory: path.join(__dirname, "src", "db", "migrations"),
     },
-    production: {
-      client: "postgresql",
-      connection: PROD_DATABASE_URL,
-      migrations: {
-        directory: path.join(__dirname, "src", "db", "migrations"),
-      },
-      seeds: {
-        directory: path.join(__dirname, "src", "db", "seeds"),
-      },
+    seeds: {
+      directory: path.join(__dirname, "src", "db", "seeds"),
     },
-  };
-  
+  },
+  production: {
+    client: "postgresql",
+    connection: DATABASE_URL,
+    migrations: {
+      directory: path.join(__dirname, "src", "db", "migrations"),
+    },
+    seeds: {
+      directory: path.join(__dirname, "src", "db", "seeds"),
+    },
+  },
+};
