@@ -3,18 +3,19 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, Popover } from "@headlessui/react";
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
-import { useAuth } from '../context/AuthContext'; // Import the useAuth hook
+import logoLoggedout from '../assets/logoLoggedout.png'
+import { useAuth } from '../context/AuthContext';
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isLoggedIn, logout} = useAuth(); // Get the authentication state
+  const { isLoggedIn, logout } = useAuth();
 
   return (
-    <header className="bg-[#97db51]">
+    <header className={`${isLoggedIn ? 'bg-[#288037]' : 'bg-[#97db51]'}`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex items-center justify-between w-full lg:w-auto">
           <div className="flex lg:hidden pr-10">
-            <button 
+            <button
               type="button"
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
               onClick={() => setMobileMenuOpen(true)}
@@ -25,10 +26,14 @@ function Navbar() {
           </div>
           <div className="flex-1 flex justify-center pr-10">
             <a href="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">Monarch.com</span>
-              <img className="h-16 w-auto" src={logo} alt="logo" />
-            </a>
-          </div>
+            <span className="sr-only">Monarch.com</span>
+            <img
+               className="h-16 w-auto"
+                src={isLoggedIn ? logo : logoLoggedout} // Render the appropriate logo image
+                alt="logo"
+            />
+          </a>
+        </div>
           <div className="flex lg:hidden">
             <Link to={isLoggedIn ? "/myaccount" : "/signin"} className="text-sm font-semibold leading-6 text-white">
               <span className="sr-only">{isLoggedIn ? "My Account" : "Sign In"}</span>
@@ -37,42 +42,44 @@ function Navbar() {
           </div>
         </div>
 
-        <Popover.Group className="hidden lg:flex lg:gap-x-12 ml-auto pl-10">
-          <Link to="/manual-investment" className="text-sm font-semibold leading-6 text-white">
-            Manual Investment
-          </Link>
-          <Link to="/account-features" className="text-sm font-semibold leading-6 text-white">
+        <Popover.Group className={`${isLoggedIn ? 'text-white hidden lg:flex lg:gap-x-12 ml-auto pl-10' : 'text-black hidden lg:flex lg:gap-x-12 ml-10 pl-10'}`}>
+          {isLoggedIn && (
+            <Link to="/manual-investment" className="text-sm font-semibold leading-6 ">
+              Manual Investment
+            </Link>
+          )}
+          <Link to="/account-features" className="text-sm font-semibold leading-6 ">
             Account Features
           </Link>
-          <Link to="/learning-resources" className="text-sm font-semibold leading-6 text-white">
+          <Link to="/learning-resources" className="text-sm font-semibold leading-6 ">
             Learning Resources
           </Link>
-          <Link to="/about-us" className="text-sm font-semibold leading-6 text-white">
+          <Link to="/about-us" className="text-sm font-semibold leading-6 ">
             About Us
           </Link>
         </Popover.Group>
 
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end pr-">
+        <div className={`${isLoggedIn ? 'hidden lg:flex lg:flex-1 lg:justify-end text-white' : 'hidden lg:flex lg:flex-1 lg:justify-end text-black'}`}>
           {isLoggedIn ? (
             <>
-            <Link to="/:userId/dashboard" className="text-sm font-semibold leading-6 pl-2 text-black">
-              My Dashboard <span aria-hidden="true">&rarr;</span>
-            </Link>
-            <Link to="/myaccount" className="text-sm font-semibold leading-6 pl-4 text-black">
-              My Account <span aria-hidden="true">&rarr;</span>
-            </Link>
-            <Link
-                  onClick={logout}
-                  to="/"
-                  className="text-sm font-semibold leading-6 pl-4 text-black"
-                >
-                  Log Out
-                </Link>
-          </>
-          ) : (
-              <Link to="/signin" className="text-sm font-semibold leading-6 text-black">
-                Sign In / Sign Up<span aria-hidden="true">&rarr;</span>
+              <Link to="/:userId/dashboard" className="text-sm font-semibold leading-6 pl-2 ">
+                My Dashboard <span aria-hidden="true">&rarr;</span>
               </Link>
+              <Link to="/myaccount" className="text-sm font-semibold leading-6 pl-4 ">
+                My Account <span aria-hidden="true">&rarr;</span>
+              </Link>
+              <Link
+                onClick={logout}
+                to="/"
+                className="text-sm font-semibold leading-6 pl-4 "
+              >
+                Log Out
+              </Link>
+            </>
+          ) : (
+            <Link to="/signin" className="text-sm font-semibold leading-6 text-black">
+              Sign In / Sign Up<span aria-hidden="true">&rarr;</span>
+            </Link>
           )}
         </div>
       </nav>
@@ -84,9 +91,7 @@ function Navbar() {
       >
         <div className="fixed inset-0 z-10" />
 
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full 
-        overflow-y-auto bg-[#97db51] px-6 py-6 sm:max-w-sm sm:ring-1 
-        sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#97db51] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Monarch</span>
@@ -109,31 +114,29 @@ function Navbar() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-                <Link
-                  to="/manual-investment"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
-                  hover:bg-red-orange"
-                >
-                  Manual Investment
-                </Link>
+                {isLoggedIn && (
+                  <Link
+                    to="/manual-investment"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange"
+                  >
+                    Manual Investment
+                  </Link>
+                )}
                 <Link
                   to="/account-features"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
-                  hover:bg-red-orange"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                 >
                   Account Features
                 </Link>
                 <Link
                   to="/learning-resources"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
-                  hover:bg-red-orange"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                 >
                   Learning Resources
                 </Link>
                 <Link
                   to="/about-us"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white 
-                  hover:bg-red-orange"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                 >
                   About Us
                 </Link>
@@ -141,43 +144,37 @@ function Navbar() {
               <div className="py-6">
                 {isLoggedIn ? (
                   <>
-                  <Link
-                    to="/myaccount"
-                    className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-black
-                    hover:bg-red-orange"
-                  >
-                    My Account
-                  </Link>
-                  <Link
-                    to="/:userId/dashboard"
-                    className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-black
-                    hover:bg-red-orange"
-                  >
-                    My Dashboard
-                  </Link>
-                  <Link
-                  onClick={logout}
-                  to="/"
-                  className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-black
-                  hover:bg-red-orange"
-                >
-                  Log Out
-                </Link>
-                </>
-                  
+                    <Link
+                      to="/myaccount"
+                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-black hover:bg-red-orange"
+                    >
+                      My Account
+                    </Link>
+                    <Link
+                      to="/:userId/dashboard"
+                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-black hover:bg-red-orange"
+                    >
+                      My Dashboard
+                    </Link>
+                    <Link
+                      onClick={logout}
+                      to="/"
+                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-black hover:bg-red-orange"
+                    >
+                      Log Out
+                    </Link>
+                  </>
                 ) : (
                   <>
                     <Link
                       to="/signin"
-                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white
-                      hover:bg-red-orange"
+                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                     >
                       Sign In
                     </Link>
                     <Link
                       to="/signup"
-                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white
-                      hover:bg-red-orange"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                     >
                       Sign Up
                     </Link>
