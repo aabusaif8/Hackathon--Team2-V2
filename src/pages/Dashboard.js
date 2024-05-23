@@ -103,12 +103,13 @@ const Dashboard = () => {
       <div className="flex-grow container mx-auto p-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* My Investment Performance Card */}
-          <div className="bg-[#E2F5CF] rounded-lg shadow-md p-6 h-[500px]">
+          <div className="bg-[#E2F5CF] rounded-lg shadow-md p-6 h-[600px]">
             <h3 className="text-lg font-semibold mb-2">My Investment Performance</h3>
             <div  className="box-content h-auto rounded-lg flex flex-col items-center justify-center">
               {/* Placeholder for the investment performance graph */}
               <LineChart />
-             
+              <LineChart2 />
+              <LineChart3 />
             </div>
           </div>
 

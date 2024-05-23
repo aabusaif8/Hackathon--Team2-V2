@@ -136,9 +136,9 @@ const LineChart3 = () => {
 
     svg.append('text')
       .attr('x', dimensions.width / 2)
-      .attr('y', margin.top / 2)
+      .attr('y', margin.top / .9)
       .attr('text-anchor', 'middle')
-      .style('font-size', '25px')
+      .style('font-size', '15px')
       .style('font-weight', 'bold')
       .attr('fill', '#F7700C')
       .text('APL'); // Text
@@ -152,7 +152,7 @@ const LineChart3 = () => {
 
   return (
     <div >
-      <svg ref={ref} className='w-full h-full'></svg>
+      <svg ref={ref} width="700" height="150" className='pr-3'></svg>
       <div className='space-x-5 text-lg'>
         <button className={`btn ${timeRange === 'month' ? 'active' : ''}`} onClick={() => setTimeRange('month')}>
           Month
