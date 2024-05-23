@@ -13,6 +13,12 @@
 ## Introduction
 Welcome to the Investment App! This application provides users with a comprehensive platform to manage their personal and financial information, view investment details, and make informed financial decisions. The app is designed to be user-friendly, secure, and efficient, catering to both novice and experienced investors.
 
+## Contributors
+
+- [Ahmad Abusaif - Software Engineer](https://github.com/aabusaif8)
+- [Matt Kulka - Software Engineer](https://github.com/MattKulka)
+- [Rouzbeh Vahdatiasl - Software Engineer](https://github.com/Rouz275)
+
 ## Features
 - **User Authentication:** Secure login and registration system.
 - **Personal Information Management:** View and edit personal details.
