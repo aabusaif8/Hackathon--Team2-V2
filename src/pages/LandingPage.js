@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useEffect} from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import NavBar from '../components/Navbar';
 import Hero from '../components/Hero';
