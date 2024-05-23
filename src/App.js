@@ -38,7 +38,7 @@ import SignUp from './account/SignUp';
 import SignUpProceed from './account/SignUpProceed';
 import SignUpTerms from './account/SignUpTerms';
 import { AuthProvider } from './context/AuthContext';
-
+import NewSignPage from './account/NewSignPage';
 
 function App() {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -89,6 +89,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/:userId/signup/proceed" element={<SignUpProceed />} />
           <Route path="/:userId/signup/proceed/terms" element={<SignUpTerms />} />
+          <Route path="/newsign" element={<NewSignPage />} />
         </Routes>
       </BrowserRouter>
 
