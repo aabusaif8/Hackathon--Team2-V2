@@ -2,12 +2,12 @@
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [Contributing](#contributing)
+- [Contributors](#contributors)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [License](#license)
+- [Contributing](#contributing)
 - [Contact](#contact)
 
 ## Introduction
@@ -34,7 +34,7 @@ Welcome to the Investment App! This application provides users with a comprehens
 - **Authentication:** JWT (JSON Web Tokens)
 - **API:** RESTful API
 
-## Setup Instructions
+## Installation
 
 - Clone the repository
 
@@ -47,3 +47,38 @@ Welcome to the Investment App! This application provides users with a comprehens
 - Run ```cd Boilerplate-Backend``` and ```npm install``` to install packages and dependencies
   
 - Use ```npm run start:dev``` to run the backend
+
+## Usage
+Once the app is running, you can:
+- Register a new account or log in with existing credentials.
+- View and edit your personal and financial information.
+- Explore your investment dashboard to monitor performance.
+
+## Contributing
+We welcome contributions to enhance the Investment App! To contribute, follow these steps:
+
+1. **Fork the repository.**
+2. **Create a new branch:**
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+3. **Make your changes and commit them:**
+    ```bash
+    git commit -m 'Add some feature'
+    ```
+4. **Push to the branch:**
+    ```bash
+    git push origin feature/your-feature-name
+    ```
+5. **Create a pull request.**
+
+Please ensure your code adheres to the project's coding standards and includes appropriate tests.
+
+## Contact
+If you have any questions or suggestions, feel free to contact us at aabusaif8@gmail.com.
+
+Thank you for using the Investment App! We hope it helps you achieve your financial goals.
+
+---
+
+![Monarch Overview](images/monarchappoverview.png)
