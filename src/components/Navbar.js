@@ -69,8 +69,7 @@ function Navbar() {
                 My Account <span aria-hidden="true">&rarr;</span>
               </Link>
               <Link
-                onClick={logout}
-                to="/"
+                to="/:userId/logout"
                 className="text-sm font-semibold leading-6 pl-4 "
               >
                 Log Out
@@ -157,8 +156,7 @@ function Navbar() {
                       My Dashboard
                     </Link>
                     <Link
-                      onClick={logout}
-                      to="/"
+                      to="/:userId/logout"
                       className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                     >
                       Log Out

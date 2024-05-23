@@ -38,6 +38,8 @@ import SignUp from './account/SignUp';
 import SignUpProceed from './account/SignUpProceed';
 import SignUpTerms from './account/SignUpTerms';
 import { AuthProvider } from './context/AuthContext';
+import LogoutPage from './pages/LogoutPage'
+import ConfirmLogout from './pages/ConfirmLogout'
 
 
 function App() {
@@ -89,6 +91,8 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/:userId/signup/proceed" element={<SignUpProceed />} />
           <Route path="/:userId/signup/proceed/terms" element={<SignUpTerms />} />
+          <Route path="/:userId/logout" element={<LogoutPage />} />
+          <Route path="/:userId/confirmlogout" element={<ConfirmLogout/>} />
         </Routes>
       </BrowserRouter>
 
