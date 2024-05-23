@@ -130,7 +130,7 @@ const Dashboard = () => {
           {error && <p className="text-center text-red-500 mb-4">{error}</p>}
           <Slider {...settings}>
             {userStocks.map((stock) => (
-              <div key={stock.Id} className="h-[200px] bg-gray-100 rounded-lg flex flex-col items-center justify-between p-2">
+              <div key={stock.Id} className="h-[200px] text-center bg-gray-100 rounded-lg flex flex-col items-center justify-between p-2">
                 <h4 className="text-sm font-semibold mb-1">{stock.Category}</h4>
                 <p className="text-xs">Close: {stock.Close}</p>
                 <p className="text-xs">Date: {formatDate(stock.Date)}</p>
