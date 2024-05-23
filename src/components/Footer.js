@@ -26,7 +26,7 @@ const Footer = () => {
                     />
                   </a>
                 </div>
-                <p className={`${isLoggedIn ? 'text-white m-3 mb-2 font-semibold' : 'text-black m-3 mb-2 font-semibold'}`}>
+                <p className={`${isLoggedIn ? 'text-white m-3 mt-10 mb-2 font-semibold' : 'text-black m-3 mt-10 mb-2 font-semibold'}`}>
                   We are a team of passionate developers dedicated to creating innovative financial solutions.
                 </p>
               </div>

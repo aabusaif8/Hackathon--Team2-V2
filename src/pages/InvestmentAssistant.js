@@ -14,6 +14,8 @@ import SSN from '../reuseComponents/SSN';
 import BankAccount from '../reuseComponents/BankAccount';
 
 import LineChart from '../components/LineChart';
+import LineChart2 from '../components/LineChart2';
+import LineChart3 from '../components/LineChart3';
 
 function InvestmentAssist() {
   const navigate = useNavigate();
@@ -89,7 +91,9 @@ function InvestmentAssist() {
 
       {/* RANDOMS */}
       {/* Component "Account Set Up Complete" move this to the end when account is complete */}
-      <LineChart />      
+      <LineChart />   
+      <LineChart2 />   
+      <LineChart3 />
     </div>
   );
 }

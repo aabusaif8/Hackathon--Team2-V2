@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 
-const LineChart = () => {
+const LineChart2 = () => {
   const ref = useRef();
   const [timeRange, setTimeRange] = useState('month');
   const [dimensions, setDimensions] = useState({ width: 0, height: 400 });
@@ -20,68 +20,57 @@ const LineChart = () => {
 
   const data = {
     month: [
-      { date: new Date(2019, 6, 8), value: 68.25 },
-      { date: new Date(2019, 6, 15), value: 67.03 },
-      { date: new Date(2019, 6, 16), value: 42.25 },
-      { date: new Date(2019, 6, 24), value: 57.25 },     
+      { date: new Date(2019, 1, 19), value: 55.88 },
+      { date: new Date(2019, 1, 27), value: 78.03 },
+      { date: new Date(2019, 1, 28), value: 67.18 },    
     ],
     quarter: [
-      { date: new Date(2019, 4, 10), value: 53.02 },
-      { date: new Date(2019, 4, 13), value: 65.32 },
-      { date: new Date(2019, 5, 14), value: 80.95 },
-      { date: new Date(2019, 6, 15), value: 67.03 },
-      { date: new Date(2019, 6, 16), value: 42.25 },
-      { date: new Date(2019, 7, 17), value: 86.18 },
+      { date: new Date(2019, 7, 8), value: 36.49 },
+      { date: new Date(2019, 7, 9), value: 43.18 },
+      { date: new Date(2019, 7, 10), value: 65.49 },
+      { date: new Date(2019, 8, 11), value: 53.03 },
+      { date: new Date(2019, 9, 12), value: 35.88 },
+      { date: new Date(2019, 10, 15), value: 67.03 },
     ],
     year: [
-      { date: new Date(2019, 1, 6), value: 75.95 },
-      { date: new Date(2019, 2, 7), value: 41.17 },
-      { date: new Date(2019, 2, 8), value: 68.25 },
-      { date: new Date(2019, 3, 9), value: 82.02 },
-      { date: new Date(2019, 4, 10), value: 53.02 },
-      { date: new Date(2019, 4, 13), value: 65.32 },
-      { date: new Date(2019, 5, 14), value: 80.95 },
-      { date: new Date(2019, 6, 15), value: 67.03 },
-      { date: new Date(2019, 6, 16), value: 42.25 },
-      { date: new Date(2019, 7, 17), value: 86.18 },
-      { date: new Date(2019, 8, 20), value: 43.03 },
-      { date: new Date(2019, 9, 21), value: 91.33 },
-      { date: new Date(2019, 10, 22), value: 91.33 },
-      { date: new Date(2019, 11, 23), value: 80.18 },
-      { date: new Date(2019, 12, 24), value: 57.25 },
-      { date: new Date(2020, 1, 23), value: 71.25 }
+      { date: new Date(2019, 1, 19), value: 55.88 },
+      { date: new Date(2019, 1, 27), value: 78.03 },
+      { date: new Date(2019, 1, 28), value: 67.18 },
+      { date: new Date(2019, 2, 29), value: 61.33 },
+      { date: new Date(2019, 3, 1), value: 65.87 },
+      { date: new Date(2019, 4, 2), value: 39.03 },
+      { date: new Date(2019, 4, 3), value: 46.49 },
+      { date: new Date(2019, 5, 4), value: 47.72 },
+      { date: new Date(2019, 6, 5), value: 68.18 },
+      { date: new Date(2019, 7, 8), value: 36.49 },
+      { date: new Date(2019, 7, 9), value: 43.18 },
+      { date: new Date(2019, 7, 10), value: 65.49 },
+      { date: new Date(2019, 8, 11), value: 53.03 },
+      { date: new Date(2019, 9, 12), value: 35.88 },
+      { date: new Date(2019, 10, 15), value: 67.03 },
+      { date: new Date(2019, 11, 16), value: 34.03 },
+      { date: new Date(2019, 12, 17), value: 33.34 },
+      { date: new Date(2019, 12, 18), value: 43.03 }, 
     ],
     allTime: [
-      { date: new Date(2015, 6, 6), value: 75.95 },
-      { date: new Date(2015, 6, 14), value: 80.95 },
-      { date: new Date(2016, 6, 9), value: 82.02 },
-      { date: new Date(2016, 6, 10), value: 53.02 },
-      { date: new Date(2016, 6, 15), value: 67.03 },
-      { date: new Date(2016, 6, 20), value: 43.03 },
-      { date: new Date(2018, 6, 7), value: 41.17 },
-      { date: new Date(2018, 6, 17), value: 86.18 },
-      { date: new Date(2018, 6, 23), value: 80.18 },
-      { date: new Date(2019, 1, 6), value: 75.95 },
-      { date: new Date(2019, 2, 7), value: 41.17 },
-      { date: new Date(2019, 2, 8), value: 68.25 },
-      { date: new Date(2019, 3, 9), value: 82.02 },
-      { date: new Date(2019, 4, 10), value: 53.02 },
-      { date: new Date(2019, 4, 13), value: 65.32 },
-      { date: new Date(2019, 5, 14), value: 80.95 },
-      { date: new Date(2019, 6, 8), value: 68.25 },
-      { date: new Date(2019, 6, 15), value: 67.03 },
-      { date: new Date(2019, 6, 16), value: 42.25 },     
-      { date: new Date(2019, 6, 24), value: 57.25 },
-      { date: new Date(2019, 7, 17), value: 86.18 },
-      { date: new Date(2019, 8, 20), value: 43.03 },
-      { date: new Date(2019, 9, 21), value: 91.33 },
-      { date: new Date(2019, 10, 22), value: 91.33 },
-      { date: new Date(2019, 11, 23), value: 80.18 },
-      { date: new Date(2019, 12, 24), value: 57.25 },
-      { date: new Date(2020, 1, 23), value: 71.25 },    
-      { date: new Date(2020, 6, 13), value: 65.32 },
-      { date: new Date(2020, 6, 21), value: 91.33 },
-      { date: new Date(2020, 6, 22), value: 91.33 },     
+      { date: new Date(2019, 1, 19), value: 55.88 },
+      { date: new Date(2019, 1, 27), value: 78.03 },
+      { date: new Date(2019, 1, 28), value: 67.18 },
+      { date: new Date(2019, 2, 29), value: 61.33 },
+      { date: new Date(2019, 3, 1), value: 65.87 },
+      { date: new Date(2019, 4, 2), value: 39.03 },
+      { date: new Date(2019, 4, 3), value: 46.49 },
+      { date: new Date(2019, 5, 4), value: 47.72 },
+      { date: new Date(2019, 6, 5), value: 68.18 },
+      { date: new Date(2019, 7, 8), value: 36.49 },
+      { date: new Date(2019, 7, 9), value: 43.18 },
+      { date: new Date(2019, 7, 10), value: 65.49 },
+      { date: new Date(2019, 8, 11), value: 53.03 },
+      { date: new Date(2019, 9, 12), value: 35.88 },
+      { date: new Date(2019, 10, 15), value: 67.03 },
+      { date: new Date(2019, 11, 16), value: 34.03 },
+      { date: new Date(2019, 12, 17), value: 33.34 },
+      { date: new Date(2019, 12, 18), value: 43.03 },     
     ]
   };
 
@@ -148,7 +137,7 @@ const LineChart = () => {
       .style('font-size', '25px')
       .style('font-weight', 'bold')
       .attr('fill', '#F7700C')
-      .text('IBA'); // Text
+      .text('TLA'); // Text
 
     g.append('g')
       .attr('transform', `translate(0,${height})`)
@@ -180,4 +169,4 @@ const LineChart = () => {
   );
 };
 
-export default LineChart;
+export default LineChart2;

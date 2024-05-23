@@ -91,13 +91,13 @@ function Navbar() {
       >
         <div className="fixed inset-0 z-10" />
 
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#97db51] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className={`${isLoggedIn ? 'text-white fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#288037] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10': ' text-black fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#97db51] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'}`}>
           <div className="flex items-center justify-between">
             <a href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Monarch</span>
               <img
                 className="h-14 w-auto"
-                src={logo}
+                src={isLoggedIn ? logo : logoLoggedout}
                 alt=""
               />
             </a>
@@ -117,26 +117,26 @@ function Navbar() {
                 {isLoggedIn && (
                   <Link
                     to="/manual-investment"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange"
+                    className={`${isLoggedIn ? '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange' : '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black hover:bg-red-orange'}`}
                   >
                     Manual Investment
                   </Link>
                 )}
                 <Link
                   to="/account-features"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange"
+                  className={`${isLoggedIn ? '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange' : '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black hover:bg-red-orange'}`}
                 >
                   Account Features
                 </Link>
                 <Link
                   to="/learning-resources"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange"
+                  className={`${isLoggedIn ? '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange' : '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black hover:bg-red-orange'}`}
                 >
                   Learning Resources
                 </Link>
                 <Link
                   to="/about-us"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange"
+                  className={`${isLoggedIn ? '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange' : '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-black hover:bg-red-orange'}`}
                 >
                   About Us
                 </Link>
@@ -146,20 +146,20 @@ function Navbar() {
                   <>
                     <Link
                       to="/myaccount"
-                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-black hover:bg-red-orange"
+                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                     >
                       My Account
                     </Link>
                     <Link
                       to="/:userId/dashboard"
-                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-black hover:bg-red-orange"
+                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                     >
                       My Dashboard
                     </Link>
                     <Link
                       onClick={logout}
                       to="/"
-                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-black hover:bg-red-orange"
+                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                     >
                       Log Out
                     </Link>
@@ -171,6 +171,7 @@ function Navbar() {
                       className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                     >
                       Sign In / Sign Up
+
                     </Link>
                   </>
                 )}
