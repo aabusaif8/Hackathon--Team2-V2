@@ -26,12 +26,12 @@ const WelcomePage = () => {
           </div>
           <div className="flex flex-col items-center mt-8">
             <Link to="/signup">
-              <button className="w-full py-3 bg-[#97db51] text-black rounded-full font-semibold text-lg md:text-base sm:text-sm mb-4 w-[200px]">
+              <button className="py-3 bg-[#97db51] text-black rounded-full font-semibold text-lg md:text-base sm:text-sm mb-4 w-[250px]">
                 Sign Up
               </button>
             </Link>
             <Link to="/signin">
-              <button className="w-full py-3 bg-[#97db51] text-black rounded-full font-semibold text-lg md:text-base sm:text-sm mb-4 w-[200px]">
+              <button className="py-3 bg-[#97db51] text-black rounded-full font-semibold text-lg md:text-base sm:text-sm mb-4 w-[250px]">
                 Sign In
               </button>
             </Link>
