@@ -164,7 +164,7 @@ function Navbar() {
               <div className="space-y-2 py-6">
                 {isLoggedIn && (
                   <Link
-                    to="/manual-investment"
+                    to={`/${userId}/manual-investment`}
                     className={`${
                       isLoggedIn
                         ? "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-red-orange"
@@ -209,19 +209,19 @@ function Navbar() {
                 {isLoggedIn ? (
                   <>
                     <Link
-                      to={`${userId}/myaccount`}
+                      to={`/${userId}/myaccount`}
                       className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                     >
                       My Account
                     </Link>
                     <Link
-                      to={`${userId}/dashboard`}
+                      to={`/${userId}/dashboard`}
                       className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                     >
                       My Dashboard
                     </Link>
                     <Link
-                      to={`${userId}/logout`}
+                      to={`/${userId}/logout`}
                       className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                     >
                       Log Out
