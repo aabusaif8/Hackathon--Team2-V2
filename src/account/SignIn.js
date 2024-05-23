@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import NavBar from "../components/Navbar";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from '../context/AuthContext'; 
+import { useAuth } from "../context/AuthContext";
 import Footer from "../components/Footer";
 import logo from "../assets/monarchlogo.png";
+import eyeOpen from "../assets/passwordshow.png";
+import eyeClosed from "../assets/passwordhide.png";
 import "./SignIn.css";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const { login } = useAuth(); // Get the login function
+  const { login } = useAuth();
 
   const handleLogin = async () => {
     try {
@@ -42,19 +46,24 @@ const LoginPage = () => {
       } catch (jsonError) {
         console.error("Failed to parse JSON response:", text);
       }
-
     } catch (error) {
       console.error("Error occurred:", error);
     }
+  };
+
+  const toggleShowPassword = () => {
+    setShowPassword((prevState) => !prevState);
   };
 
   return (
     <div>
       <NavBar />
       <div className="min-h-screen flex flex-col items-center justify-center bg-white relative">
-        <button className="text-dark-green text-2xl font-semibold mt-5 ml-10 underline absolute top-0 left-0">
-          Back
-        </button>
+        <Link to="/NewSignPage">
+          <button className="text-dark-green text-2xl font-semibold mt-5 ml-10 underline absolute top-0 left-0">
+            Back
+          </button>
+        </Link>
         <div className="absolute top-0 flex justify-center w-full mt-5">
           <img src={logo} alt="logo" className="sm:max-w-lg" />
         </div>
@@ -92,8 +101,8 @@ const LoginPage = () => {
               </label>
               <div className="mx-auto w-3/4">
                 <input
-                  className="w-full px-4 py-3 border border-[#997b8a] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 italic placeholder-black"
-                  type="password"
+                  className="w-full px-4 py-3 border border-[#997b8a] rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-black"
+                  type={showPassword ? "text" : "password"}
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -103,6 +112,17 @@ const LoginPage = () => {
                   onClick={() => setPassword("")}
                 >
                   X
+                </button>
+                <button
+                  className="absolute top-10 right-24 text-[#35a94c] focus:outline-none"
+                  type="button"
+                  onClick={toggleShowPassword}
+                >
+                  <img
+                    className="icon-button"
+                    src={showPassword ? eyeOpen : eyeClosed}
+                    alt="toggle password visibility"
+                  />
                 </button>
               </div>
               <div className="relative">
