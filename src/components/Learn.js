@@ -24,7 +24,7 @@ const Learn = () => {
             />
           </div>
           <div className="lg:pmd:w-1/2 md:pl-8 flex flex-col items-center md:items-start">
-            <Link to="/signpage">
+            <Link to="/newsign">
               <button className=" bg-dark-green justify-between text-white py-3 px-8 md:px-12 lg:px-16 rounded-full font-semibold transition-colors duration-300 hover:bg-green-700 mt-8 md:mt-0 ">
                 Open an Account
               </button>
