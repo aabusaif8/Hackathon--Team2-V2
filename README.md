@@ -18,6 +18,7 @@ Welcome to the Investment App! This application provides users with a comprehens
 ## Contributors
 
 - [Ahmad Abusaif - Software Engineer](https://github.com/aabusaif8)
+- [Cory Morgan - Software Engineer](https://github.com/cmorgan3324)
 - [Francisco Alvarado - Software Engineer](https://github.com/falvarado7)
 - [Matt Kulka - Software Engineer](https://github.com/MattKulka)
 - [Rouzbeh Vahdatiasl - Software Engineer](https://github.com/Rouz275)
