@@ -20,9 +20,9 @@ function StandardAccount() {
         <img src={Pic} alt='flower pic'/>
       </div>
 
-      <div className='text-left mb-10 mt-10 px-10 font-medium'>
+      <div className='mb-10 mt-10 px-10 font-medium flex flex-col justify-center items-center'>
         <p>With a standard brokerage account, you can start onvesting today for anything you need tomorrow.</p>
-        <ul className='list-disc ml-4 mt-3'>
+        <ul className='list-disc list-inside ml-4 mt-3'>
           <li>Start saving with a variety of investments such as stocks, bonds, and mutual funds</li>
           <li>Interest and divedends that you earn are</li>
         </ul>

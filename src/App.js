@@ -66,7 +66,7 @@ function App() {
           <Route path="/:userId/ask-to-use-assistant" element={<AskToUseInvestAssist />}/>
 
           <Route path="/:userId/investment-assistant" element={<InvestmentAssistant />} />
-          <Route path="/manual-investment" element={<ManualInvestment />}/>
+          <Route path="/:userId/manual-investment" element={<ManualInvestment />}/>
 
           <Route path="/:userId/account-complete" element={<AccountFinish />}/>
 

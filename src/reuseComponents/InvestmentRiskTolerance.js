@@ -2,6 +2,15 @@ import React, { useState } from 'react'
 
 function InvestmentRiskTolerance() {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState(null);
+
+  const handleClick = (status) => {
+    setSelectedStatus(status)
+  }
+
+  const btnClasses = (status) =>
+    selectedStatus === status 
+  ? 'bg-dark-green' : 'bg-green'
 
   return (
     <div id='InvestmentRisk'>
@@ -51,9 +60,18 @@ function InvestmentRiskTolerance() {
 
         {/* Btns to select Risk */}
         <div className='flex flex-col px-12 pb-10'>
-          <button className='mt-12 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Conservative</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Moderate</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Aggresive</button>
+        <button 
+          onClick={() => handleClick('1')} 
+          className={`mt-12 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('1')}`}
+          >Conservative</button>
+          <button 
+          onClick={() => handleClick('2')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('2')}`}
+          >Moderate</button>
+          <button 
+          onClick={() => handleClick('3')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('3')}`}
+          >Aggresive</button>
         </div>
       </div>
 

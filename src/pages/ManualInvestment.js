@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import DOB from '../reuseComponents/DOB'
 import EmploymentStatus from '../reuseComponents/EmploymentStatus'
 import YearlyIncome from '../reuseComponents/YearlyIncome'
@@ -12,6 +12,8 @@ function ManualInvestment() {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const validate = useRef(null)
+
+  const { userId } = useParams()
 
   const questions = [
     <DOB key='dob' 
@@ -33,7 +35,7 @@ function ManualInvestment() {
   const handleProceed = () => {
     if (validate.current && validate.current()) {
     if (isLastQuestion) {
-      navigate("/account-complete")
+      navigate(`/${userId}/account-complete`)
     } else {
       setCurrentQuestion(currentQuestion + 1)
     }
@@ -43,7 +45,7 @@ function ManualInvestment() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       <Navbar />
-      <Link to="/ask-to-use-assistant">
+      <Link to={`/${userId}/ask-to-use-assistant`}>
       <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
       </Link>
       <div className="text-center font-semibold text-4xl mt-5">
