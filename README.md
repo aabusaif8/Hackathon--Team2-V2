@@ -20,6 +20,8 @@ Welcome to the Monarch Investment App! This application provides users with a co
 - [Ahmad Abusaif - Software Engineer](https://github.com/aabusaif8)
 - [Cory Morgan - Software Engineer](https://github.com/cmorgan3324)
 - [Francisco Alvarado - Software Engineer](https://github.com/falvarado7)
+- [Jennifer Clifford - Data Analyst](https://www.linkedin.com/in/jenniferclifford1)
+- [Kye Edwards - UX / UI Designer](https://www.kye-edwards.com)
 - [Matt Kulka - Software Engineer](https://github.com/MattKulka)
 - [Rouzbeh Vahdatiasl - Software Engineer](https://github.com/Rouz275)
 
