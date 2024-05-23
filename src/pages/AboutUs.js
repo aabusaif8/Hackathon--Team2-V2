@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
+import { Link, useNavigate } from 'react-router-dom';
 
 const AboutUs = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -9,6 +10,8 @@ const AboutUs = () => {
     email: '',
     message: '',
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -23,9 +26,18 @@ const AboutUs = () => {
     setFormData({ name: '', email: '', message: '' });
   };
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <Navbar />
+      <Link onClick={handleGoBack}>
+        <button className="text-dark-green text-2xl font-semibold mt-5 ml-10 underline">
+          Back
+        </button>
+      </Link>
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 ">
         <div className="text-center">
           <h2 className="text-base text-dark-green font-semibold tracking-wide uppercase">

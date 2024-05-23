@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Pic1 from "../images/rafiki.png";
 import Pic2 from "../images/phone-wallet.png";
 import Pic3 from "../images/money-pile.png";
@@ -7,9 +7,20 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 function LearningResources() {
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       <Navbar />
+      <Link onClick={handleGoBack}>
+        <button className="text-dark-green text-2xl font-semibold mt-5 ml-10 underline">
+          Back
+        </button>
+      </Link>
       <div className="flex-grow">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="text-center mb-12">
