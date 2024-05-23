@@ -114,16 +114,17 @@ const Dashboard = () => {
           </div>
 
           {/* My Accounts at a Glance Card */}
-          <div className="bg-[#FDDBC2] rounded-lg shadow-md p-6 h-[500px] mb-8">
+         <div className="bg-[#FDDBC2] rounded-lg p-6 h-[500px] mb-8">
             <h3 className="text-lg font-semibold mb-4">My Accounts at a Glance</h3>
             <div className="mt-4 grid grid-cols-1 gap-4">
-              <div className="bg-white rounded-lg h-[190px] shadow-md p-4 flex items-center justify-center">
-                {/* Placeholder for additional content */}
-                <span className="text-gray-500">Placeholder 1</span>
+              <div className=" rounded-lg h-[190px]  p-4 flex items-center justify-center">
+                 <img className="h-[175px] p-2" src={acc1} />
+  
               </div>
-              <div className="bg-white rounded-lg h-[190px] shadow-md p-4  flex items-center justify-center">
+              <div className="rounded-lg h-[190px] p-4  flex items-center justify-center">
+                <img className="h-[175px]" src={acct2} />
                 {/* Placeholder for additional content */}
-                <span className="text-gray-500">Placeholder 2</span>
+  
               </div>
             </div>
           </div>
