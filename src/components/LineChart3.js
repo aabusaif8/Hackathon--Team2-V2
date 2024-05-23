@@ -4,19 +4,20 @@ import * as d3 from 'd3';
 const LineChart3 = () => {
   const ref = useRef();
   const [timeRange, setTimeRange] = useState('month');
-  const [dimensions, setDimensions] = useState({ width: 0, height: 400 });
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     const handleResize = () => {
       const width = ref.current.parentElement.offsetWidth;
-      setDimensions({ width, height: dimensions.height });
+      const height = ref.current.parentElement.offsetHeight;
+      setDimensions({ width, height });
     };
 
     window.addEventListener('resize', handleResize);
     handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [dimensions.height]);
+  }, []);
 
   const data = {
     month: [
@@ -76,10 +77,12 @@ const LineChart3 = () => {
   };
 
   useEffect(() => {
+    if (dimensions.width === 0 || dimensions.height === 0) return;
+
     const svg = d3.select(ref.current);
     svg.selectAll('*').remove(); // Clear previous content
 
-    const margin = { top: 50, right: 30, bottom: 30, left: 40 };
+    const margin = { top: 20, right: 30, bottom: 30, left: 40 };
     const width = dimensions.width - margin.left - margin.right;
     const height = dimensions.height - margin.top - margin.bottom;
 
@@ -133,7 +136,7 @@ const LineChart3 = () => {
 
     svg.append('text')
       .attr('x', dimensions.width / 2)
-      .attr('y', margin.top)
+      .attr('y', margin.top / 2)
       .attr('text-anchor', 'middle')
       .style('font-size', '25px')
       .style('font-weight', 'bold')
@@ -148,23 +151,21 @@ const LineChart3 = () => {
   }, [timeRange, dimensions]);
 
   return (
-    <div>
-      <div className='className=sm:box-content h-auto bg-light-green mx-10 rounded-xl mt-5 pt-5 shadow-xl text-center mb-10 max-w-full'>
-        <svg ref={ref} width="auto" height="400" className='pr-3'></svg>
-        <div className='space-x-5 text-lg'>
-          <button className={`btn ${timeRange === 'month' ? 'active' : ''}`} onClick={() => setTimeRange('month')}>
-            Month
-          </button>
-          <button className={`btn ${timeRange === 'quarter' ? 'active' : ''}`} onClick={() => setTimeRange('quarter')}>
-            Quarter
-          </button>
-          <button className={`btn ${timeRange === 'year' ? 'active' : ''}`} onClick={() => setTimeRange('year')}>
-            Year
-          </button>
-          <button className={`btn ${timeRange === 'allTime' ? 'active' : ''}`} onClick={() => setTimeRange('allTime')}>
-            All Time
-          </button>
-        </div>
+    <div >
+      <svg ref={ref} className='w-full h-full'></svg>
+      <div className='space-x-5 text-lg'>
+        <button className={`btn ${timeRange === 'month' ? 'active' : ''}`} onClick={() => setTimeRange('month')}>
+          Month
+        </button>
+        <button className={`btn ${timeRange === 'quarter' ? 'active' : ''}`} onClick={() => setTimeRange('quarter')}>
+          Quarter
+        </button>
+        <button className={`btn ${timeRange === 'year' ? 'active' : ''}`} onClick={() => setTimeRange('year')}>
+          Year
+        </button>
+        <button className={`btn ${timeRange === 'allTime' ? 'active' : ''}`} onClick={() => setTimeRange('allTime')}>
+          All Time
+        </button>
       </div>
     </div>
   );

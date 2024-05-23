@@ -5,6 +5,9 @@ import { useAuth } from '../context/AuthContext'; // Import the useAuth hook
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import LineChart from '../components/LineChart';
+import LineChart2 from '../components/LineChart2';
+import LineChart3 from '../components/LineChart3';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
@@ -100,11 +103,12 @@ const Dashboard = () => {
       <div className="flex-grow container mx-auto p-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {/* My Investment Performance Card */}
-          <div className="bg-[#E2F5CF] rounded-lg shadow-md p-6 h-[500px] mb-8">
-            <h3 className="text-lg font-semibold mb-4">My Investment Performance</h3>
-            <div className="h-[400px] bg-gray-100 rounded-lg flex items-center justify-center">
+          <div className="bg-[#E2F5CF] rounded-lg shadow-md p-6 h-[500px]">
+            <h3 className="text-lg font-semibold mb-2">My Investment Performance</h3>
+            <div  className="box-content h-auto rounded-lg flex flex-col items-center justify-center">
               {/* Placeholder for the investment performance graph */}
-              <span className="text-gray-500">Graph</span>
+              <LineChart />
+             
             </div>
           </div>
 

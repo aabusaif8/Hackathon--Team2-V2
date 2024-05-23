@@ -4,19 +4,20 @@ import * as d3 from 'd3';
 const LineChart = () => {
   const ref = useRef();
   const [timeRange, setTimeRange] = useState('month');
-  const [dimensions, setDimensions] = useState({ width: 0, height: 400 });
+  const [dimensions, setDimensions] = useState({ width: 1000, height: 0 });
 
   useEffect(() => {
     const handleResize = () => {
       const width = ref.current.parentElement.offsetWidth;
-      setDimensions({ width, height: dimensions.height });
+      const height = ref.current.parentElement.offsetHeight;
+      setDimensions({ width, height });
     };
 
     window.addEventListener('resize', handleResize);
     handleResize();
 
     return () => window.removeEventListener('resize', handleResize);
-  }, [dimensions.height]);
+  }, []);
 
   const data = {
     month: [
@@ -159,8 +160,8 @@ const LineChart = () => {
 
   return (
     <div>
-      <div className='className=sm:box-content h-auto bg-light-green mx-10 rounded-xl mt-5 pt-5 shadow-xl text-center mb-10 max-w-full'>
-        <svg ref={ref} width="auto" height="400" className='pr-3'></svg>
+      <div className='max-w-full'> 
+        <svg ref={ref} width="700" height="400" className='pr-3'></svg>
         <div className='space-x-5 text-lg'>
           <button className={`btn ${timeRange === 'month' ? 'active' : ''}`} onClick={() => setTimeRange('month')}>
             Month

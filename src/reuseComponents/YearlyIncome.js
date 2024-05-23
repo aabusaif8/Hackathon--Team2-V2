@@ -2,6 +2,15 @@ import React, { useState } from 'react'
 
 function YearlyIncome() {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState(null);
+
+  const handleClick = (status) => {
+    setSelectedStatus(status)
+  }
+
+  const btnClasses = (status) =>
+    selectedStatus === status 
+  ? 'bg-dark-green' : 'bg-green'
 
   return (
     <div id='AnnualIncome'>
@@ -47,12 +56,30 @@ function YearlyIncome() {
 
         {/* Btns to select Annual Income */}
         <div className='flex flex-col px-12 pb-10'>
-          <button className='mt-12 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Less than $10,000</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>$10,000-$49,999</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>$50,000-$74,999</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>$75,000-$99,999</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>$100,000-$199,999</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>$200,000+</button>
+          <button 
+          onClick={() => handleClick('1')} 
+          className={`mt-12 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('1')}`}
+          >Less than $10,000</button>
+          <button 
+          onClick={() => handleClick('2')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('2')}`}
+          >$10,000-$49,999</button>
+          <button 
+          onClick={() => handleClick('3')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('3')}`}
+          >$50,000-$74,999</button>
+          <button 
+          onClick={() => handleClick('4')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('4')}`}
+          >$75,000-$99,000</button>
+          <button 
+          onClick={() => handleClick('5')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('5')}`}
+          >$100,000-$199,000</button>
+          <button 
+          onClick={() => handleClick('6')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('6')}`}
+          >$200,000+</button>
         </div>
       </div>
     

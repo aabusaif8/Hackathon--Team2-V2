@@ -9,7 +9,7 @@ function AccountComplete() {
     <div>
 
       <div>
-        <Link to={`/${userId}/investment-assistant`}>
+        <Link to={`/${userId}/ask-to-use-assistant`}>
         <button className='text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
         </Link>
       </div>

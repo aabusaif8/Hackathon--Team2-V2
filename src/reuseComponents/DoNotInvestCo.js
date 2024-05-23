@@ -2,6 +2,15 @@ import React, { useState } from 'react'
 
 function DoNotInvestCo() {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState(null);
+
+  const handleClick = (status) => {
+    setSelectedStatus(status)
+  }
+
+  const btnClasses = (status) =>
+    selectedStatus === status 
+  ? 'bg-dark-green' : 'bg-green'
 
   return (
     <div id='CompaniesToNotInvest'>
@@ -50,8 +59,14 @@ function DoNotInvestCo() {
         
         {/* Btns to slect Companies not interested in */}
         <div className='flex flex-col px-12 pb-10'>
-          <button className='mt-12 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Yes</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>No</button>
+        <button 
+          onClick={() => handleClick('1')} 
+          className={`mt-12 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('1')}`}
+          >Yes</button>
+          <button 
+          onClick={() => handleClick('2')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('2')}`}
+          >No</button>
         </div>
       </div>
 
