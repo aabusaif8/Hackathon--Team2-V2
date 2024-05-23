@@ -13,7 +13,7 @@
 - [Contact](#contact)
 
 ## Introduction
-Welcome to the Investment App! This application provides users with a comprehensive platform to manage their personal and financial information, view investment details, and make informed financial decisions. The app is designed to be user-friendly, secure, and efficient, catering to both novice and experienced investors.
+Welcome to the Monarch Investment App! This application provides users with a comprehensive platform to manage their personal and financial information, view investment details, and make informed financial decisions. The app is designed to be user-friendly, secure, and efficient, catering to both novice and experienced investors.
 
 ## Contributors
 
