@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import hero from "../assets/hero.png";
 
 const Hero = () => {
@@ -16,9 +17,11 @@ const Hero = () => {
             Start Investing Today with our digital Investment Assistant.
           </p>
           <div className="flex justify-center">
-            <button className="bg-dark-green text-white py-3 px-8 md:px-12 lg:px-16 rounded-full font-semibold transition-colors duration-300 hover:bg-green-700">
-              Open an Account
-            </button>
+            <Link to="/signpage">
+              <button className="bg-dark-green text-white py-3 px-8 md:px-12 lg:px-16 rounded-full font-semibold transition-colors duration-300 hover:bg-green-700">
+                Open an Account
+              </button>
+            </Link>
           </div>
         </div>
       </div>
