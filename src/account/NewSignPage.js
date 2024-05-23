@@ -1,15 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import logo from "../assets/monarchlogo.png";
+import { useAuth } from "../context/AuthContext";
 
-const WelcomePage = () => {
+const NewSign = () => {
+  const { isLoggedIn } = useAuth();
+  const { userId } = useParams();
+  const navigate = useNavigate();
+
+  const handleGoBack = () => {
+    navigate(-1);
+  };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate(`/${userId}/manual-investment`, { replace: true });
+    }
+  }, [isLoggedIn, navigate, userId]);
+
   return (
     <div>
       <Navbar />
       <div className="min-h-screen flex flex-col items-center justify-center bg-white relative">
-        <Link to="/">
+        <Link onClick={handleGoBack}>
           <button className="text-dark-green text-2xl font-semibold mt-5 ml-10 underline absolute top-0 left-0">
             Back
           </button>
@@ -43,4 +58,4 @@ const WelcomePage = () => {
   );
 };
 
-export default WelcomePage;
+export default NewSign;

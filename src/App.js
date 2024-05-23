@@ -53,7 +53,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<LandingPage />}/>
           <Route path="/:userId/dashboard" element={<Dashboard />} />
-          <Route path="/myAccount" element={<MyAccount />} />
+          <Route path="/:userId/myaccount" element={<MyAccount />} />
           <Route path="/:userId/signup/proceed/terms/choose-account-type" element={<ChooseInvestAccount />}/>
           <Route path="/:userId/standard-account" element={<StandardAccount />} /> 
           <Route path="/:userId/5%apy-savings" element={<FiveAPYSavings />}/>
