@@ -46,18 +46,18 @@ const ChatbotPopup = ({ onClose }) => {
         >
           &times;
         </span>
-        <div className="border-b border-gray-300 pb-2">
+        <div className=" border-gray-300 pb-2 h-[300px] w-[400px]">
           <h1 className="title text-lg font-semibold mb-1 text-gray-800">Investment Assistant</h1>
           <p className="text-sm text-gray-500">Support Agent</p>
         </div>
-        <div className="chat-container mt-4 mb-4 max-h-60 overflow-y-auto bg-gray-100 rounded-lg p-2">
+        <div className="chat-container mt-4 mb-4 max-h-60 overflow-y-auto rounded-lg p-2">
           {messages.map((message, index) => (
             <div
               key={index}
               className={`chat-bubble ${
                 message.type === "user"
-                  ? "bg-[#97db51] text-gray-800 rounded-bl-lg rounded-tr-lg rounded-tl-lg ml-auto max-w-[70%]"
-                  : "bg-gray-300 text-gray-800 rounded-br-lg rounded-tl-lg rounded-tr-lg mr-auto max-w-[70%]"
+                  ? "bg-[#97db51] text-black rounded-bl-lg rounded-tr-lg rounded-tl-lg ml-auto max-w-[70%]"
+                  : "bg-gray-300 text-black rounded-br-lg rounded-tl-lg rounded-tr-lg mr-auto max-w-[70%]"
               } mb-2 p-2`}
             >
               {message.text}
