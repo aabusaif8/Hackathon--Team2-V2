@@ -2,11 +2,11 @@
 
 ## Table of Contents
 - [Introduction](#introduction)
+- [Contributing](#contributing)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
@@ -16,6 +16,7 @@ Welcome to the Investment App! This application provides users with a comprehens
 ## Contributors
 
 - [Ahmad Abusaif - Software Engineer](https://github.com/aabusaif8)
+- [Francisco Alvarado - Software Engineer](https://github.com/falvarado7)
 - [Matt Kulka - Software Engineer](https://github.com/MattKulka)
 - [Rouzbeh Vahdatiasl - Software Engineer](https://github.com/Rouz275)
 
@@ -32,3 +33,17 @@ Welcome to the Investment App! This application provides users with a comprehens
 - **Database:** MongoDB
 - **Authentication:** JWT (JSON Web Tokens)
 - **API:** RESTful API
+
+## Setup Instructions
+
+- Clone the repository
+
+- Run ```cd Hackathon--Team2-V2```
+  
+- Run ```npm install``` to install packages and dependencies
+  
+- Use ```npm run start``` from the root directory to run the frontend
+  
+- Run ```cd Boilerplate-Backend``` and ```npm install``` to install packages and dependencies
+  
+- Use ```npm run start:dev``` to run the backend
