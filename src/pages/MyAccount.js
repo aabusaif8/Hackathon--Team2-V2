@@ -9,9 +9,6 @@ function MyAccount() {
   return (
     <div>
         <Navbar />
-        <button className=' text-dark-green text-2xl font-semibold mt-5 ml-10 underline'>Back</button>
-      
-
         <div className='flex justify-center text-semibold text-3xl py-5'>
         <h1>My Account</h1>
         </div>
@@ -54,7 +51,7 @@ function MyAccount() {
       </div>
 
 
-      <div className='flex justify-center'>
+      <div className='flex justify-center pb-11 gap-5'>
       <div className='w-1/2 bg-[#C5eb9e] text-center font-semibold mt-5 rounded'>
       <h2 className='text-[#ff7f00] text-2xl py-4 block px-6 border-b border-dark-green'>Support</h2>
       <nav>
@@ -65,7 +62,7 @@ function MyAccount() {
           <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
             <Link to="/get-help">Get Help</Link>
           </li>
-          <li className='block px-6 py-4 border-b border-dark-green hover:bg-white transition duration-300'>
+          <li className='block px-6 py-4 border-dark-green hover:bg-white transition duration-300'>
             <Link to="/accessibility">Accessibility</Link>
           </li>
         </ul>
