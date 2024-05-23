@@ -77,8 +77,8 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="mt-10 flex justify-center">
-            <div className="bg-white shadow-lg rounded-lg p-8 lg:w-2/3">
-              <h3 className="text-lg font-medium text-gray-900">Get in Touch</h3>
+            <div className="bg-red-orange shadow-lg rounded-lg p-8 lg:w-2/3">
+              <h3 className="text-lg font-medium text-black text-center">Get in Touch</h3>
               {formSubmitted ? (
                 <div className="mt-6 text-center">
                   <p className="text-lg font-semibold text-dark-green">
@@ -91,7 +91,7 @@ const AboutUs = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="mt-6">
                   <div className="mb-4">
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="name" className="block text-sm font-medium text-black">
                       Name
                     </label>
                     <input
@@ -105,7 +105,7 @@ const AboutUs = () => {
                     />
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="email" className="block text-sm font-medium text-black">
                       Email
                     </label>
                     <input
@@ -119,7 +119,7 @@ const AboutUs = () => {
                     />
                   </div>
                   <div className="mb-4">
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="message" className="block text-sm font-medium text-black">
                       Message
                     </label>
                     <textarea
