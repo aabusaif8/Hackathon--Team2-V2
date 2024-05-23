@@ -8,6 +8,8 @@ import Slider from "react-slick";
 import LineChart from '../components/LineChart';
 import LineChart2 from '../components/LineChart2';
 import LineChart3 from '../components/LineChart3';
+import acc1 from "../assets/acc1.png"
+import acct2 from "../assets/acct2.png"
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
