@@ -1,3 +1,14 @@
 input::placeholder {
-    font-style: italic;
-  }
+  font-style: italic;
+}
+
+.icon-button {
+  width: 20px; 
+  height: 20px; 
+  padding: 0;
+  margin-left: 8px; 
+}
+
+.custom-line-height {
+  line-height: .5; 
+}

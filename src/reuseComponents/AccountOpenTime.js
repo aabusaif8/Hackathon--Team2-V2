@@ -2,6 +2,16 @@ import React, { useState} from 'react'
 
 function AccountOpenTime() {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState(null);
+
+  const handleClick = (status) => {
+    setSelectedStatus(status)
+  }
+
+  const btnClasses = (status) =>
+    selectedStatus === status 
+  ? 'bg-dark-green' : 'bg-green'
+
   return (
     <div id='AccountOpenDuration'>
       <div className='className=sm:box-content h-auto bg-light-green mx-10 rounded-xl mt-5 text-2xl pt-5 shadow-xl'>
@@ -46,10 +56,22 @@ function AccountOpenTime() {
 
         {/* Btns to select Account Open Duration */}
         <div className='flex flex-col px-12 pb-10'>
-          <button className='mt-12 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Less than 5 years</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>5-10 years</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>11-20 years</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>More than 20 years</button>
+        <button 
+          onClick={() => handleClick('1')} 
+          className={`mt-12 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('1')}`}
+          >Less than 5 years</button>
+          <button 
+          onClick={() => handleClick('2')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('2')}`}
+          >5-10 years</button>
+          <button 
+          onClick={() => handleClick('3')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('3')}`}
+          >11-20 years</button>
+          <button 
+          onClick={() => handleClick('4')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('4')}`}
+          >More than 20 years</button>
         </div>
       </div>
 

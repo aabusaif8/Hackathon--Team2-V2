@@ -4,6 +4,20 @@ import * as d3 from 'd3';
 const LineChart = () => {
   const ref = useRef();
   const [timeRange, setTimeRange] = useState('month');
+  const [dimensions, setDimensions] = useState({ width: 1000, height: 0 });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = ref.current.parentElement.offsetWidth;
+      const height = ref.current.parentElement.offsetHeight;
+      setDimensions({ width, height });
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const data = {
     month: [
@@ -76,9 +90,9 @@ const LineChart = () => {
     const svg = d3.select(ref.current);
     svg.selectAll('*').remove(); // Clear previous content
 
-    const margin = { top: 20, right: 30, bottom: 30, left: 40 };
-    const width = 500 - margin.left - margin.right;
-    const height = 300 - margin.top - margin.bottom;
+    const margin = { top: 50, right: 30, bottom: 30, left: 40 };
+    const width = dimensions.width - margin.left - margin.right;
+    const height = dimensions.height - margin.top - margin.bottom;
 
     const x = d3.scaleTime().range([0, width]);
     const y = d3.scaleLinear().range([height, 0]);
@@ -87,14 +101,14 @@ const LineChart = () => {
       .line()
       .x(d => x(d.date))
       .y(d => y(d.value))
-      //.curve(d3.curveMonotoneX); // Curves the line
+      .curve(d3.curveMonotoneX); // Smooth the line
 
     const area = d3
-    .area()
-    .x(d => x(d.date))
-    .y0(height)
-    .y1(d => y(d.value))
-    //.curve(d3.curveMonotoneX); // Smooth the area
+      .area()
+      .x(d => x(d.date))
+      .y0(height)
+      .y1(d => y(d.value))
+      .curve(d3.curveMonotoneX); // Smooth the area
 
     const g = svg
       .append('g')
@@ -107,13 +121,14 @@ const LineChart = () => {
 
     g.append('path')
       .datum(selectedData)
-      .attr('fill', '#FBB785') // Area fill color
+      .attr('fill', '#FBB785')
+      .attr('fill-opacity', 0.3) // Light opacity for the area fill
       .attr('d', area);
 
     g.append('path')
       .datum(selectedData)
       .attr('fill', 'none')
-      .attr('stroke', '#F7700C') // Line color
+      .attr('stroke', '#F7700C')
       .attr('stroke-width', 4)
       .attr('d', line);
 
@@ -127,17 +142,26 @@ const LineChart = () => {
       .attr('r', 6)
       .attr('fill', '#F7700C'); // Dot color
 
+    svg.append('text')
+      .attr('x', dimensions.width / 2)
+      .attr('y', margin.top)
+      .attr('text-anchor', 'middle')
+      .style('font-size', '25px')
+      .style('font-weight', 'bold')
+      .attr('fill', '#F7700C')
+      .text('IBA'); // Text
+
     g.append('g')
       .attr('transform', `translate(0,${height})`)
       .call(d3.axisBottom(x).ticks(5));
 
     g.append('g').call(d3.axisLeft(y));
-  }, [timeRange]);
+  }, [timeRange, dimensions]);
 
   return (
     <div>
-      <div className='className=sm:box-content h-auto bg-light-green mx-10 rounded-xl mt-5 pt-5 shadow-xl text-center mb-60'>
-        <svg ref={ref} width="auto" height="300" className='pr-3'></svg>
+      <div className='max-w-full'> 
+        <svg ref={ref} width="700" height="400" className='pr-3'></svg>
         <div className='space-x-5 text-lg'>
           <button className={`btn ${timeRange === 'month' ? 'active' : ''}`} onClick={() => setTimeRange('month')}>
             Month
@@ -152,7 +176,7 @@ const LineChart = () => {
             All Time
           </button>
         </div>
-      </div>     
+      </div>
     </div>
   );
 };

@@ -18,10 +18,10 @@ function IRA() {
       </div>
 
       <div className='flex justify-center items-center my-20'>
-        <img src={Pic} alt='flower pic'/>
+        <img src={Pic} alt='flower pic' className='w-32 h-32'/>
       </div>
 
-      <div className='text-left mb-10 mt-10 px-10 font-medium'>
+      <div className='mb-10 mt-10 px-10 font-medium flex flex-col justify-center items-center'>
         <p>With an IRA, you can count on having your future being taken care of with retiremnt.</p>
         <ul className='list-disc ml-4 mt-3'>
           <li>Start saving with a variety of investments such as stocks, bonds, and mutual funds</li>

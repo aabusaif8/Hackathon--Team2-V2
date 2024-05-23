@@ -6,6 +6,7 @@ function DOB({ validate }) {
   const [dob, setDob] = useState('');
   const [error, setError] = useState('');
   
+  
   const handleValidation = () => {
     if(!dob) {
       setError('Date of Birth is required');

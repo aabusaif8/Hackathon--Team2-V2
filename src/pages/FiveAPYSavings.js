@@ -21,7 +21,7 @@ function FiveAPYSavings() {
         <img src={Pic} alt='flower pic'/>
       </div>
 
-      <div className='text-left mb-10 mt-10 px-10 font-medium'>
+      <div className='mb-10 mt-10 px-10 font-medium flex flex-col justify-center items-center'>
         <p>With a 5% APY account, you can count on earning 5% interest on all of your returns, every year.</p>
         <ul className='list-disc ml-4 mt-3'>
           <li>Start saving with a variety of investments such as stocks, bonds, and mutual funds</li>

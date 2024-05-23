@@ -76,7 +76,7 @@ function Navbar() {
               </Link>
             </>
           ) : (
-            <Link to="/signin" className="text-sm font-semibold leading-6 text-black">
+            <Link to="/newsign" className="text-sm font-semibold leading-6 text-black">
               Sign In / Sign Up<span aria-hidden="true">&rarr;</span>
             </Link>
           )}
@@ -165,16 +165,11 @@ function Navbar() {
                 ) : (
                   <>
                     <Link
-                      to="/signin"
-                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-black hover:bg-red-orange"
+                      to="/newsign"
+                      className="-mx-3 block rounded-lg px-2 py-2.5 text-base font-semibold leading-7 text-white hover:bg-red-orange"
                     >
-                      Sign In
-                    </Link>
-                    <Link
-                      to="/signup"
-                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-black hover:bg-red-orange"
-                    >
-                      Sign Up
+                      Sign In / Sign Up
+
                     </Link>
                   </>
                 )}

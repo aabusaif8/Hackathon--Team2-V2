@@ -2,6 +2,15 @@ import React, {useState } from 'react'
 
 function EmploymentStatus() {
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedStatus, setSelectedStatus] = useState(null);
+
+  const handleClick = (status) => {
+    setSelectedStatus(status)
+  }
+
+  const btnClasses = (status) =>
+    selectedStatus === status 
+  ? 'bg-dark-green' : 'bg-green'
 
   return (
     <div id='EmploymentStatus'>
@@ -47,12 +56,27 @@ function EmploymentStatus() {
         
         {/* Btns to select Employment Status */}
         <div className='flex flex-col px-12 pb-10'>
-          <button className='mt-12 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Unemployed</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Self-Employed</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Part-Time</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Full-Time</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Student</button>
-          <button className='mt-5 bg-green rounded-full text-sm py-3 drop-shadow-lg'>Unemployed</button>
+          <button 
+          onClick={() => handleClick('unemployed')} 
+          className={`mt-12 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('unemployed')}`}
+          >Unemployed</button>
+          <button 
+          onClick={() => handleClick('self-employed')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('self-employed')}`}
+          >Self-Employed</button>
+          <button 
+          onClick={() => handleClick('part-time')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('part-time')}`}
+          >Part-Time</button>
+          <button 
+          onClick={() => handleClick('full-time')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('full-time')}`}
+          >Full-Time</button>
+          <button 
+          onClick={() => handleClick('student')} 
+          className={`mt-5 rounded-full text-sm py-3 drop-shadow-lg ${btnClasses('student')}`}
+          >Student</button>
+          
         </div>
       </div>
 
