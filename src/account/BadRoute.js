@@ -13,9 +13,9 @@ const BadRoute = () => {
     <div>
       <Navbar />
       <div>
-        <Link onClick={handleGoBack}>
+        <Link to="/">
           <button className="text-dark-green text-2xl font-semibold mt-5 ml-10 underline">
-            Back
+            Take me somewhere safe...
           </button>
         </Link>
       </div>

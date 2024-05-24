@@ -54,26 +54,21 @@ function App() {
           <Routes>
             <Route path="/*" element={<LandingPage />} />
             <Route path="/badroute" element={<BadRoute />} />
-
-            <Route element={<ProtectedRoute />}>
-              <Route path="/:userId/dashboard" element={<Dashboard />} />
-              <Route path="/:userId/myaccount" element={<MyAccount />} />
-              <Route path="/:userId/signup/proceed/terms/choose-account-type" element={<ChooseInvestAccount />} />
-              <Route path="/:userId/standard-account" element={<StandardAccount />} />
-              <Route path="/:userId/5%apy-savings" element={<FiveAPYSavings />} />
-              <Route path="/:userId/custodial-account" element={<CustodialAccount />} />
-              <Route path="/:userId/ira" element={<IRA />} />
-              <Route path="/:userId/ask-to-use-assistant" element={<AskToUseInvestAssist />} />
-              <Route path="/:userId/investment-assistant" element={<InvestmentAssistant />} />
-              <Route path="/:userId/manual-investment" element={<ManualInvestment />} />
-              <Route path="/:userId/account-complete" element={<AccountFinish />} />
-              <Route path="/:userId/personalinformation" element={<PersonalInformation />} />
-              <Route path="/:userId/signup/proceed" element={<SignUpProceed />} />
-              <Route path="/:userId/signup/proceed/terms" element={<SignUpTerms />} />
-              <Route path="/:userId/logout" element={<LogoutPage />} />
-              <Route path="/:userId/confirmlogout" element={<ConfirmLogout />} />
-            </Route>
-
+            <Route path="/:userId/dashboard" element={<Dashboard />} />
+            <Route path="/:userId/myaccount" element={<MyAccount />} />
+            <Route path="/:userId/signup/proceed/terms/choose-account-type" element={<ChooseInvestAccount />} />
+            <Route path="/:userId/standard-account" element={<StandardAccount />} />
+            <Route path="/:userId/5%apy-savings" element={<FiveAPYSavings />} />
+            <Route path="/:userId/custodial-account" element={<CustodialAccount />} />
+            <Route path="/:userId/ira" element={<IRA />} />
+            <Route path="/:userId/ask-to-use-assistant" element={<AskToUseInvestAssist />} />
+            <Route path="/:userId/investment-assistant" element={<InvestmentAssistant />} />
+            <Route path="/:userId/manual-investment" element={<ManualInvestment />} />
+            <Route path="/:userId/account-complete" element={<AccountFinish />} />
+            <Route path="/:userId/personalinformation" element={<PersonalInformation />} />
+            <Route path="/:userId/signup/proceed" element={<SignUpProceed />} />
+            <Route path="/:userId/signup/proceed/terms" element={<SignUpTerms />} />
+            <Route path="/:userId/logout" element={<LogoutPage />} />
             <Route path="/learning-resources" element={<LearningResources />} />
             <Route path="/learning-resources-article1" element={<Article1 />} />
             <Route path="/learning-resources-article2" element={<Article2 />} />
@@ -90,6 +85,7 @@ function App() {
             <Route path="/signin" element={<SignIn />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/newsign" element={<NewSignPage />} />
+            <Route path="/confirmlogout" element={<ConfirmLogout />} />
           </Routes>
         </BrowserRouter>
 

@@ -21,7 +21,7 @@ const LogoutPage = () => {
         </div>
 
         <div className="flex justify-center space-x-4 sm:space-x-8">
-          <Link to={`/${userId}/confirmlogout`}>
+          <Link to={`/confirmlogout`}>
             <button onClick={logout} className="bg-[#F88530] text-black py-2 sm:py-3 px-6 sm:px-12 rounded-full font-semibold">
               Yes
             </button>
