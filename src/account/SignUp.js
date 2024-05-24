@@ -163,7 +163,7 @@ const SignUpForm = () => {
 
       const token = responseData.token; // Extract token from response
       const userId = responseData.data; // Extract userId from response
-      login(token, userId);
+      login(token, userId, Username);
 
       console.log("Response data:", responseData); // Log the parsed data
       navigate(`/${userId}/signup/proceed`); // Navigate to the user's dashboard

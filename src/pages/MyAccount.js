@@ -11,7 +11,7 @@ function MyAccount() {
   return (
     <div>
         <Navbar />
-        <div className='flex justify-center text-semibold text-3xl py-5'>
+        <div className='flex justify-center font-bold text-3xl py-5'>
         <h1>My Account</h1>
         </div>
 

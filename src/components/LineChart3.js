@@ -151,7 +151,7 @@ const LineChart3 = () => {
   }, [timeRange, dimensions]);
 
   return (
-    <div >
+    <div className='max-w-full'>
       <svg ref={ref} width="700" height="150" className='pr-3'></svg>
       <div className='space-x-5 text-lg'>
         <button className={`btn ${timeRange === 'month' ? 'active' : ''}`} onClick={() => setTimeRange('month')}>

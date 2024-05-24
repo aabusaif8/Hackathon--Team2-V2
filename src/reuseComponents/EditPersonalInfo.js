@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const EditPersonalInfo = () => {
+const EditPersonalInfo = ({ username, email }) => {
   const [showPopup, setShowPopup] = useState(false);
   const [newEmail, setNewEmail] = useState('');
   const [confirmEmail, setConfirmEmail] = useState('');
@@ -26,9 +26,9 @@ const EditPersonalInfo = () => {
     <div className="max-w-md mx-auto  ">
       <div className="bg-light-green rounded-lg shadow-md p-6">
         <h2 className="text-xl font-semibold mb-4">Personal Information</h2>
-        <h3 className='mb-5'>Name: </h3>
+        <h3 className='mb-5'>Username: {username}</h3>
         <h3 className='mb-5'>Date of Birth: </h3>
-        <h3 className='mb-5'>Email: </h3>
+        <h3 className='mb-5'>Email: {email}</h3>
         <h3 className='mb-5'>SSN: </h3>
         <button
           className="bg-dark-green flex justify-center text-white font-bold py-2 px-4 rounded "

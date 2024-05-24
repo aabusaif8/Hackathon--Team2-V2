@@ -4,7 +4,7 @@ import * as d3 from 'd3';
 const LineChart = () => {
   const ref = useRef();
   const [timeRange, setTimeRange] = useState('month');
-  const [dimensions, setDimensions] = useState({ width: 1000, height: 0 });
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     const handleResize = () => {
@@ -159,7 +159,6 @@ const LineChart = () => {
   }, [timeRange, dimensions]);
 
   return (
-    <div>
       <div className='max-w-full'> 
         <svg ref={ref} width="700" height="150" className='pr-3'></svg>
         <div className='space-x-5 text-lg'>
@@ -177,7 +176,6 @@ const LineChart = () => {
           </button>
         </div>
       </div>
-    </div>
   );
 };
 
