@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useAuth } from '../context/AuthContext';
 
 function AskToUseInvestAssist() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const { userId } = useParams();
+  const { userId } = useAuth();
 
   const handleYes = () => {
     navigate(`/${userId}/investment-assistant`)
@@ -31,7 +32,7 @@ function AskToUseInvestAssist() {
 
           {/* Modal */}
           <div className='text-sm mt-8 underline'>
-            <a onClick={() => setIsOpen(true)}>Tell me more</a>             
+            <button onClick={() => setIsOpen(true)}>Tell me more</button>             
               {isOpen ? (
                 <>
                   <div

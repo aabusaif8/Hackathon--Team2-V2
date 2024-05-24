@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import logo from "../assets/monarchlogo.png";
@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 
 const NewSign = () => {
   const { isLoggedIn } = useAuth();
-  const { userId } = useParams();
+  const { userId } = useAuth();
   const navigate = useNavigate();
 
   const handleGoBack = () => {

@@ -99,7 +99,7 @@ const SignUpForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const phoneRegex = /^\(\d{3}\)\d{3}-\d{4}$/;
+    const phoneRegex = /^\(\d{3}\) \d{3}-\d{4}$/;
 
     if (
       !(
@@ -116,6 +116,11 @@ const SignUpForm = () => {
 
     if (!emailRegex.test(email)) {
       alert("Please enter a valid email address.");
+      return;
+    }
+    
+    if(!phoneRegex.test(phoneNumber)) {
+      alert("Please enter a valid phone number.");
       return;
     }
 
@@ -158,7 +163,6 @@ const SignUpForm = () => {
 
       const token = responseData.token; // Extract token from response
       const userId = responseData.data; // Extract userId from response
-      console.log(userId);
       login(token, userId);
 
       console.log("Response data:", responseData); // Log the parsed data
@@ -173,7 +177,7 @@ const SignUpForm = () => {
     <div>
       <Navbar />
       <div className="min-h-screen flex flex-col items-center justify-center bg-white relative">
-        <Link to="/NewSignIn">
+        <Link to="/newsign">
           <button className="text-dark-green text-2xl font-semibold mt-5 ml-10 underline absolute top-0 left-0">
             Back
           </button>

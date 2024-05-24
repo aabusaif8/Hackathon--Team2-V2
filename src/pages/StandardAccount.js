@@ -1,11 +1,12 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Pic from '../images/coin.png'
+import { useAuth } from '../context/AuthContext';
 
 function StandardAccount() {
-  const { userId } = useParams();
+  const { userId } = useAuth();
 
   return (
     <div>

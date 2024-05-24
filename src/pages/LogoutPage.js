@@ -1,12 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../context/AuthContext';
 
 const LogoutPage = () => {
-  const { userId } = useParams();
-  const { logout } = useAuth();
+  const { logout, userId } = useAuth();
   const navigate = useNavigate();
 
   const handleGoBack = () => {

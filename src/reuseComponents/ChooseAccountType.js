@@ -1,13 +1,14 @@
 import React from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Standard from "../images/standard-pic.png"
 import FivePercent from '../images/5%-pic.png'
 import Custodial from '../images/custodial-pic.png'
 import IRA from '../images/IRA-pic.png'
+import { useAuth } from "../context/AuthContext";
 
 function ChooseAccountType() {
 
-  const { userId } = useParams();
+  const { userId } = useAuth();
 
   return (
     <div>
@@ -25,7 +26,7 @@ function ChooseAccountType() {
         <h2 className='text-center font-semibold'>Select Account Type</h2>
         <Link to={`/${userId}/standard-account`}>
         <div className='box-content h-20 bg-white mx-5 my-5 flex'>
-          <img src={Standard} className='w-10 h-10 my-5 mx-2'/>
+          <img src={Standard} alt="standard" className='w-10 h-10 my-5 mx-2'/>
           <div className='flex flex-col px-1'>
             <h6 className='text-lg font-semibold'>Standard Account</h6>
             <p className='text-sm'>Set up a standard brokerage account to start investing</p>
@@ -35,7 +36,7 @@ function ChooseAccountType() {
 
         <Link to={`/${userId}/5%apy-savings`}>
         <div className='box-content h-20 bg-white mx-5 my-5 flex'>
-          <img src={FivePercent} className='w-10 h-10 my-5 mx-2'/>
+          <img src={FivePercent} alt="fivepercent" className='w-10 h-10 my-5 mx-2'/>
           <div className='flex flex-col px-1'>
             <h6 className='text-lg font-semibold'>5% APY Savings</h6>
             <p className='text-sm'>Start saving your Investments and earn 5% interest yearly</p>
@@ -45,7 +46,7 @@ function ChooseAccountType() {
 
         <Link to={`/${userId}/custodial-account`}>
         <div className='box-content h-20 bg-white mx-5 my-5 flex'>
-          <img src={Custodial} className='w-10 h-10 my-5 mx-2'/>
+          <img src={Custodial} alt="custodial" className='w-10 h-10 my-5 mx-2'/>
           <div className='flex flex-col px-1'>
             <h6 className='text-lg font-semibold'>Custodial Account</h6>
             <p className='text-sm'>Create an account that earns today for your kids tomorrow</p>
@@ -55,7 +56,7 @@ function ChooseAccountType() {
 
         <Link to={`/${userId}/ira`}>
         <div className='box-content h-20 bg-white mx-5 my-5 flex'>
-          <img src={IRA} className='w-9 h-9 my-5 mx-2'/>
+          <img src={IRA} alt="ira" className='w-9 h-9 my-5 mx-2'/>
           <div className='flex flex-col px-1'>
             <h6 className='text-lg font-semibold'>IRA (Retirement)</h6>
             <p className='text-sm'>Invest in a variety of bonds to build your retirement fund</p>

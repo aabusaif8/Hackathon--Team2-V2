@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DOB from "../reuseComponents/DOB";
 import EmploymentStatus from "../reuseComponents/EmploymentStatus";
 import YearlyIncome from "../reuseComponents/YearlyIncome";
@@ -7,13 +7,14 @@ import SSN from "../reuseComponents/SSN";
 import BankAccount from "../reuseComponents/BankAccount";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useAuth } from "../context/AuthContext";
 
 function ManualInvestment() {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const validate = useRef(null);
 
-  const { userId } = useParams();
+  const { userId } = useAuth();
 
   const questions = [
     <DOB

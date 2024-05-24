@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useAuth } from "../context/AuthContext";
 
 const SignUpTerms = () => {
   const [isChecked, setIsChecked] = useState(false);
   const navigate = useNavigate();
 
-  const { userId } = useParams();
+  const { userId } = useAuth();
 
   const handleCheckboxChange = (event) => {
     setIsChecked(event.target.checked);

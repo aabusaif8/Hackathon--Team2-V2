@@ -5,11 +5,11 @@ import { useAuth } from "../context/AuthContext";
 import fblogo from "../assets/fblogo.png";
 import linkedinlogo from "../assets/linkedinlogo.png";
 import xlogo from "../assets/xlogo.png";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const { isLoggedIn, logout } = useAuth();
-  const { userId } = useParams();
+  const { isLoggedIn } = useAuth();
+  const { userId } = useAuth();
 
   return (
     <div className="flex flex-col min-h-[10vh]">
@@ -95,18 +95,18 @@ const Footer = () => {
                     </li>
                   </ul>
                   <div className="footer-social flex justify-start">
-                    <a href="#">
+                    <a href="facebook.com">
                       <i className="fab fa-facebook"></i>
                     </a>
-                    <img className="p-5" src={fblogo}></img>
-                    <a href="#">
+                    <img className="p-5" src={fblogo} alt="fblogo"></img>
+                    <a href="x.com">
                       <i className="fab fa-twitter"></i>
                     </a>
-                    <img className="p-5" src={xlogo}></img>
-                    <a href="#">
+                    <img className="p-5" src={xlogo} alt="xlogo"></img>
+                    <a href="instagram.com">
                       <i className="fab fa-instagram"></i>
                     </a>
-                    <img className="p-5" src={linkedinlogo}></img>
+                    <img className="p-5" src={linkedinlogo} alt="linkedinlogo"></img>
                   </div>
                 </div>
               </div>

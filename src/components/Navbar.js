@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog, Popover } from "@headlessui/react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import logoLoggedout from "../assets/logoLoggedout.png";
 import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { isLoggedIn, logout } = useAuth();
-  const { userId } = useParams();
+  const { isLoggedIn } = useAuth();
+  const { userId } = useAuth();
 
   return (
     <header className={`${isLoggedIn ? "bg-[#288037]" : "bg-[#97db51]"}`}>

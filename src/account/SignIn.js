@@ -15,10 +15,12 @@ const LoginPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const { login } = useAuth();
 
   const handleLogin = async () => {
+    setErrorMessage("");
     try {
       const response = await fetch(`${API_BASE_URL}/users/signin`, {
         method: "POST",
@@ -37,16 +39,18 @@ const LoginPage = () => {
         if (response.ok) {
           const token = responseData.token; // Extract token from response
           const userId = responseData.data.user.Id; // Extract userId from response
-          login(token, userId); // Store the token and set the authentication state to true
+          login(token, userId, username); // Store the token and set the authentication state to true
           // Redirect to dashboard using userId
           navigate(`/${userId}/dashboard`);
         } else {
+          setErrorMessage("Incorrect username or password");
           console.error("Login failed", responseData);
         }
       } catch (jsonError) {
         console.error("Failed to parse JSON response:", text);
       }
     } catch (error) {
+      setErrorMessage("Login failed.");
       console.error("Error occurred:", error);
     }
   };
@@ -59,7 +63,7 @@ const LoginPage = () => {
     <div>
       <NavBar />
       <div className="min-h-screen flex flex-col items-center justify-center bg-white relative">
-        <Link to="/NewSignPage">
+        <Link to="/newsign">
           <button className="text-dark-green text-2xl font-semibold mt-5 ml-10 underline absolute top-0 left-0">
             Back
           </button>
@@ -130,6 +134,9 @@ const LoginPage = () => {
                   Password is case sensitive
                 </label>
               </div>
+              {errorMessage && (
+              <label className="relative left-16 px-1 text-red-500 text-center mt-4 text-xs italic">{errorMessage}</label>
+            )}
             </div>
             <div className="relative flex items-center">
               <button

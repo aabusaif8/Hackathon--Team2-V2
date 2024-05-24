@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import DOB from '../reuseComponents/DOB';
@@ -12,13 +12,14 @@ import DoNotInvestCo from '../reuseComponents/DoNotInvestCo';
 import SearchCompanies from '../reuseComponents/SearchCompanies';
 import SSN from '../reuseComponents/SSN';
 import BankAccount from '../reuseComponents/BankAccount';
+import { useAuth } from "../context/AuthContext";
 
 
 function InvestmentAssist() {
   const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const validate = useRef(null)
-  const { userId } = useParams();
+  const { userId } = useAuth();
 
   const questions = [
     <DOB key='dob' 

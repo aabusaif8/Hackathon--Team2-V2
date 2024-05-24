@@ -1,9 +1,9 @@
 // import React from 'react';
 // import InvestmentAssistant from '../pages/InvestmentAssistant';
-// import { userParams } from 'react-router';
+// import { useAuth } from '../context/AuthContext';
 
 // function InvestmentAssistantWithUserId({ userId }) {
-//     const Id = useParams()
+//     const Id = useAuth()
 //     console.log('-----------------------',Id)
 //   return <InvestmentAssistant userId={userId} />;
 // }

@@ -1,5 +1,5 @@
 import {React, useEffect} from 'react';
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NavBar from '../components/Navbar';
 import Hero from '../components/Hero';
 import DigitalAssistant from '../components/DigitalAssistant';
@@ -11,7 +11,7 @@ import { useAuth } from "../context/AuthContext";
 
 const LandingPage = () => {
   const { isLoggedIn } = useAuth();
-  const { userId } = useParams();
+  const { userId } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {

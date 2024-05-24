@@ -2,10 +2,11 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Pic from "../images/money-flower.png";
 import Footer from "../components/Footer";
-import { Link, useParams } from "react-router-dom";
+import { Link  } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
-const SignUpProceed = ({ username }) => {
-  const { userId } = useParams();
+const SignUpProceed = () => {
+  const { userId, username } = useAuth();
 
   return (
     <div className="min-h-screen flex flex-col justify-between">
