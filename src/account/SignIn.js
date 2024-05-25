@@ -71,7 +71,7 @@ const LoginPage = () => {
         <div className="absolute top-0 flex justify-center w-full mt-5">
           <img src={logo} alt="logo" className="sm:max-w-lg" />
         </div>
-        <div className="w-full max-w-md p-8 bg-white mt-10">
+        <div className="w-full max-w-md p-8 bg-white mt-16">
           <h1 className="text-center font-semibold text-4xl mb-4">
             Welcome back!
           </h1>

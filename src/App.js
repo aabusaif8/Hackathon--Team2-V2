@@ -52,7 +52,8 @@ function App() {
       <div className="relative">
         <BrowserRouter>
           <Routes>
-            <Route path="/*" element={<LandingPage />} />
+            <Route path="/*" element={<BadRoute />} />
+            <Route path="/" element={<LandingPage />} />
             <Route path="/badroute" element={<BadRoute />} />
             <Route path="/:userId/dashboard" element={<Dashboard />} />
             <Route path="/:userId/myaccount" element={<MyAccount />} />
@@ -86,6 +87,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/newsign" element={<NewSignPage />} />
             <Route path="/confirmlogout" element={<ConfirmLogout />} />
+            <Route path="*" element={<BadRoute />} />
           </Routes>
         </BrowserRouter>
 

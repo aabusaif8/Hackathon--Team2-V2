@@ -16,21 +16,21 @@ const Learn = () => {
           </p>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-evenly">
-          <div className="md:w-1/2 mb-8 md:mb-0">
+          
             <img
               src={learn}
               alt="Learn"
               className="mx-auto max-w-full h-auto rounded-lg shadow-lg"
             />
           </div>
-          <div className="lg:pmd:w-1/2 md:pl-8 flex flex-col items-center md:items-start">
+          <div className="lg:pmd:w-1/2 md:pl-8 flex flex-col items-center">
             <Link to="/newsign">
-              <button className=" bg-dark-green justify-between text-white py-3 px-8 md:px-12 lg:px-16 rounded-full font-semibold transition-colors duration-300 hover:bg-green-700 mt-8 md:mt-0 ">
+              <button className=" bg-dark-green justify-between text-white py-3 px-8 md:px-12 lg:px-16 rounded-full font-semibold transition-colors duration-300 hover:bg-green-700 mt-12 ">
                 Open an Account
               </button>
             </Link>
           </div>
-        </div>
+        
       </div>
     </div>
   );

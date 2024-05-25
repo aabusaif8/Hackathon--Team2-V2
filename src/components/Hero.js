@@ -16,7 +16,7 @@ const Hero = () => {
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold mb-10">
             Start Investing Today with our digital Investment Assistant.
           </p>
-          <div className="flex justify-center">
+          <div className="lg:pmd:w-1/2 md:pl-8 flex flex-col items-center">
             <Link to="/newsign">
               <button className="bg-dark-green text-white py-3 px-8 md:px-12 lg:px-16 rounded-full font-semibold transition-colors duration-300 hover:bg-green-700">
                 Open an Account
