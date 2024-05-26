@@ -1,10 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Pic from "../images/money-flower.png"
 import { useAuth } from "../context/AuthContext";
 
 function AccountComplete() {
   const { userId } = useAuth();
+  const { userId: userIdCheck } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userId && userId !== userIdCheck ) {
+      navigate("/badroute");
+    }
+  }, [userId, userIdCheck, navigate]);
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import EditPersonalInfo from "../../reuseComponents/EditPersonalInfo";
@@ -14,6 +14,14 @@ function PersonalInformation() {
   const [userInfo, setUserInfo] = useState(null);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { userId: userIdCheck } = useParams();
+
+  useEffect(() => {
+    if (userId && userId !== userIdCheck ) {
+      navigate("/badroute");
+    }
+  }, [userId, userIdCheck, navigate]);
+
 
   const handleGoBack = () => {
     navigate(-1);

@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Pic from "../images/money-flower.png";
 import Footer from "../components/Footer";
-import { Link  } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 const SignUpProceed = () => {
   const { userId, username } = useAuth();
+  const { userId: userIdCheck } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userId && userId !== userIdCheck ) {
+      navigate("/badroute");
+    }
+  }, [userId, userIdCheck, navigate]);
+
 
   return (
     <div className="min-h-screen flex flex-col justify-between">

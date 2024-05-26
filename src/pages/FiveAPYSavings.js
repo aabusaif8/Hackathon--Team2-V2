@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import Pic from '../images/money-flower.png'
@@ -7,6 +7,15 @@ import { useAuth } from "../context/AuthContext";
 
 function FiveAPYSavings() {
   const { userId } = useAuth();
+  const { userId: userIdCheck } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userId && userId !== userIdCheck ) {
+      navigate("/badroute");
+    }
+  }, [userId, userIdCheck, navigate]);
+
 
   return (
     <div>

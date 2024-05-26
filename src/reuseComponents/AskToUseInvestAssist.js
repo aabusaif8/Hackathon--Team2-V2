@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useAuth } from '../context/AuthContext';
 
 function AskToUseInvestAssist() {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
   const { userId } = useAuth();
+  const { userId: userIdCheck } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userId && userId !== userIdCheck ) {
+      navigate("/badroute");
+    }
+  }, [userId, userIdCheck, navigate]);
+
 
   const handleYes = () => {
     navigate(`/${userId}/investment-assistant`)

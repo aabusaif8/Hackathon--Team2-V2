@@ -10,13 +10,23 @@ import LineChart2 from '../components/LineChart2';
 import LineChart3 from '../components/LineChart3';
 import acc1 from "../assets/acc1.png"
 import acct2 from "../assets/acct2.png"
+import { Link, useParams, useNavigate } from "react-router-dom";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
 
 const Dashboard = () => {
   const { isLoggedIn, userId } = useAuth(); // Get the authentication state and user ID
   const [userStocks, setUserStocks] = useState([]);
   const [error, setError] = useState(null);
+  const { userId: userIdCheck } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userId && userId !== userIdCheck ) {
+      navigate("/badroute");
+    }
+  }, [userId, userIdCheck, navigate]);
+  
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -120,11 +130,11 @@ const Dashboard = () => {
             <h3 className="text-lg font-semibold mb-4">My Accounts at a Glance</h3>
             <div className="mt-4 grid grid-cols-1 gap-4">
               <div className=" rounded-lg h-[190px]  p-4 flex items-center justify-center">
-                 <img className="h-[175px] p-2" src={acc1} />
+                 <img className="h-[175px] p-2" src={acc1} alt="acc1" />
   
               </div>
               <div className="rounded-lg h-[190px] p-4  flex items-center justify-center">
-                <img className="h-[175px]" src={acct2} />
+                <img className="h-[175px]" src={acct2} alt="acc2" />
                 {/* Placeholder for additional content */}
   
               </div>

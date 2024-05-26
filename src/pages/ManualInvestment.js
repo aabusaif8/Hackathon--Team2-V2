@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState, useRef, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import DOB from "../reuseComponents/DOB";
 import EmploymentStatus from "../reuseComponents/EmploymentStatus";
 import YearlyIncome from "../reuseComponents/YearlyIncome";
@@ -10,11 +10,18 @@ import Footer from "../components/Footer";
 import { useAuth } from "../context/AuthContext";
 
 function ManualInvestment() {
-  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const validate = useRef(null);
-
   const { userId } = useAuth();
+  const { userId: userIdCheck } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userId && userId !== userIdCheck ) {
+      navigate("/badroute");
+    }
+  }, [userId, userIdCheck, navigate]);
+
 
   const questions = [
     <DOB

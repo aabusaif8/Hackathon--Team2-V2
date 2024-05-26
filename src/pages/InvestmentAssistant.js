@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import DOB from '../reuseComponents/DOB';
@@ -16,10 +16,18 @@ import { useAuth } from "../context/AuthContext";
 
 
 function InvestmentAssist() {
-  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const validate = useRef(null)
   const { userId } = useAuth();
+  const { userId: userIdCheck } = useParams();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userId && userId !== userIdCheck ) {
+      navigate("/badroute");
+    }
+  }, [userId, userIdCheck, navigate]);
+
 
   const questions = [
     <DOB key='dob' 
