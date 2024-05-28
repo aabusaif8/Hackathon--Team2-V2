@@ -17,7 +17,7 @@ function PersonalInformation() {
   const { userId: userIdCheck } = useParams();
 
   useEffect(() => {
-    if (userId && userId !== userIdCheck ) {
+    if (userId && (userId != userIdCheck) ) {
       navigate("/badroute");
     }
   }, [userId, userIdCheck, navigate]);

@@ -11,7 +11,7 @@ function CustodialAccount() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (userId && userId !== userIdCheck ) {
+    if (userId && (userId != userIdCheck) ) {
       navigate("/badroute");
     }
   }, [userId, userIdCheck, navigate]);

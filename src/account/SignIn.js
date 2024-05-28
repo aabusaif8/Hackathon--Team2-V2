@@ -41,6 +41,7 @@ const LoginPage = () => {
           const userId = responseData.data.user.Id; // Extract userId from response
           login(token, userId, username); // Store the token and set the authentication state to true
           // Redirect to dashboard using userId
+          console.log("SignIn ID:", userId);
           navigate(`/${userId}/dashboard`);
         } else {
           setErrorMessage("Incorrect username or password");
